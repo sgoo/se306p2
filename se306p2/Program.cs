@@ -14,7 +14,9 @@ namespace se306p2
         [STAThread]
         static void Main()
         {
+            // more comments
             Application.EnableVisualStyles();
+            // even more comments
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
