@@ -7,6 +7,7 @@ namespace se306p2
 {
     static class Program
     {
+        // this is a change
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
