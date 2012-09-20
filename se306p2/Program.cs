@@ -11,6 +11,7 @@ namespace se306p2
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// Hello its me charu
         [STAThread]
         static void Main()
         {
