@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{68BA941F-3ABB-41EB-8F2B-5DCFB178DC2A}</ProjectGuid>
+    <ProjectGuid>6bd5a75c-eb5b-47ec-bf95-9e67bb08ef15</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>se306p2</RootNamespace>
-    <AssemblyName>se306p2</AssemblyName>
+    <RootNamespace>demo</RootNamespace>
+    <AssemblyName>demo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -54,7 +54,6 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="SurfaceWindow1.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,7 +96,7 @@
     <Content Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="se306p2.xml">
+    <Content Include="demo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
