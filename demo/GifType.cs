@@ -29,12 +29,21 @@ namespace demo {
 			get {
 				return desc;
 			}
+            set
+            {
+                // not allowed
+            }
 		}
 		public GifType(string name, string desc) {
 			this.name = name;
 			this.desc = desc;
 			this.gifs = new ObservableCollection<String>();
 		}
+
+        public override String ToString()
+        {
+            return Name + ": " + Description;
+        }
 
 	}
 }

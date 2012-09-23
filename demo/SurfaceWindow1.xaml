@@ -12,7 +12,10 @@
     <s:SurfaceWindow.Resources>
 
         <DataTemplate x:Key="mainListTemplate">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Height="Auto"
+                        Width="Auto">
                 <Label Content="{Binding Name}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
@@ -25,7 +28,10 @@
         </DataTemplate>
 
         <DataTemplate x:Key="ScatterViewTemplate">
-            <StackPanel>
+            <StackPanel HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Height="Auto"
+                        Width="Auto">
                 <Label Content="{Binding Name}"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
@@ -38,31 +44,50 @@
         </DataTemplate>
 
         <DataTemplate x:Key="compareImageTemplate">
-            <gifControl:GifControl Uri="{Binding}"/>
+            <gifControl:GifControl Uri="{Binding}" />
         </DataTemplate>
 
         <DataTemplate x:Key="compareTemplate">
-            <StackPanel>
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Height="Auto"
+                  Width="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="200" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
                 <Label Content="{Binding Name}"
+                       Grid.Row="0"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="Gray"
                        FontSize="20" />
-                <Label Content="{Binding Description}"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Foreground="Gray"
-                       FontSize="20"  />
-                <s:SurfaceListBox
-                          Margin="0,0,0,0"
-                          HorizontalAlignment="Stretch"
-                          VerticalAlignment="Stretch"
-                          Height="Auto"
-                          Width="Auto"
-                          ItemTemplate="{StaticResource compareImageTemplate}"
-                          ItemsSource="{Binding MainGifs}"/>
+                <TextBox Text="{Binding Description}"
+                         Grid.Row="1"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
+                         HorizontalContentAlignment="Center"
+                         Height="Auto"
+                         Width="Auto"
+                         Foreground="Gray"
+                         FontSize="20"
+                         AllowDrop="False"
+                         TextWrapping="Wrap"
+                         IsReadOnlyCaretVisible="False"
+                         IsReadOnly="True"
+                         IsEnabled="False" />
+                <s:SurfaceListBox Margin="0,0,0,0"
+                                  Grid.Row="2"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Height="Auto"
+                                  Width="Auto"
+                                  HorizontalContentAlignment="Center"
+                                  ItemTemplate="{StaticResource compareImageTemplate}"
+                                  ItemsSource="{Binding MainGifs}" />
 
-            </StackPanel>
+            </Grid>
         </DataTemplate>
 
         <Style x:Key="CursorStyle"
@@ -101,14 +126,12 @@
         </Style>
 
     </s:SurfaceWindow.Resources>
-    <Grid
-          HorizontalAlignment="Stretch"
+    <Grid HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch"
           Height="Auto"
           Width="Auto">
         <Grid.RowDefinitions>
-            <RowDefinition Name="topRow"
-                           Height="200" />
+            <RowDefinition Name="topRow" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -117,6 +140,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <s:SurfaceListBox Background="Green"
+                          HorizontalContentAlignment="Center"
                           Grid.Row="0"
                           Grid.RowSpan="2"
                           Margin="0,0,0,0"
@@ -133,6 +157,7 @@
 
         <s:SurfaceListBox Grid.Column="1"
                           AllowDrop="True"
+                          HorizontalContentAlignment="Center"
                           Grid.Row="0"
                           Background="Blue"
                           Margin="0,0,0,0"
@@ -147,6 +172,7 @@
         <s:SurfaceListBox Grid.Column="2"
                           AllowDrop="True"
                           Grid.Row="0"
+                          HorizontalContentAlignment="Center"
                           Background="Salmon"
                           Margin="0,0,0,0"
                           Name="drop2"
@@ -167,7 +193,8 @@
                           VerticalAlignment="Stretch"
                           Height="Auto"
                           Width="Auto"
-                          ItemTemplate="{StaticResource compareTemplate}" />
+                          ItemTemplate="{StaticResource compareTemplate}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
         <s:SurfaceListBox Background="LightSalmon"
                           Grid.Row="1"
                           Grid.Column="2"
@@ -178,7 +205,8 @@
                           VerticalAlignment="Stretch"
                           Height="Auto"
                           Width="Auto"
-                          ItemTemplate="{StaticResource compareTemplate}" />
+                          ItemTemplate="{StaticResource compareTemplate}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
     </Grid>
 
 </s:SurfaceWindow>
