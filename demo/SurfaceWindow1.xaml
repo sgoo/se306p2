@@ -151,8 +151,8 @@
                           Width="Auto"
                           ItemTemplate="{StaticResource mainListTemplate}"
                           ItemsSource="{Binding Path=GifTypes}"
-                          PreviewTouchDown="OnMainDrag"
-                          PreviewMouseLeftButtonDown="OnMainDrag">
+						  PreviewTouchDown="OnMainDrag"
+						  PreviewMouseLeftButtonDown="OnMainDrag">
         </s:SurfaceListBox>
 
         <s:SurfaceListBox Grid.Column="1"
