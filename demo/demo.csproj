@@ -150,6 +150,7 @@
     </Content>
     <Content Include="demo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\win1.gif">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -162,9 +163,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GifControl\GifControl.csproj">
+    <ProjectReference Include="..\WPFControls\WPFControls.csproj">
       <Project>{5DA1D53B-85D5-40D2-BD44-26ABD944354C}</Project>
-      <Name>GifControl</Name>
+      <Name>WPFControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\se306p2\se306p2.csproj">
       <Project>{68BA941F-3ABB-41EB-8F2B-5DCFB178DC2A}</Project>

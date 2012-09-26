@@ -1,0 +1,71 @@
+﻿<s:SurfaceWindow x:Class="se306p2.MainWindow"
+				 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				 xmlns:s="http://schemas.microsoft.com/surface/2008"
+				 xmlns:system="clr-namespace:System;assembly=mscorlib"
+				 xmlns:local="clr-namespace:se306p2"
+				 Title="se306p2"
+				 WindowStyle="None"
+				 WindowState="Maximized"
+				 mc:Ignorable="d"
+				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 SizeToContent="WidthAndHeight">
+	<s:SurfaceWindow.Resources>
+		<ResourceDictionary>
+			<GridLength x:Key="BorderSize">125</GridLength>
+		</ResourceDictionary>
+	</s:SurfaceWindow.Resources>
+	<s:SurfaceScrollViewer Margin="0,0,0,0">
+		<Grid Width="1920"
+			  Height="1050"
+			  Name="MainWindowGrid">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="{StaticResource BorderSize}" />
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition Height="{StaticResource BorderSize}" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="{StaticResource BorderSize}" />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition Width="{StaticResource BorderSize}" />
+			</Grid.ColumnDefinitions>
+			<s:ScatterView Name="TopScatterBar"
+						   Grid.Row="0"
+						   Grid.Column="0"
+						   Grid.ColumnSpan="4"
+						   PreviewTouchDown="OnBorderDrag"
+						   PreviewMouseLeftButtonDown="OnBorderDrag"></s:ScatterView>
+			<s:ScatterView Name="BottomScatterBar"
+						   Grid.Row="3"
+						   Grid.Column="0"
+						   Grid.ColumnSpan="4"
+						   PreviewTouchDown="OnBorderDrag"
+						   PreviewMouseLeftButtonDown="OnBorderDrag"></s:ScatterView>
+			<s:ScatterView Name="LeftScatterBar"
+						   Grid.Row="1"
+						   Grid.Column="0"
+						   Grid.RowSpan="2"
+						   PreviewTouchDown="OnBorderDrag"
+						   PreviewMouseLeftButtonDown="OnBorderDrag"></s:ScatterView>
+			<s:ScatterView Name="RightScatterBar"
+						   Grid.Row="1"
+						   Grid.Column="3"
+						   Grid.RowSpan="2"
+						   PreviewTouchDown="OnBorderDrag"
+						   PreviewMouseLeftButtonDown="OnBorderDrag"></s:ScatterView>
+			<StackPanel Name="DefaultPanel"
+						Grid.Row="1"
+						Grid.Column="1"
+						Grid.RowSpan="2"
+						Grid.ColumnSpan="2"
+						AllowDrop="True"
+						s:SurfaceDragDrop.Drop="DefaultPanel_Drop">
+				<local:ExamplePage VerticalAlignment="Stretch"
+								   HorizontalAlignment="Stretch" />
+			</StackPanel>
+		</Grid>
+	</s:SurfaceScrollViewer>
+</s:SurfaceWindow>

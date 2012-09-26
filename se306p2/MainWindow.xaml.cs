@@ -19,14 +19,14 @@ using Microsoft.Surface.Presentation.Input;
 namespace se306p2
 {
     /// <summary>
-    /// Interaction logic for SurfaceWindow1.xaml
+	/// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SurfaceWindow1 : SurfaceWindow
+    public partial class MainWindow : SurfaceWindow
     {
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public SurfaceWindow1()
+        public MainWindow()
         {
             InitializeComponent();
 
@@ -99,5 +99,13 @@ namespace se306p2
         {
             //TODO: disable audio, animations here
         }
+
+		private void DefaultPanel_Drop(object sender, SurfaceDragDropEventArgs e) {
+			
+		}
+
+		private void OnBorderDrag(object sender, InputEventArgs e) {
+
+		}
     }
 }

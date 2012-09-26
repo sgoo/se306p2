@@ -7,11 +7,11 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GifControl")]
+[assembly: AssemblyTitle("WPFControls")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("The University of Auckland")]
-[assembly: AssemblyProduct("GifControl")]
+[assembly: AssemblyProduct("WPFControls")]
 [assembly: AssemblyCopyright("Copyright © The University of Auckland 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
