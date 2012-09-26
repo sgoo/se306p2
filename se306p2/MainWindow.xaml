@@ -3,6 +3,7 @@
 				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 				 xmlns:s="http://schemas.microsoft.com/surface/2008"
 				 xmlns:system="clr-namespace:System;assembly=mscorlib"
+				 xmlns:local="using:se306p2"
 				 Title="se306p2"
 				 WindowStyle="None"
 				 WindowState="Maximized"
@@ -61,7 +62,10 @@
 						Grid.RowSpan="2"
 						Grid.ColumnSpan="2"
 						AllowDrop="True"
-						s:SurfaceDragDrop.Drop="DefaultPanel_Drop" />
+						s:SurfaceDragDrop.Drop="DefaultPanel_Drop">
+				<local:BasicPage></local:BasicPage>
+				
+			</StackPanel>
 		</Grid>
 	</s:SurfaceScrollViewer>
 </s:SurfaceWindow>
