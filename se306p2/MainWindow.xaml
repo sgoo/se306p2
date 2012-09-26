@@ -63,7 +63,6 @@
 						Grid.ColumnSpan="2"
 						AllowDrop="True"
 						s:SurfaceDragDrop.Drop="DefaultPanel_Drop">
-				<local:BasicPage></local:BasicPage>
 				
 			</StackPanel>
 		</Grid>
