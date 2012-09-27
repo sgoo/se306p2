@@ -12,10 +12,63 @@
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 				 SizeToContent="WidthAndHeight" d:DesignHeight="877">
 	<s:SurfaceWindow.Resources>
-		<ResourceDictionary>
-			<GridLength x:Key="BorderSize">300</GridLength>
-		</ResourceDictionary>
-	</s:SurfaceWindow.Resources>
+		
+        
+        
+        
+        
+
+
+        <DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
+            <StackPanel Height="120" Width="190" Background="Gray">
+                <Label 
+                        Content="{Binding Name}" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontSize="20"/>
+
+                <Label 
+                        Content="{Binding CanDrop}"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontSize="18"/>
+            </StackPanel>
+        </DataTemplate>
+
+
+
+        <Style x:Key="CursorStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="ContentTemplate" Value="{StaticResource SurfaceListBoxItemDataTemplate}" />
+            <Setter Property="BorderThickness" Value="9"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent1BrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Border 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter Margin="0"
+                                Content="{TemplateBinding Content}" 
+                                ContentTemplate="{TemplateBinding ContentTemplate}">
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Tag" Value="CanDrop">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent4BrushKey}}" />
+                </Trigger>
+                <Trigger Property="Tag" Value="CannotDrop">
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent3BrushKey}}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        
+    </s:SurfaceWindow.Resources>
+
+    
 	<s:SurfaceScrollViewer Margin="0,0,0,0">
 		<Grid Width="1920"
 			  Height="1050"
@@ -25,18 +78,21 @@
 				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="{StaticResource BorderSize}" />
+				<ColumnDefinition Width="300" />
 				<ColumnDefinition />
 				<ColumnDefinition />
-				<ColumnDefinition Width="{StaticResource BorderSize}" />
+				<ColumnDefinition Width="300" />
 			</Grid.ColumnDefinitions>
             <s:SurfaceListBox Name="LeftScatterBar"
 						   Grid.Row="0"
 						   Grid.Column="0"
 						   Grid.RowSpan="2"
-						   PreviewTouchDown="OnBorderDrag"
-						   PreviewMouseLeftButtonDown="OnBorderDrag"
-                              Background ="Aqua">
+						   BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
+                            ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+                            ItemsSource="{Binding Path=LeftItems}"
+                            PreviewTouchDown="OnDragSourcePreviewTouchDown"
+                              Background ="Aqua" 
+                            s:SurfaceDragDrop.DragCompleted="OnDragCompleted">
                 
                 
                 
@@ -45,9 +101,13 @@
 						   Grid.Row="0"
 						   Grid.Column="3"
 						   Grid.RowSpan="2"
-						   PreviewTouchDown="OnBorderDrag"
-						   PreviewMouseLeftButtonDown="OnBorderDrag"
+						   BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
+                            ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+                            ItemsSource="{Binding Path=RightItems}"
+                            PreviewTouchDown="OnDragSourcePreviewTouchDown"
+                            s:SurfaceDragDrop.DragCompleted="OnDragCompleted"
                             Background ="Aqua"  >
+                <!--
                 <s:SurfaceListBoxItem
                     FontSize="50"
                     Height="110"
@@ -88,17 +148,25 @@
                     >
                     first
                 </s:SurfaceListBoxItem>
-
+                -->
                            
             </s:SurfaceListBox>
-			<StackPanel Name="DefaultPanel" Grid.Column="1"
+            <s:ScatterView Name="DefaultPanel" Grid.Column="1"
 						Grid.RowSpan="2"
 						Grid.ColumnSpan="2"
 						AllowDrop="True"
-						s:SurfaceDragDrop.Drop="DefaultPanel_Drop" Margin="0,-2,0,0"
-                        Background ="Azure">
-				
-			</StackPanel>
-		</Grid>
+						Margin="0,-2,0,0"
+                        Background ="Azure"
+                        BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
+            ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+            ItemsSource="{Binding Path=TargetItems}"
+            s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
+            s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
+            s:SurfaceDragDrop.Drop="OnDropTargetDrop"   
+                           >
+                
+
+            </s:ScatterView>
+        </Grid>
 	</s:SurfaceScrollViewer>
 </s:SurfaceWindow>
