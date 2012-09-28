@@ -20,5 +20,7 @@ namespace se306p2 {
 		public BasicPage() {
 			InitializeComponent();
 		}
+
+       
 	}
 }

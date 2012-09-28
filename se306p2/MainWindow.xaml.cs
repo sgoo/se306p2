@@ -107,5 +107,10 @@ namespace se306p2
 		private void OnBorderDrag(object sender, InputEventArgs e) {
 
 		}
+
+        private void BaseInfo_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
