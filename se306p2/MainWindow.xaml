@@ -3,7 +3,7 @@
 				 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 				 xmlns:s="http://schemas.microsoft.com/surface/2008"
 				 xmlns:system="clr-namespace:System;assembly=mscorlib"
-				 xmlns:local="using:se306p2"
+				 xmlns:local="clr-namespace:se306p2"
 				 Title="se306p2"
 				 WindowStyle="None"
 				 WindowState="Maximized"
@@ -27,14 +27,35 @@
                         VerticalAlignment="Center"
                         FontSize="20"/>
 
-                <Label 
-                        Content="{Binding CanDrop}"
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Center"
-                        FontSize="18"/>
+               
             </StackPanel>
         </DataTemplate>
 
+        <DataTemplate x:Key="ScatterViewItemDataTemplate">
+
+            <StackPanel Height="1050" Width="1320" Background="Blue">
+                <Label 
+                        Content="{Binding Name}" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontSize="20"/>
+     
+                <local:UserControlTest/>
+            </StackPanel>
+        </DataTemplate>
+        
+        <DataTemplate x:Key="ScatterViewItemDataTemplate2">
+
+            <StackPanel Height="1050" Width="1320" Background="Blue">
+                <Label 
+                        Content="{Binding Name}" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        FontSize="20"/>
+
+                <local:General/>
+            </StackPanel>
+        </DataTemplate>
 
 
         <Style x:Key="CursorStyle" TargetType="{x:Type ContentControl}">
@@ -64,8 +85,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
-        
+
+        <local:ScatterViewDataTemplateSelector x:Key="ScatterViewDataTemplateSelector"/>
     </s:SurfaceWindow.Resources>
 
     
@@ -152,17 +173,16 @@
                            
             </s:SurfaceListBox>
             <s:ScatterView Name="DefaultPanel" Grid.Column="1"
-						Grid.RowSpan="2"
-						Grid.ColumnSpan="2"
-						AllowDrop="True"
-						Margin="0,-2,0,0"
+						Grid.RowSpan="2" Grid.ColumnSpan="2" AllowDrop="True"
+						
                         Background ="Azure"
                         BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
-            ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+            ItemTemplateSelector="{StaticResource ScatterViewDataTemplateSelector}"
             ItemsSource="{Binding Path=TargetItems}"
             s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
             s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
-            s:SurfaceDragDrop.Drop="OnDropTargetDrop"   
+            s:SurfaceDragDrop.Drop="OnDropTargetDrop"  
+                           
                            >
                 
 

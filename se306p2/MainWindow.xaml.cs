@@ -17,6 +17,7 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
 
+
 namespace se306p2
 {
     /// <summary>
@@ -87,7 +88,7 @@ namespace se306p2
             base.OnInitialized(e);
             DataContext = this;
             LeftItems.Add(new DataItem("HOD's Welcome", false));
-            LeftItems.Add(new DataItem("General Info", true));
+            LeftItems.Add(new DataItem("General", true));
             LeftItems.Add(new DataItem("Location", true));
             LeftItems.Add(new DataItem("blah", false));
             
@@ -275,16 +276,26 @@ namespace se306p2
 
         private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
         {
+           // MessageBox.Show("works");
             TargetItems.Add(e.Cursor.Data as DataItem);
             //DefaultPanel.Items.Add(e.Cursor.Data as DataItem);
 
             //DropTarget.Items.Add(e.Cursor.Data);
             
             ScatterViewItem svi = DefaultPanel.ItemContainerGenerator.ContainerFromItem(e.Cursor.Data) as ScatterViewItem;
-            svi.Orientation = e.Cursor.GetOrientation(this);
-            svi.Center = e.Cursor.GetPosition(this.DefaultPanel);
-            svi.Width = 200;
+           // svi.Orientation = e.Cursor.GetOrientation(this);
+            svi.Orientation = 0.0;
+           svi.Center = e.Cursor.GetPosition(this.DefaultPanel);
+            //svi.Center = new Point(300,0);
+            //svi.Width = 1320;
+            //svi.Height = 1050;
+            svi.Width = 820;
+            svi.Height = 650;
         }
+
+       
+            
+        
 
         private void OnDragCompleted(object sender, SurfaceDragCompletedEventArgs e)
         {
@@ -318,6 +329,23 @@ namespace se306p2
         {
             this.name = name;
             this.canDrop = canDrop;
+        }
+    }
+
+    public class ScatterViewDataTemplateSelector : DataTemplateSelector
+    {
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            FrameworkElement element = container as FrameworkElement;
+            if (element != null && item != null)
+            {
+                DataItem dItem = (DataItem)item;
+                if (dItem.Name == "General")
+                    return element.FindResource("ScatterViewItemDataTemplate2") as DataTemplate;
+                else if (dItem.Name == "Location")
+                    return element.FindResource("ScatterViewItemDataTemplate") as DataTemplate;
+            }
+            return null;
         }
     }
 }
