@@ -63,7 +63,7 @@
 						Grid.ColumnSpan="2"
 						AllowDrop="True"
 						s:SurfaceDragDrop.Drop="DefaultPanel_Drop">
-				<local:ExamplePage VerticalAlignment="Stretch"
+				<local:HODpage VerticalAlignment="Stretch"
 								   HorizontalAlignment="Stretch" />
 			</StackPanel>
 		</Grid>
