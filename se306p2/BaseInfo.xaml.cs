@@ -18,6 +18,8 @@ namespace se306p2
     /// <summary>
     /// Interaction logic for InfoOnEEE.xaml
     /// </summary>
+    /// 
+    
     public partial class BaseInfo : UserControl
     {
         DispatcherTimer timer;
@@ -28,6 +30,7 @@ namespace se306p2
             timer = new DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 2);
             timer.Tick += new EventHandler(timer_Tick);
+
         }
 
         private void _mediaElement_MediaEnded(object sender, RoutedEventArgs e)
@@ -39,14 +42,14 @@ namespace se306p2
             if (_mediaElement.Tag.ToString() == "pause")
             {
                 _mediaElement.Tag = "play";
-              
                 _mediaElement.Play();
+
             }
             else
             {
-                _mediaElement.Pause();
                 _mediaElement.Tag = "pause";
-               
+                _mediaElement.Pause();
+
             }
         }
 
@@ -54,7 +57,7 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            _mediaElement.Pause();
+            _mediaElement.Play();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -80,9 +83,9 @@ namespace se306p2
             image.EndInit();
             myImage.Source = image;
             myImage.Stretch = Stretch.Uniform;
-            timer.IsEnabled = true; 
+            timer.IsEnabled = true;
         }
-        
-    }
 
+
+    }
 }
