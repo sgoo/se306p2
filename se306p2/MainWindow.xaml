@@ -9,9 +9,7 @@
 				 WindowState="Maximized"
 				 mc:Ignorable="d"
 				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-				 SizeToContent="WidthAndHeight"
-				 d:DesignHeight="877">
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 
 		<DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
@@ -130,48 +128,6 @@
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
 							  s:SurfaceDragDrop.DragCompleted="OnDragCompleted"
 							  Background="Aqua">
-				<!--
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                    Margin="0 40 0 0"
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                    Margin="0 0 0 50"
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                     Margin="0 0 0 50"
-                    
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                <s:SurfaceListBoxItem
-                    FontSize="50"
-                    Height="110"
-                    >
-                    first
-                </s:SurfaceListBoxItem>
-                -->
 
 			</s:SurfaceListBox>
 			<s:ScatterView Name="DefaultPanel"
