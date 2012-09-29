@@ -9,8 +9,7 @@
 				 WindowState="Maximized"
 				 mc:Ignorable="d"
 				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-				 SizeToContent="WidthAndHeight">
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 		<ResourceDictionary>
 			<GridLength x:Key="BorderSize">125</GridLength>
@@ -56,16 +55,14 @@
 						   Grid.RowSpan="2"
 						   PreviewTouchDown="OnBorderDrag"
 						   PreviewMouseLeftButtonDown="OnBorderDrag"></s:ScatterView>
-			<StackPanel Name="DefaultPanel"
-						Grid.Row="1"
-						Grid.Column="1"
-						Grid.RowSpan="2"
-						Grid.ColumnSpan="2"
-						AllowDrop="True"
-						s:SurfaceDragDrop.Drop="DefaultPanel_Drop">
-				<local:HODpage VerticalAlignment="Stretch"
-								   HorizontalAlignment="Stretch" />
-			</StackPanel>
+			<local:HODpage Grid.Row="1"
+							Grid.Column="1"
+							Grid.RowSpan="2"
+							Grid.ColumnSpan="2"
+							Background="Yellow"
+							HorizontalAlignment="Stretch"
+							VerticalAlignment="Stretch"
+							Loaded="BaseInfo_Loaded" />
 		</Grid>
 	</s:SurfaceScrollViewer>
 </s:SurfaceWindow>

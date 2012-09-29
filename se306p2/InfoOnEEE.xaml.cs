@@ -12,15 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace se306p2 {
-	/// <summary>
-	/// Interaction logic for BasicPage.xaml
-	/// </summary>
-	public partial class BasicPage : UserControl {
-		public BasicPage() {
-			InitializeComponent();
-		}
-
-       
-	}
+namespace se306p2
+{
+    /// <summary>
+    /// Interaction logic for InfoOnEEE.xaml
+    /// </summary>
+    public partial class InfoOnEEE : UserControl
+    {
+        public InfoOnEEE()
+        {
+            InitializeComponent();
+        }
+    }
 }
