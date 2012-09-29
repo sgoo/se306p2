@@ -182,7 +182,7 @@ namespace se306p2
             MessageBox.Show("hi");
 		}
 
-        private void OnDragSourcePreviewTouchDown(object sender, TouchEventArgs e)
+        private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e)
         {
             FrameworkElement findSource = e.OriginalSource as FrameworkElement;
             SurfaceListBoxItem draggedElement = null;
@@ -215,10 +215,10 @@ namespace se306p2
             // are currently captured within the dragged element and
             // the current touch (if it isn't already in the list).
             List<InputDevice> devices = new List<InputDevice>();
-            devices.Add(e.TouchDevice);
+            devices.Add(e.Device);
             foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin)
             {
-                if (touch != e.TouchDevice)
+				if (touch != e.Device)
                 {
                     devices.Add(touch);
                 }
@@ -330,6 +330,9 @@ namespace se306p2
             this.name = name;
             this.canDrop = canDrop;
         }
+		public override String ToString() {
+			return name;
+		}
     }
 
     public class ScatterViewDataTemplateSelector : DataTemplateSelector
