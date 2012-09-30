@@ -19,17 +19,20 @@ namespace se306p2
     /// Interaction logic for InfoOnEEE.xaml
     /// </summary>
     /// 
-    
+
     public partial class BaseInfo : UserControl
     {
-        DispatcherTimer timer;
         int ctr = 0;
+        public bool label1 = false;
+        public bool label2 = false;
+        public bool label3 = false;
+        public bool label4 = false;
+        public bool label5 = false;
+        public bool label6 = false;
         public BaseInfo()
         {
             InitializeComponent();
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 2);
-            timer.Tick += new EventHandler(timer_Tick);
+
 
         }
 
@@ -60,20 +63,6 @@ namespace se306p2
             _mediaElement.Play();
         }
 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            ctr++;
-            if (ctr > 5)
-            {
-                ctr = 1;
-            }
-            PlaySlideShow(ctr);
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            ctr = 1;
-            PlaySlideShow(ctr);
-        }
         private void PlaySlideShow(int ctr)
         {
             BitmapImage image = new BitmapImage();
@@ -83,9 +72,89 @@ namespace se306p2
             image.EndInit();
             myImage.Source = image;
             myImage.Stretch = Stretch.Uniform;
-            timer.IsEnabled = true;
+            label1 = false;
+            label2 = false;
+            label3 = false;
+            label4 = false;
+            label5 = false;
+            label6 = false;
+
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ctr = 4;
+            PlaySlideShow(ctr);
+        }
 
+        private void Label_MouseMove(object sender, MouseEventArgs e)
+        {
+            label1 = true;
+            label4 = true;
+            checkFlickLeft();
+
+        }
+
+        private void Label2_MouseMove(object sender, MouseEventArgs e)
+        {
+            label2 = true;
+            label5 = true;
+        }
+
+        private void Label3_MouseMove(object sender, MouseEventArgs e)
+        {
+            label3 = true;
+            label6 = true;
+            checkFlickRight();
+        }
+
+        private void checkFlickRight()
+        {
+
+            if (label1 && label2 && label3)
+            {
+                if (ctr >= 5 || ctr < 0)
+                {
+                    ctr = 0;
+                }
+                else
+                {
+                    ctr++;
+                }
+
+                PlaySlideShow(ctr);
+
+            }
+            label1 = false;
+            label2 = false;
+            label3 = false;
+
+
+        }
+
+        private void checkFlickLeft()
+        {
+
+            if (label4 && label5 && label6)
+            {
+                if (ctr > 5 || ctr <= 0)
+                {
+                    ctr = 5;
+                }
+                else
+                {
+                    ctr--;
+                }
+
+                PlaySlideShow(ctr);
+
+            }
+
+            label4 = false;
+            label5 = false;
+            label6 = false;
+
+        }
     }
+
 }

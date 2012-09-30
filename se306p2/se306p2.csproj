@@ -82,7 +82,6 @@
     <Compile Include="BaseInfo.xaml.cs">
       <DependentUpon>BaseInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InfoOnEEE.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
