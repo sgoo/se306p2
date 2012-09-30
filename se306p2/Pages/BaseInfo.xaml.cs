@@ -47,7 +47,6 @@ namespace se306p2 {
 			} else {
 				_mediaElement.Tag = "pause";
 				_mediaElement.Pause();
-
 			}
 		}
 
