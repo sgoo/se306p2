@@ -109,7 +109,7 @@
 							  HorizontalAlignment="Center"
 							  VerticalAlignment="Center"
 							  UnloadedBehavior="Stop"
-							  Source="/Resources/NandaanParindey.mp4"
+							  Source="Resources\NandaanParindey.mp4"
 							  MediaEnded="_mediaElement_MediaEnded"
 							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 							  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
