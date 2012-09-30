@@ -6,15 +6,15 @@
 			 xmlns:s="http://schemas.microsoft.com/surface/2008"
 			 Loaded="Window_Loaded"
 			 mc:Ignorable="d"
+			 d:DesignHeight="300"
+			 d:DesignWidth="300"
 			 Background="Black">
+
 	<Grid>
 		<Grid.Background>
-			<LinearGradientBrush EndPoint="0.5,1"
-								 StartPoint="0.5,0">
-				<GradientStop Color="Black"
-							  Offset="0" />
-				<GradientStop Color="#FF686273"
-							  Offset="1" />
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="Black" Offset="0"/>
+				<GradientStop Color="#FF686273" Offset="1"/>
 			</LinearGradientBrush>
 		</Grid.Background>
 		<Grid.RowDefinitions>
@@ -23,43 +23,73 @@
 			<RowDefinition Height="0.05*" />
 			<RowDefinition Height="0.40*" />
 			<RowDefinition Height="0.10*" />
+
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.25*" />
-			<ColumnDefinition Width="0.25*" />
-			<ColumnDefinition Width="0.25*" />
-			<ColumnDefinition Width="0.25*" />
+			<ColumnDefinition Width="0.20*" />
+			<ColumnDefinition Width="0.15*" />
+			<ColumnDefinition Width="0.15*" />
+			<ColumnDefinition Width="0.15*" />
+			<ColumnDefinition Width="0.15*" />
+			<ColumnDefinition Width="0.20*" />
 		</Grid.ColumnDefinitions>
+
 		<!-- Title -->
 		<Label Grid.Row="0"
 			   Grid.Column="0"
-			   Grid.ColumnSpan="4"
+			   Grid.ColumnSpan="6"
 			   Margin="20,10,10,20"
 			   HorizontalAlignment="Stretch"
 			   VerticalAlignment="Stretch"
 			   HorizontalContentAlignment="Center"
 			   VerticalContentAlignment="Center"
-			   FontSize="50"
+			   FontSize="53.333"
 			   Foreground="White"
 			   Background="{x:Null}"
 			   FontFamily="/se306p2;component/Fonts/#Tahoma"
-			   FontWeight="Bold">Department of Electrical and Computer Engineering</Label>
+			   FontWeight="Bold">
+			Department of Electrical and Computer Engineering
+		</Label>
+
 		<Canvas Name="canvas"
 				Grid.Column="1"
-				Grid.Row="1">
-			<Image Name="myImage"
-				   Grid.ColumnSpan="2"
+				Grid.Row="1"
+				Margin="20,0,0,0">
+
+			<Image Grid.ColumnSpan="4"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
-				   Source="/Resources/Ece0.jpg"
+				   x:Name="myImage"
 				   OpacityMask="#FF6CBBA9"
 				   Canvas.Left="8"
 				   Canvas.Top="8"
 				   Margin="5" />
 		</Canvas>
+		
+		<Label Grid.Row="1"
+			   Grid.Column="1"
+			   Grid.ColumnSpan="1"
+			   HorizontalAlignment="Stretch"
+			   VerticalAlignment="Stretch"
+			   MouseMove="Label_MouseMove"/>
+		<Label Grid.Row="1"
+			   Grid.Column="2"
+			   Grid.ColumnSpan="1"
+			   HorizontalAlignment="Stretch"
+			   VerticalAlignment="Stretch"
+			   MouseMove="Label2_MouseMove"
+			   />
+		<Label Grid.Row="1"
+			   Grid.Column="3"
+			   Grid.ColumnSpan="2"
+			   HorizontalAlignment="Stretch"
+			   VerticalAlignment="Stretch"
+			   MouseMove="Label3_MouseMove" />
+
 		<TextBlock Grid.Row="3"
 				   Grid.Column="1"
-				   Margin="20,25,10,10"
+				   Margin="-65,25,0,0"
+				   Grid.ColumnSpan="2"
 				   Padding="20"
 				   TextWrapping="Wrap"
 				   TextAlignment="Justify"
@@ -68,7 +98,8 @@
 				   Foreground="White"
 				   Opacity="0.8"
 				   OpacityMask="Black"
-				   LineHeight="8">
+				   LineHeight="8"
+				   Grid.RowSpan="2">
 			<TextBlock.Background>
 				<LinearGradientBrush EndPoint="0.5,1"
 									 MappingMode="RelativeToBoundingBox"
@@ -80,16 +111,19 @@
 								  Offset="0.73" />
 				</LinearGradientBrush>
 			</TextBlock.Background><Run Text="Department of Electrical and Computer Engineering is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this. The work of engineers often enable us to enjoy longer, healthier, more comfortable and fulfilling lives. We invite you to become part of engineering's future legacy by studying at the Faculty of Engineering.  Its an experience that you must experience." /></TextBlock>
+
 		<s:ScatterViewItem Name="_videoItem"
 						   Grid.Row="3"
-						   Grid.Column="2"
+						   Grid.Column="3"
+						   Grid.ColumnSpan="2"
 						   CanRotate="True"
-						   Margin="14,25,-29.4,13"
-						   Opacity="0.9">
+						   Margin="20,25,20,12"
+						   Opacity="0.9"
+						   Grid.RowSpan="2">
 			<s:ScatterViewItem.Background>
-				<SolidColorBrush Color="#FFCACCD0"
-								 Opacity="0.95" />
+				<SolidColorBrush Color="#FF686273" Opacity="0.95"/>
 			</s:ScatterViewItem.Background>
+
 			<Viewbox>
 				<MediaElement Name="_mediaElement"
 							  Tag="pause"
@@ -101,7 +135,10 @@
 							  MediaEnded="_mediaElement_MediaEnded"
 							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 							  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
+
 			</Viewbox>
+
 		</s:ScatterViewItem>
 	</Grid>
+
 </UserControl>
