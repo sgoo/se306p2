@@ -6,10 +6,7 @@
 			 xmlns:s="http://schemas.microsoft.com/surface/2008"
 			 Loaded="Window_Loaded"
 			 mc:Ignorable="d"
-			 d:DesignHeight="300"
-			 d:DesignWidth="300"
 			 Background="Black">
-
 	<Grid>
 		<Grid.Background>
 			<LinearGradientBrush EndPoint="0.5,1"
@@ -26,7 +23,6 @@
 			<RowDefinition Height="0.05*" />
 			<RowDefinition Height="0.40*" />
 			<RowDefinition Height="0.10*" />
-
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0.25*" />
@@ -34,7 +30,6 @@
 			<ColumnDefinition Width="0.25*" />
 			<ColumnDefinition Width="0.25*" />
 		</Grid.ColumnDefinitions>
-
 		<!-- Title -->
 		<Label Grid.Row="0"
 			   Grid.Column="0"
@@ -44,14 +39,11 @@
 			   VerticalAlignment="Stretch"
 			   HorizontalContentAlignment="Center"
 			   VerticalContentAlignment="Center"
-			   FontSize="53.333"
+			   FontSize="50"
 			   Foreground="White"
 			   Background="{x:Null}"
 			   FontFamily="/se306p2;component/Fonts/#Tahoma"
-			   FontWeight="Bold">
-			Department of Electrical and Computer Engineering
-		</Label>
-
+			   FontWeight="Bold">Department of Electrical and Computer Engineering</Label>
 		<Canvas Name="canvas"
 				Grid.Column="1"
 				Grid.Row="1">
@@ -64,9 +56,7 @@
 				   Canvas.Left="8"
 				   Canvas.Top="8"
 				   Margin="5" />
-
 		</Canvas>
-
 		<TextBlock Grid.Row="3"
 				   Grid.Column="1"
 				   Margin="20,25,10,10"
@@ -90,7 +80,6 @@
 								  Offset="0.73" />
 				</LinearGradientBrush>
 			</TextBlock.Background><Run Text="Department of Electrical and Computer Engineering is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this. The work of engineers often enable us to enjoy longer, healthier, more comfortable and fulfilling lives. We invite you to become part of engineering's future legacy by studying at the Faculty of Engineering.  Its an experience that you must experience." /></TextBlock>
-
 		<s:ScatterViewItem Name="_videoItem"
 						   Grid.Row="3"
 						   Grid.Column="2"
@@ -101,7 +90,6 @@
 				<SolidColorBrush Color="#FFCACCD0"
 								 Opacity="0.95" />
 			</s:ScatterViewItem.Background>
-
 			<Viewbox>
 				<MediaElement Name="_mediaElement"
 							  Tag="pause"
@@ -109,15 +97,11 @@
 							  HorizontalAlignment="Center"
 							  VerticalAlignment="Center"
 							  UnloadedBehavior="Stop"
-							  Source="Resources\NandaanParindey.mp4"
+							  Source="Resources\sampleVid.mp4"
 							  MediaEnded="_mediaElement_MediaEnded"
 							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 							  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
-
 			</Viewbox>
-
 		</s:ScatterViewItem>
-
 	</Grid>
-
 </UserControl>
