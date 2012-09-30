@@ -21,14 +21,14 @@ using System.Collections.ObjectModel;
 namespace se306p2
 {
     /// <summary>
-	/// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : SurfaceWindow
     {
 
-         private ObservableCollection<DataItem> leftItems;
-         private ObservableCollection<DataItem> rightItems;
-        private ObservableCollection<DataItem> targetItems;
+        private ObservableCollection<DataItem> leftItems;
+        private ObservableCollection<DataItem> rightItems;
+        
 
         /// <summary>
         /// Items that bind with the drag source list box.
@@ -65,39 +65,22 @@ namespace se306p2
 
 
 
-        /// <summary>
-        /// Items that bind with the drop target list box.
-        /// </summary>
-        public ObservableCollection<DataItem> TargetItems
-        {
-            get
-            {
-                if (targetItems == null)
-                {
-                    targetItems = new ObservableCollection<DataItem>();
-                }
-
-                return targetItems;
-            }
-        }
-
-
-
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
             DataContext = this;
-            LeftItems.Add(new DataItem("HOD's Welcome", false));
-            LeftItems.Add(new DataItem("General", true));
-            LeftItems.Add(new DataItem("Location", true));
+            LeftItems.Add(new DataItem("Base Info", true, new BaseInfo()));
+            LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
+            LeftItems.Add(new DataItem("General", false));
+            LeftItems.Add(new DataItem("Location", false));
             LeftItems.Add(new DataItem("blah", false));
-            
-            RightItems.Add(new DataItem("SE 1", true));
-            RightItems.Add(new DataItem("SE 2", true));
+
+            RightItems.Add(new DataItem("SE 1", false));
+            RightItems.Add(new DataItem("SE 2", false));
             RightItems.Add(new DataItem("CSE info", false));
-            RightItems.Add(new DataItem("CSE course", true));
-            RightItems.Add(new DataItem("EEE", true));
-            RightItems.Add(new DataItem("EEE 2", true));
+            RightItems.Add(new DataItem("CSE course", false));
+            RightItems.Add(new DataItem("EEE", false));
+            RightItems.Add(new DataItem("EEE 2", false));
         }
 
 
@@ -178,9 +161,12 @@ namespace se306p2
             //TODO: disable audio, animations here
         }
 
-		private void DefaultPanel_Drop(object sender, SurfaceDragDropEventArgs e) {
+        /*  No idea what this method is for - not referenced in code. SG
+        private void DefaultPanel_Drop(object sender, SurfaceDragDropEventArgs e)
+        {
             MessageBox.Show("hi");
-		}
+        }
+         */
 
         private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e)
         {
@@ -195,7 +181,7 @@ namespace se306p2
                     findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
                 }
             }
-            
+
             if (draggedElement == null)
             {
                 return;
@@ -218,7 +204,7 @@ namespace se306p2
             devices.Add(e.Device);
             foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin)
             {
-				if (touch != e.Device)
+                if (touch != e.Device)
                 {
                     devices.Add(touch);
                 }
@@ -274,35 +260,55 @@ namespace se306p2
             }
         }
 
+        /*
         private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
         {
-           // MessageBox.Show("works");
+            // MessageBox.Show("works");
+            TargetItems.Clear();
             TargetItems.Add(e.Cursor.Data as DataItem);
             //DefaultPanel.Items.Add(e.Cursor.Data as DataItem);
 
             //DropTarget.Items.Add(e.Cursor.Data);
-            
+
             ScatterViewItem svi = DefaultPanel.ItemContainerGenerator.ContainerFromItem(e.Cursor.Data) as ScatterViewItem;
-           // svi.Orientation = e.Cursor.GetOrientation(this);
+            // svi.Orientation = e.Cursor.GetOrientation(this);
             svi.Orientation = 0.0;
-           svi.Center = e.Cursor.GetPosition(this.DefaultPanel);
+            svi.Center = e.Cursor.GetPosition(this.DefaultPanel);
             //svi.Center = new Point(300,0);
             //svi.Width = 1320;
             //svi.Height = 1050;
             svi.Width = 820;
             svi.Height = 650;
         }
+         */
 
-       
-            
-        
+        private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
+        {
+            DataItem d = e.Cursor.Data as DataItem;
+            Grid.SetColumn(d.PageControl, 0);
+            Grid.SetColumnSpan(d.PageControl, 2);
+            Grid.SetRow(d.PageControl, 0);
+            Grid.SetRowSpan(d.PageControl, 2);
+
+            if (!DefaultPanel.Children.Contains(d.PageControl))
+            {
+                DefaultPanel.Children.Clear();
+                DefaultPanel.Children.Add(d.PageControl);
+            }
+
+            DefaultPanel.UpdateLayout();
+        }
+
+
+
+
 
         private void OnDragCompleted(object sender, SurfaceDragCompletedEventArgs e)
         {
             // If the operation is Move, remove the data from drag source.
-           // if (e.Cursor.Effects == DragDropEffects.Move)
-           // {
-             //   LeftItems.Remove(e.Cursor.Data as DataItem);
+            // if (e.Cursor.Effects == DragDropEffects.Move)
+            // {
+            //   LeftItems.Remove(e.Cursor.Data as DataItem);
             //}
         }
 
@@ -317,6 +323,12 @@ namespace se306p2
     {
         private string name;
         private bool canDrop;
+        private UIElement pageControl;
+
+        public UIElement PageControl
+        {
+            get { return pageControl; }
+        }
 
         public string Name
         {
@@ -328,21 +340,30 @@ namespace se306p2
             get { return canDrop; }
         }
 
-        public DataItem(string name, bool canDrop)
+        public DataItem(string name, bool canDrop, UIElement uielement)
         {
             this.name = name;
             this.canDrop = canDrop;
+            this.pageControl = uielement;
         }
-		public override String ToString() {
-			return name;
-		}
+
+        public DataItem(string name, bool canDrop)
+            : this(name, canDrop, new BasicPage())
+        {
+        }
+
+        public override String ToString()
+        {
+            return name;
+        }
     }
 
-    public class ScatterViewDataTemplateSelector : DataTemplateSelector
+    /*public class ScatterViewDataTemplateSelector : DataTemplateSelector
     {
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             FrameworkElement element = container as FrameworkElement;
+            return element.FindResource("ScatterViewItemDataTemplate") as DataTemplate;
             if (element != null && item != null)
             {
                 DataItem dItem = (DataItem)item;
@@ -353,5 +374,5 @@ namespace se306p2
             }
             return null;
         }
-    }
+    }*/
 }

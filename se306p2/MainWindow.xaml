@@ -26,30 +26,10 @@
 
 		<DataTemplate x:Key="ScatterViewItemDataTemplate">
 
-			<StackPanel Height="1050"
-						Width="1320"
-						Background="Blue">
-				<Label Content="{Binding Name}"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   FontSize="20" />
+            <ContentControl Content="{Binding PageControl}" />
+            
+        </DataTemplate>
 
-				<local:HODpage />
-			</StackPanel>
-		</DataTemplate>
-
-		<DataTemplate x:Key="ScatterViewItemDataTemplate2">
-
-			<StackPanel Height="1050"
-						Width="1320"
-						Background="Blue">
-				<Label Content="{Binding Name}"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   FontSize="20" />
-				<local:BaseInfo />
-			</StackPanel>
-		</DataTemplate>
 
 		<Style x:Key="CursorStyle"
 			   TargetType="{x:Type ContentControl}">
@@ -86,7 +66,6 @@
 			</Style.Triggers>
 		</Style>
 
-		<local:ScatterViewDataTemplateSelector x:Key="ScatterViewDataTemplateSelector" />
 	</s:SurfaceWindow.Resources>
 
 	<s:SurfaceScrollViewer Margin="0,0,0,0">
@@ -129,20 +108,26 @@
 							  Background="Aqua">
 
 			</s:SurfaceListBox>
-			<s:ScatterView Name="DefaultPanel"
+			<Grid Name="DefaultPanel"
+                  
 						   Grid.Column="1"
 						   Grid.RowSpan="2"
 						   Grid.ColumnSpan="2"
 						   AllowDrop="True"
 						   Background="Azure"
-						   BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
-						   ItemTemplateSelector="{StaticResource ScatterViewDataTemplateSelector}"
-						   ItemsSource="{Binding Path=TargetItems}"
+	
 						   s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
 						   s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
 						   s:SurfaceDragDrop.Drop="OnDropTargetDrop">
-
-			</s:ScatterView>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
 		</Grid>
 	</s:SurfaceScrollViewer>
 </s:SurfaceWindow>
