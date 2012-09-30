@@ -26,10 +26,14 @@ namespace se306p2 {
 		public bool label3 = false;
 		public bool label4 = false;
 		public bool label5 = false;
-		public bool label6 = false;
+		public bool label6 = false; DispatcherTimer timer;
+
 		public BaseInfo() {
 			InitializeComponent();
 
+			timer = new DispatcherTimer();
+			timer.Interval = new TimeSpan(0, 0, 2);
+			timer.Tick += new EventHandler(timer_Tick);
 			// load video
 			Util.LoadVideo("NandaanParindey.mp4", _mediaElement);
 
@@ -70,6 +74,8 @@ namespace se306p2 {
 			label4 = false;
 			label5 = false;
 			label6 = false;
+			timer.IsEnabled = true;
+
 
 		}
 
@@ -132,6 +138,13 @@ namespace se306p2 {
 			label5 = false;
 			label6 = false;
 
+		}
+		void timer_Tick(object sender, EventArgs e) {
+			ctr++;
+			if (ctr > 5) {
+				ctr = 1;
+			}
+			PlaySlideShow(ctr);
 		}
 	}
 
