@@ -78,19 +78,19 @@ namespace se306p2 {
 			PlaySlideShow(ctr);
 		}
 
-		private void Label_MouseMove(object sender, MouseEventArgs e) {
+		private void Label_MouseMove(object sender, InputEventArgs e) {
 			label1 = true;
 			label4 = true;
 			checkFlickLeft();
 
 		}
 
-		private void Label2_MouseMove(object sender, MouseEventArgs e) {
+		private void Label2_MouseMove(object sender, InputEventArgs e) {
 			label2 = true;
 			label5 = true;
 		}
 
-		private void Label3_MouseMove(object sender, MouseEventArgs e) {
+		private void Label3_MouseMove(object sender, InputEventArgs e) {
 			label3 = true;
 			label6 = true;
 			checkFlickRight();
