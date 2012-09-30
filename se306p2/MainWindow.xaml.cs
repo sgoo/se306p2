@@ -161,13 +161,6 @@ namespace se306p2
             //TODO: disable audio, animations here
         }
 
-        /*  No idea what this method is for - not referenced in code. SG
-        private void DefaultPanel_Drop(object sender, SurfaceDragDropEventArgs e)
-        {
-            MessageBox.Show("hi");
-        }
-         */
-
         private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e)
         {
             FrameworkElement findSource = e.OriginalSource as FrameworkElement;
@@ -260,28 +253,6 @@ namespace se306p2
             }
         }
 
-        /*
-        private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
-        {
-            // MessageBox.Show("works");
-            TargetItems.Clear();
-            TargetItems.Add(e.Cursor.Data as DataItem);
-            //DefaultPanel.Items.Add(e.Cursor.Data as DataItem);
-
-            //DropTarget.Items.Add(e.Cursor.Data);
-
-            ScatterViewItem svi = DefaultPanel.ItemContainerGenerator.ContainerFromItem(e.Cursor.Data) as ScatterViewItem;
-            // svi.Orientation = e.Cursor.GetOrientation(this);
-            svi.Orientation = 0.0;
-            svi.Center = e.Cursor.GetPosition(this.DefaultPanel);
-            //svi.Center = new Point(300,0);
-            //svi.Width = 1320;
-            //svi.Height = 1050;
-            svi.Width = 820;
-            svi.Height = 650;
-        }
-         */
-
         private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
         {
             DataItem d = e.Cursor.Data as DataItem;
@@ -299,24 +270,6 @@ namespace se306p2
             DefaultPanel.UpdateLayout();
         }
 
-
-
-
-
-        private void OnDragCompleted(object sender, SurfaceDragCompletedEventArgs e)
-        {
-            // If the operation is Move, remove the data from drag source.
-            // if (e.Cursor.Effects == DragDropEffects.Move)
-            // {
-            //   LeftItems.Remove(e.Cursor.Data as DataItem);
-            //}
-        }
-
-
-        private void BaseInfo_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
     public class DataItem
@@ -348,7 +301,7 @@ namespace se306p2
         }
 
         public DataItem(string name, bool canDrop)
-            : this(name, canDrop, new BasicPage())
+            : this(name, canDrop, new ExamplePage())
         {
         }
 
@@ -357,22 +310,4 @@ namespace se306p2
             return name;
         }
     }
-
-    /*public class ScatterViewDataTemplateSelector : DataTemplateSelector
-    {
-        public override DataTemplate SelectTemplate(object item, DependencyObject container)
-        {
-            FrameworkElement element = container as FrameworkElement;
-            return element.FindResource("ScatterViewItemDataTemplate") as DataTemplate;
-            if (element != null && item != null)
-            {
-                DataItem dItem = (DataItem)item;
-                if (dItem.Name == "General")
-                    return element.FindResource("ScatterViewItemDataTemplate2") as DataTemplate;
-                else if (dItem.Name == "Location")
-                    return element.FindResource("ScatterViewItemDataTemplate") as DataTemplate;
-            }
-            return null;
-        }
-    }*/
 }

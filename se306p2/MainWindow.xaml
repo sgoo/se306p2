@@ -11,7 +11,6 @@
 				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
-
 		<DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
 			<StackPanel Height="120"
 						Width="190"
@@ -20,17 +19,11 @@
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   FontSize="20" />
-
 			</StackPanel>
 		</DataTemplate>
-
 		<DataTemplate x:Key="ScatterViewItemDataTemplate">
-
-            <ContentControl Content="{Binding PageControl}" />
-            
-        </DataTemplate>
-
-
+			<ContentControl Content="{Binding PageControl}" />
+		</DataTemplate>
 		<Style x:Key="CursorStyle"
 			   TargetType="{x:Type ContentControl}">
 			<Setter Property="ContentTemplate"
@@ -46,8 +39,7 @@
 								BorderBrush="{TemplateBinding BorderBrush}">
 							<ContentPresenter Margin="0"
 											  Content="{TemplateBinding Content}"
-											  ContentTemplate="{TemplateBinding ContentTemplate}">
-							</ContentPresenter>
+											  ContentTemplate="{TemplateBinding ContentTemplate}"></ContentPresenter>
 						</Border>
 					</ControlTemplate>
 				</Setter.Value>
@@ -65,69 +57,51 @@
 				</Trigger>
 			</Style.Triggers>
 		</Style>
-
 	</s:SurfaceWindow.Resources>
-
 	<s:SurfaceScrollViewer Margin="0,0,0,0">
 		<Grid Width="1920"
 			  Height="1050"
 			  Name="MainWindowGrid">
 			<Grid.RowDefinitions>
 				<RowDefinition />
-				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="300" />
 				<ColumnDefinition />
-				<ColumnDefinition />
 				<ColumnDefinition Width="300" />
 			</Grid.ColumnDefinitions>
 			<s:SurfaceListBox Name="LeftScatterBar"
-							  Grid.Row="0"
 							  Grid.Column="0"
-							  Grid.RowSpan="2"
 							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  Background="Aqua"
-							  s:SurfaceDragDrop.DragCompleted="OnDragCompleted">
-
-			</s:SurfaceListBox>
+							  Background="#4F2D7F" />
+			<Grid Name="DefaultPanel"
+				  Grid.Column="1"
+				  AllowDrop="True"
+				  s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
+				  s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
+				  s:SurfaceDragDrop.Drop="OnDropTargetDrop"
+				  Background="Azure">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.5*" />
+					<ColumnDefinition Width="0.5*" />
+				</Grid.ColumnDefinitions>
+			</Grid>
 			<s:SurfaceListBox Name="RightScatterBar"
-							  Grid.Row="0"
-							  Grid.Column="3"
-							  Grid.RowSpan="2"
+							  Grid.Column="2"
 							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  s:SurfaceDragDrop.DragCompleted="OnDragCompleted"
-							  Background="Aqua">
-
-			</s:SurfaceListBox>
-			<Grid Name="DefaultPanel"
-                  
-						   Grid.Column="1"
-						   Grid.RowSpan="2"
-						   Grid.ColumnSpan="2"
-						   AllowDrop="True"
-						   Background="Azure"
-	
-						   s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
-						   s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
-						   s:SurfaceDragDrop.Drop="OnDropTargetDrop">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="0.5*" />
-                </Grid.ColumnDefinitions>
-            </Grid>
+							  Background="#4F2D7F" />
 		</Grid>
 	</s:SurfaceScrollViewer>
 </s:SurfaceWindow>

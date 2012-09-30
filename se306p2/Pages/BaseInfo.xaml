@@ -55,12 +55,11 @@
 		<Canvas Name="canvas"
 				Grid.Column="1"
 				Grid.Row="1">
-
-			<Image Grid.ColumnSpan="2"
+			<Image Name="myImage"
+				   Grid.ColumnSpan="2"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
-				   Source="C:/Users/Swadesh/Desktop/image0.jpg"
-				   x:Name="myImage"
+				   Source="/Resources/Ece0.jpg"
 				   OpacityMask="#FF6CBBA9"
 				   Canvas.Left="8"
 				   Canvas.Top="8"
@@ -110,7 +109,7 @@
 							  HorizontalAlignment="Center"
 							  VerticalAlignment="Center"
 							  UnloadedBehavior="Stop"
-							  Source="Resources\NandaanParindey.mp4"
+							  Source="/Resources/NandaanParindey.mp4"
 							  MediaEnded="_mediaElement_MediaEnded"
 							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 							  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
