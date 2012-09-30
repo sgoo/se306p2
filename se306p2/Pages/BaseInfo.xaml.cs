@@ -36,7 +36,8 @@ namespace se306p2 {
 		}
 
 		private void _mediaElement_MediaEnded(object sender, RoutedEventArgs e) {
-			_mediaElement.Stop();
+			_mediaElement.Position = TimeSpan.Zero;
+			_mediaElement.Play();
 		}
 		private void _mediaElement_PreviewTouchDown(object sender, InputEventArgs e) {
 			if (_mediaElement.Tag.ToString() == "pause") {

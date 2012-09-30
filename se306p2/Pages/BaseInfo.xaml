@@ -6,8 +6,8 @@
 			 xmlns:s="http://schemas.microsoft.com/surface/2008"
 			 Loaded="Window_Loaded"
 			 mc:Ignorable="d"
-			 d:DesignHeight="300"
-			 d:DesignWidth="300"
+			 d:DesignHeight="1080"
+			 d:DesignWidth="1350"
 			 Background="Black">
 
 	<Grid>
