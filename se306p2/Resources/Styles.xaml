@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <!-- 
+    Hold common styles for our application.
+    Eg:  For buttons, text, headings etc
+    -->
+    
+    <!-- Titles-->
+    <Style TargetType="TextBlock" x:Key="Title">
+        <Setter Property="FontFamily" Value="Comic Sans MS" />
+        <Setter Property="FontSize" Value="48" />
+        <Setter Property="FontStyle" Value="Normal" />
+    </Style>
+
+    <!-- Ordinary Text-->
+    <Style TargetType="TextBlock" x:Key="NormalText">
+        <Setter Property="FontFamily" Value="Comic Sans MS" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+    </Style>
+
+    <!-- Page Backgrounds-->
+    <Style TargetType="Grid">
+        <Setter Property="Background"  Value="White" />
+    </Style>
+
+    <!-- Images -->
+    <Style TargetType="Image">
+        <!-- TODO -->
+    </Style>
+
+    <!-- Videos-->
+    <Style TargetType="MediaElement">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="UnloadedBehavior" Value="Stop" />
+
+        <!-- TODO:  Other properties. -->
+    </Style>
+</ResourceDictionary>

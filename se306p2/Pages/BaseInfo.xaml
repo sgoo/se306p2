@@ -10,6 +10,7 @@
 			 d:DesignWidth="1350"
 			 Background="Black">
 	<Grid>
+        <!--
 		<Grid.Background>
 			<LinearGradientBrush EndPoint="0.5,1"
 								 StartPoint="0.5,0">
@@ -19,6 +20,7 @@
 							  Offset="1" />
 			</LinearGradientBrush>
 		</Grid.Background>
+        -->
 		<Grid.RowDefinitions>
 			<RowDefinition Height="0.15*" />
 			<RowDefinition Height="0.30*" />
@@ -38,7 +40,8 @@
 		<TextBlock Grid.Row="0"
 				   Grid.Column="0"
 				   Grid.ColumnSpan="6"
-				   Margin="20,10,10,20"
+				   
+                   Margin="20,10,10,20"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
 				   FontSize="53.333"
@@ -82,20 +85,22 @@
 			   VerticalAlignment="Stretch"
 			   MouseMove="Label3_MouseMove"
 			   TouchMove="Label3_MouseMove" />
-		<TextBlock Grid.Row="3"
+        <TextBlock Grid.Row="3"
 				   Grid.Column="1"
-				   Margin="-65,25,0,0"
-				   Grid.ColumnSpan="2"
-				   Padding="20"
+                   Grid.RowSpan="2"
+				   Grid.ColumnSpan="2">
+				   
+            <!--
+                   Margin="-65,25,0,0"
 				   TextWrapping="Wrap"
 				   TextAlignment="Justify"
+				   Padding="20"
 				   FontFamily="Georgia"
 				   FontSize="18.667"
 				   Foreground="White"
 				   Opacity="0.8"
 				   OpacityMask="Black"
-				   LineHeight="8"
-				   Grid.RowSpan="2">
+				   LineHeight="8">-->
 			<TextBlock.Background>
 				<LinearGradientBrush EndPoint="0.5,1"
 									 MappingMode="RelativeToBoundingBox"
@@ -123,9 +128,6 @@
 				<MediaElement Name="_mediaElement"
 							  Tag="pause"
 							  LoadedBehavior="Manual"
-							  HorizontalAlignment="Center"
-							  VerticalAlignment="Center"
-							  UnloadedBehavior="Stop"
 							  Source="Resources\sampleVid.mp4"
 							  MediaEnded="_mediaElement_MediaEnded"
 							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
