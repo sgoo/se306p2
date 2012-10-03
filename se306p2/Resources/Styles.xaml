@@ -11,6 +11,9 @@
         <Setter Property="FontFamily" Value="Comic Sans MS" />
         <Setter Property="FontSize" Value="48" />
         <Setter Property="FontStyle" Value="Normal" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="Black" />
     </Style>
 
     <!-- Ordinary Text-->
@@ -18,24 +21,29 @@
         <Setter Property="FontFamily" Value="Comic Sans MS" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="Foreground" Value="Black" />
     </Style>
 
     <!-- Page Backgrounds-->
-    <Style TargetType="Grid">
+    <Style TargetType="Grid" x:Key="PageBackground">
         <Setter Property="Background"  Value="White" />
     </Style>
 
     <!-- Images -->
-    <Style TargetType="Image">
+    <Style TargetType="Image" x:Key="Img">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        
         <!-- TODO -->
     </Style>
 
     <!-- Videos-->
-    <Style TargetType="MediaElement">
+    <Style TargetType="MediaElement" x:Key="Video">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="UnloadedBehavior" Value="Stop" />
 
         <!-- TODO:  Other properties. -->
     </Style>
+    
 </ResourceDictionary>

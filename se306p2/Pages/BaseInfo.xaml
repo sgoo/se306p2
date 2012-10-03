@@ -9,7 +9,14 @@
 			 d:DesignHeight="1080"
 			 d:DesignWidth="1350"
 			 Background="Black">
-	<Grid>
+
+    <!-- Include styles dictionary -->
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml" />
+    </UserControl.Resources>
+
+    <Grid
+        Style="{StaticResource PageBackground}">
         <!--
 		<Grid.Background>
 			<LinearGradientBrush EndPoint="0.5,1"
@@ -21,41 +28,42 @@
 			</LinearGradientBrush>
 		</Grid.Background>
         -->
-		<Grid.RowDefinitions>
-			<RowDefinition Height="0.15*" />
-			<RowDefinition Height="0.30*" />
-			<RowDefinition Height="0.05*" />
-			<RowDefinition Height="0.40*" />
-			<RowDefinition Height="0.10*" />
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.20*" />
-			<ColumnDefinition Width="0.15*" />
-			<ColumnDefinition Width="0.15*" />
-			<ColumnDefinition Width="0.15*" />
-			<ColumnDefinition Width="0.15*" />
-			<ColumnDefinition Width="0.20*" />
-		</Grid.ColumnDefinitions>
-		<!-- Title -->
-		<TextBlock Grid.Row="0"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.15*" />
+            <RowDefinition Height="0.30*" />
+            <RowDefinition Height="0.05*" />
+            <RowDefinition Height="0.40*" />
+            <RowDefinition Height="0.10*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.20*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.15*" />
+            <ColumnDefinition Width="0.20*" />
+        </Grid.ColumnDefinitions>
+        <!-- Title -->
+        <TextBlock 
+            Style="{StaticResource Title}"
+            Grid.Row="0"
 				   Grid.Column="0"
 				   Grid.ColumnSpan="6"
 				   
                    Margin="20,10,10,20"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
-				   FontSize="53.333"
-				   Foreground="White"
-				   Background="{x:Null}"
-				   FontFamily="/se306p2;component/Fonts/#Tahoma"
-				   FontWeight="Bold"
-				   TextAlignment="Center">
+				   Background="{x:Null}">
+            
+				   <!--FontFamily="/se306p2;component/Fonts/#Tahoma">-->
 			Department of Electrical and Computer Engineering</TextBlock>
-		<Canvas Name="canvas"
+        <Canvas Name="canvas"
 				Grid.Column="1"
 				Grid.Row="1"
 				Margin="20,0,0,0">
-			<Image Grid.ColumnSpan="4"
+            <Image 
+                Style="{StaticResource Img}"   
+                Grid.ColumnSpan="4"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
 				   x:Name="myImage"
@@ -63,29 +71,31 @@
 				   Canvas.Left="8"
 				   Canvas.Top="8"
 				   Margin="5" />
-		</Canvas>
-		<Label Grid.Row="1"
+        </Canvas>
+        <Label Grid.Row="1"
 			   Grid.Column="1"
 			   Grid.ColumnSpan="1"
 			   HorizontalAlignment="Stretch"
 			   VerticalAlignment="Stretch"
 			   MouseMove="Label_MouseMove"
 			   TouchMove="Label_MouseMove" />
-		<Label Grid.Row="1"
+        <Label Grid.Row="1"
 			   Grid.Column="2"
 			   Grid.ColumnSpan="1"
 			   HorizontalAlignment="Stretch"
 			   VerticalAlignment="Stretch"
 			   MouseMove="Label2_MouseMove"
 			   TouchMove="Label2_MouseMove" />
-		<Label Grid.Row="1"
+        <Label Grid.Row="1"
 			   Grid.Column="3"
 			   Grid.ColumnSpan="2"
 			   HorizontalAlignment="Stretch"
 			   VerticalAlignment="Stretch"
 			   MouseMove="Label3_MouseMove"
 			   TouchMove="Label3_MouseMove" />
-        <TextBlock Grid.Row="3"
+        <TextBlock 
+            Style="{StaticResource NormalText}"
+            Grid.Row="3"
 				   Grid.Column="1"
                    Grid.RowSpan="2"
 				   Grid.ColumnSpan="2">
@@ -101,6 +111,7 @@
 				   Opacity="0.8"
 				   OpacityMask="Black"
 				   LineHeight="8">-->
+            <!--
 			<TextBlock.Background>
 				<LinearGradientBrush EndPoint="0.5,1"
 									 MappingMode="RelativeToBoundingBox"
@@ -111,8 +122,10 @@
 					<GradientStop Color="#FF050203"
 								  Offset="0.73" />
 				</LinearGradientBrush>
-			</TextBlock.Background><Run Text="Department of Electrical and Computer Engineering is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this. The work of engineers often enable us to enjoy longer, healthier, more comfortable and fulfilling lives. We invite you to become part of engineering's future legacy by studying at the Faculty of Engineering.  Its an experience that you must experience." /></TextBlock>
-		<s:ScatterViewItem Name="_videoItem"
+			</TextBlock.Background>
+                -->
+                <Run Text="Department of Electrical and Computer Engineering is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this. The work of engineers often enable us to enjoy longer, healthier, more comfortable and fulfilling lives. We invite you to become part of engineering's future legacy by studying at the Faculty of Engineering.  Its an experience that you must experience." /></TextBlock>
+        <s:ScatterViewItem Name="_videoItem"
 						   Grid.Row="3"
 						   Grid.Column="3"
 						   Grid.ColumnSpan="3"
@@ -120,19 +133,21 @@
 						   Margin="175,25,135,12"
 						   Opacity="0.9"
 						   Grid.RowSpan="2">
-			<s:ScatterViewItem.Background>
-				<SolidColorBrush Color="#FF686273"
+            <s:ScatterViewItem.Background>
+                <SolidColorBrush Color="#FF686273"
 								 Opacity="0.95" />
-			</s:ScatterViewItem.Background>
-			<Viewbox>
-				<MediaElement Name="_mediaElement"
-							  Tag="pause"
-							  LoadedBehavior="Manual"
-							  Source="Resources\sampleVid.mp4"
-							  MediaEnded="_mediaElement_MediaEnded"
-							  PreviewTouchDown="_mediaElement_PreviewTouchDown"
-							  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
-			</Viewbox>
-		</s:ScatterViewItem>
-	</Grid>
+            </s:ScatterViewItem.Background>
+            <Viewbox>
+                <MediaElement 
+                    Style="{StaticResource Video}"
+                    Name="_mediaElement"
+					Tag="pause"
+					LoadedBehavior="Manual"
+                    Source="../Resources/sampleVid.mp4"
+					MediaEnded="_mediaElement_MediaEnded"
+					PreviewTouchDown="_mediaElement_PreviewTouchDown"
+					PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown" />
+            </Viewbox>
+        </s:ScatterViewItem>
+    </Grid>
 </UserControl>

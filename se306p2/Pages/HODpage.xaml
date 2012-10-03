@@ -8,15 +8,15 @@
     mc:Ignorable="d"
     d:DesignHeight="469"
     d:DesignWidth="1226">
-    
+
     <!-- Include styles dictionary -->
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
-    
+
     <Grid
-        Margin="20"
-        Background="White">
+        Style="{StaticResource PageBackground}"
+        Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition
                 Height="0.1*" />
@@ -28,17 +28,19 @@
                 Width="0.5*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label
+        <TextBlock
+            Style="{StaticResource Title}"
             Grid.Row="0"
             Grid.ColumnSpan="2"
-            Foreground="Black"
-            FontSize="29.333"
-            HorizontalContentAlignment="Center">HOD Welcome Page</Label>
+            Foreground="Black">
+            HOD Welcome Page
+        </TextBlock>
         <Image
+            Style="{StaticResource Img}"
             Grid.Row="1"
             Grid.Column="0"
-            Stretch="Fill"
-            Source="/Resources/Zoran-salcic.JPG"></Image>
+            Source="/Resources/Zoran-salcic.JPG">
+        </Image>
         <TextBlock
             Style="{StaticResource NormalText}"
             Grid.Row="1"

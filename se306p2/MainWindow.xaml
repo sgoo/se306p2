@@ -18,7 +18,7 @@
         
 
         <DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
-            <StackPanel Height="120" Width="190" Background="Gray">
+            <StackPanel Height="120" Width="190" Background="Yellow">
                 <Label Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
             </StackPanel>
         </DataTemplate>
