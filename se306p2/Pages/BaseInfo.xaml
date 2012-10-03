@@ -43,17 +43,15 @@
             <ColumnDefinition Width="0.15*" />
             <ColumnDefinition Width="0.20*" />
         </Grid.ColumnDefinitions>
+
         <!-- Title -->
         <TextBlock 
             Style="{StaticResource Title}"
             Grid.Row="0"
-				   Grid.Column="0"
-				   Grid.ColumnSpan="6"
-				   
-                   Margin="20,10,10,20"
-				   HorizontalAlignment="Stretch"
-				   VerticalAlignment="Stretch"
-				   Background="{x:Null}">
+			Grid.Column="0"
+			Grid.ColumnSpan="6"
+			HorizontalAlignment="Stretch"
+			Background="{x:Null}">
             
 				   <!--FontFamily="/se306p2;component/Fonts/#Tahoma">-->
 			Department of Electrical and Computer Engineering</TextBlock>

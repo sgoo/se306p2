@@ -4,24 +4,34 @@
     <!-- 
     Hold common styles for our application.
     Eg:  For buttons, text, headings etc
+    
+    To use, add the following to your element:
+    Style="{StaticResource StyleKey}"
+    Eg:  Style="{StaticResource Title}"
+    
+    You can override style properties by simply defining
+    them after you've included the style.
     -->
     
     <!-- Titles-->
     <Style TargetType="TextBlock" x:Key="Title">
-        <Setter Property="FontFamily" Value="Comic Sans MS" />
+        <Setter Property="FontFamily" Value="Constantia" />
         <Setter Property="FontSize" Value="48" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Margin" Value="20px" />
     </Style>
 
     <!-- Ordinary Text-->
     <Style TargetType="TextBlock" x:Key="NormalText">
-        <Setter Property="FontFamily" Value="Comic Sans MS" />
+        <Setter Property="FontFamily" Value="Constantia" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Margin" Value="20px" />
     </Style>
 
     <!-- Page Backgrounds-->
@@ -33,6 +43,7 @@
     <Style TargetType="Image" x:Key="Img">
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="20px" />
         
         <!-- TODO -->
     </Style>
@@ -42,6 +53,7 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="UnloadedBehavior" Value="Stop" />
+        <Setter Property="Margin" Value="20px" />
 
         <!-- TODO:  Other properties. -->
     </Style>
