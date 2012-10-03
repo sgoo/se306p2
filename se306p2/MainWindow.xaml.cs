@@ -73,7 +73,7 @@ namespace se306p2
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
             LeftItems.Add(new DataItem("General", false));
             LeftItems.Add(new DataItem("Location", false));
-            LeftItems.Add(new DataItem("blah", false));
+            LeftItems.Add(new DataItem("Advisors", true, new Advisors()));
 
             RightItems.Add(new DataItem("SE 1", false));
             RightItems.Add(new DataItem("SE 2", false));
