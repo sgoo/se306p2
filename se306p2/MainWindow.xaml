@@ -18,17 +18,26 @@
         
 
         <DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
-            <StackPanel Height="120" Width="190" Background="Yellow">
-                <Label Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+            <StackPanel Height="120" Width="190" Background= "Crimson" VerticalAlignment="Stretch" HorizontalAlignment="Center" >
+                <Label Content="{Binding Name}" VerticalAlignment="Stretch" HorizontalAlignment="Center" FontSize="20" />
             </StackPanel>
         </DataTemplate>
+
+        <DataTemplate x:Key="SurfaceListBoxItemDataTemplateR">
+            <StackPanel Height="120" Width="190" Background= "#0B9246" VerticalAlignment="Bottom" HorizontalAlignment="Center" >
+                <Label Content="{Binding Name}" VerticalAlignment="Bottom"  HorizontalAlignment="Center" FontSize="20" />
+            </StackPanel>
+        </DataTemplate>
+
         <DataTemplate x:Key="ScatterViewItemDataTemplate">
             <ContentControl Content="{Binding PageControl}" />
         </DataTemplate>
+        
         <Style x:Key="CursorStyle" TargetType="{x:Type ContentControl}">
             <Setter Property="ContentTemplate" Value="{StaticResource SurfaceListBoxItemDataTemplate}" />
             <Setter Property="BorderThickness" Value="9" />
-            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent1BrushKey}}" />
+            <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent1BrushKey}}" />-->
+            <Setter Property="BorderBrush" Value="#583189"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ContentControl}">
@@ -40,14 +49,15 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="Tag" Value="CanDrop">
-                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent4BrushKey}}" />
+                    <Setter Property="BorderBrush" Value="#583189" />
                 </Trigger>
                 <Trigger Property="Tag" Value="CannotDrop">
-                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static s:SurfaceColors.Accent3BrushKey}}" />
+                    <Setter Property="BorderBrush" Value="#583189" />
                 </Trigger>
             </Style.Triggers>
         </Style>
     </s:SurfaceWindow.Resources>
+    
     <s:SurfaceScrollViewer Margin="0,0,0,0">
         <Grid Width="1920" Height="1050" Name="MainWindowGrid">
             <Grid.RowDefinitions>
@@ -58,7 +68,8 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
-            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#4F2D7F" />
+            
+            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
             <Grid Name="DefaultPanel" Grid.Column="1" AllowDrop="True" s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter" s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave" s:SurfaceDragDrop.Drop="OnDropTargetDrop" Background="Azure">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -69,7 +80,7 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
             </Grid>
-            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#4F2D7F" />
+            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
         </Grid>
     </s:SurfaceScrollViewer>
 </s:SurfaceWindow>
