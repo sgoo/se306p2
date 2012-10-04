@@ -69,7 +69,7 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            LeftItems.Add(new DataItem("Base Info", true, new BaseInfo()));
+            LeftItems.Add(new DataItem("Base Info", true, new CourseSE()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
             LeftItems.Add(new DataItem("General", false));
             LeftItems.Add(new DataItem("Location", false));

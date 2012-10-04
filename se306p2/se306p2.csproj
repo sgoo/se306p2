@@ -60,7 +60,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\CourseSE.xaml.cs">
+      <DependentUpon>CourseSE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
+    <Page Include="Pages\CourseSE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
