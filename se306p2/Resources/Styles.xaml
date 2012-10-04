@@ -37,6 +37,7 @@
     <!-- Page Backgrounds-->
     <Style TargetType="Grid" x:Key="PageBackground">
         <Setter Property="Background"  Value="White" />
+        <!-- <Setter Property="Opacity"  Value="0.5" /> -->
     </Style>
 
     <!-- Images -->
@@ -46,6 +47,10 @@
         <Setter Property="Margin" Value="20px" />
         
         <!-- TODO -->
+    </Style>
+    <DropShadowEffect x:Key="ImgDropShadow" BlurRadius="50" ShadowDepth="0" />
+    <Style TargetType="Border" x:Key="ImgBorder">
+        <Setter Property="Effect" Value="{StaticResource ImgDropShadow}" />
     </Style>
 
     <!-- Videos-->

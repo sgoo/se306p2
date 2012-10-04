@@ -38,14 +38,9 @@
 
         <!-- Image -->
         <Border
+            Style="{StaticResource ImgBorder}"
             Grid.Row="1"
             Grid.Column="0">
-            <Border.Effect>
-                <DropShadowEffect 
-                    ShadowDepth="0"
-                    BlurRadius="20"/>
-            </Border.Effect>
-
             <Image
                 Style="{StaticResource Img}"
                 Source="/Resources/Zoran-salcic.JPG">
