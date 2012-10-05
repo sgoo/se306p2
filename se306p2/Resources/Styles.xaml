@@ -76,15 +76,18 @@
     <Storyboard x:Key="SlideLeftToOrigin">
         <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
     </Storyboard>
-
-
     <Storyboard x:Key="FadeIn">
         <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:0.8" />
     </Storyboard>
-
-
     <Storyboard x:Key="FadeOut">
         <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.8" />
     </Storyboard>
+    <ImageBrush x:Key="BackgroundSE" ImageSource="../Resources/background_se.jpg"/>
+    
+    <DataTemplate x:Key="CourseButtonTemplate">
+        <TextBlock Text="{Binding XPath=Name}" />
+    </DataTemplate>
+
+
 
 </ResourceDictionary>

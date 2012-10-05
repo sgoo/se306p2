@@ -22,6 +22,7 @@
                 <Label Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
             </StackPanel>
         </DataTemplate>
+
         <DataTemplate x:Key="ScatterViewItemDataTemplate">
             <ContentControl Content="{Binding PageControl}" />
         </DataTemplate>

@@ -52,6 +52,55 @@ namespace se306p2
             subs.Add(_sub1);
             subs.Add(_sub2);
             subs.Add(_sub3);
+
+
+            Binding b = new Binding();
+
+            b.XPath = "Name";
+
+            DataTemplate dt = (DataTemplate)(this.FindResource("CourseButtonTemplate"));
+
+            dt.VisualTree.SetBinding(TextBlock.TextProperty, b);
+
+
+
+
+
+            // http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/a7cbaada-b7f2-43f4-a2b3-a672f5b8b12e/
+
+
+
+            /*
+            XmlDataProvider xdata = new XmlDataProvider();
+            xdata.XPath = "//Course";
+            xdata.IsAsynchronous = false;
+            xdata.Source = new Uri("../Resources/XML/course_se.xml", UriKind.Relative);
+
+
+            FrameworkElementFactory txt = new FrameworkElementFactory(typeof(TextBlock));
+
+            Binding b = new Binding();
+            b.XPath="Name";
+            txt.SetBinding(TextBlock.TextProperty,b);
+            
+            DataTemplate dt = new DataTemplate();
+            dt.VisualTree = txt;
+            ListBox list1 = new ListBox();
+            list1.ItemsSource = xdata.Data as IEnumerable;
+            list1.ItemTemplate = dt;
+            this.Content = list1;
+            */
+
+
+
+
+            /*
+            Binding b = new Binding();
+            b.XPath = "";
+            DataTemplate dt = (DataTemplate)(this.FindResource("CouseButtonTemplate"));
+            dt.VisualTree.SetBinding(TextBlock.TextProperty, b);
+            */
+
         }
 
         private void PreviousButton(object sender, RoutedEventArgs e)
@@ -183,4 +232,5 @@ namespace se306p2
         }
 
     }
+
 }

@@ -7,14 +7,16 @@
     xmlns:s="http://schemas.microsoft.com/surface/2008"
     mc:Ignorable="d"
     d:DesignHeight="1080"
-    d:DesignWidth="1350">
+    d:DesignWidth="1350" Loaded="UserControl_Loaded">
 
     <!-- Include styles dictionary -->
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
 
-    <Grid Style="{StaticResource PageBackground}">
+
+
+    <Grid Background="{StaticResource BackgroundSE}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*" />
             <RowDefinition Height="0.1*" />
@@ -26,6 +28,10 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
+        
+        
+        
+        
         <!-- Title -->
         <TextBlock
             Style="{StaticResource Title}"
@@ -38,8 +44,9 @@
                 MouseDown="_touchGrid_TouchDown"  
                 MouseUp="_touchGrid_TouchUp"
                 MouseMove="_touchGrid_TouchMove"
+                Background="Transparent"
               >
-            <Grid Name="_sub1" Background="White" Visibility="Visible">
+            <Grid Name="_sub1" Background="Transparent" Visibility="Visible" >
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -52,9 +59,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 2                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage II                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
-            <Grid Name="_sub2" Background="AliceBlue" Visibility="Collapsed">
+            <Grid Name="_sub2" Background="Transparent" Visibility="Collapsed">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -67,9 +74,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 3                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage III                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
-            <Grid Name="_sub3" Background="LightGray" Visibility="Collapsed">
+            <Grid Name="_sub3" Background="Transparent" Visibility="Collapsed">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -82,13 +89,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 4                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Postgraduate 700 Level Courses                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
         </Grid>
         
         <Grid Grid.Row="2" Grid.ColumnSpan="2" Name="_mainArea">
                 
-            <Grid Name="_page1" Background="White" Visibility="Visible">
+            <Grid Name="_page1" Background="Transparent" Visibility="Visible">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -97,13 +104,28 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </Grid.RenderTransform>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.2*" />
+                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.2*" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Page for Stage 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                
+                <TextBlock Grid.ColumnSpan="5" Text="Text to display here" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                
+                
+                
             </Grid>
-            <Grid Name="_page2" Background="AliceBlue" Visibility="Collapsed">
+            <Grid Name="_page2" Background="Transparent" Visibility="Collapsed">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -118,7 +140,7 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Page for Stage 3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
-            <Grid Name="_page3" Background="LightGray" Visibility="Collapsed">
+            <Grid Name="_page3" Background="Transparent" Visibility="Collapsed">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
