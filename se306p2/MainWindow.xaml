@@ -48,7 +48,7 @@
             </Style.Triggers>
         </Style>
     </s:SurfaceWindow.Resources>
-    <s:SurfaceScrollViewer Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0">
         <!--<Grid Width="1920" Height="1050" Name="MainWindowGrid">-->
         <Grid Name="MainWindowGrid">
             <Grid.RowDefinitions>
@@ -59,7 +59,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="300" />
             </Grid.ColumnDefinitions>
-            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#4F2D7F" />
+            
             <Grid Name="DefaultPanel" Grid.Column="1" AllowDrop="True" s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter" s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave" s:SurfaceDragDrop.Drop="OnDropTargetDrop" Background="Azure">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -70,7 +70,8 @@
                     <ColumnDefinition Width="0.5*" />
                 </Grid.ColumnDefinitions>
             </Grid>
+            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#4F2D7F" />
             <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#4F2D7F" />
         </Grid>
-    </s:SurfaceScrollViewer>
+    </Grid>
 </s:SurfaceWindow>

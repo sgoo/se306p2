@@ -5,7 +5,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:s="http://schemas.microsoft.com/surface/2008"
-    xmlns:local="clr-namespace:se306p2"
     mc:Ignorable="d"
     d:DesignHeight="1080"
     d:DesignWidth="1350">
@@ -15,11 +14,10 @@
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
 
-    <Grid
-        Style="{StaticResource PageBackground}">
+    <Grid Style="{StaticResource PageBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.2*" />
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.1*" />
             <RowDefinition Height="0.7*" />
         </Grid.RowDefinitions>
         
@@ -36,33 +34,104 @@
             Software Engineering Courses
         </TextBlock>
 
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Foreground="White" Text="Slide in/out:" VerticalAlignment="Center"/>
-                <s:SurfaceButton Content="previous" Click="PreviousButton"/>
-                <s:SurfaceButton Content="next" Click="NextButton"/>
-            </StackPanel>
-        </StackPanel>
-        <Grid Grid.Row="2" Grid.ColumnSpan="2" Name="_touchGrid"
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Name="_touchGrid"
                 MouseDown="_touchGrid_TouchDown"  
                 MouseUp="_touchGrid_TouchUp"
-                MouseMove="_touchGrid_TouchMove">
-                
-            <Grid Name="_page1" Background="White" Visibility="Visible">
+                MouseMove="_touchGrid_TouchMove"
+              >
+            <Grid Name="_sub1" Background="White" Visibility="Visible">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="SOFTEARE ENGINEERING" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 2                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+            </Grid>
+            <Grid Name="_sub2" Background="AliceBlue" Visibility="Collapsed">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 3                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+            </Grid>
+            <Grid Name="_sub3" Background="LightGray" Visibility="Collapsed">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="&lt;                                        Stage 4                                        >" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" Name="_mainArea">
+                
+            <Grid Name="_page1" Background="White" Visibility="Visible">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Page for Stage 2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
             <Grid Name="_page2" Background="AliceBlue" Visibility="Collapsed">
-                <s:ScatterView>
-                    <Label Width="200" Height="100" Content="Touch"/>
-                </s:ScatterView>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Page for Stage 3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
             <Grid Name="_page3" Background="LightGray" Visibility="Collapsed">
-                <Canvas>
-                </Canvas>
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Text="Page for Stage 4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Foreground="Purple"/>
             </Grid>
         </Grid>
 
