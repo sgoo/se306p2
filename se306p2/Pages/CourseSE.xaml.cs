@@ -54,15 +54,6 @@ namespace se306p2
             subs.Add(_sub3);
 
 
-            Binding b = new Binding();
-
-            b.XPath = "Name";
-
-            DataTemplate dt = (DataTemplate)(this.FindResource("CourseButtonTemplate"));
-
-            dt.VisualTree.SetBinding(TextBlock.TextProperty, b);
-
-
 
 
 

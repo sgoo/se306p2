@@ -211,11 +211,13 @@
     </Resource>
     <Resource Include="Resources\background_cse.jpg" />
     <Resource Include="Resources\background_eee.jpg" />
+    <Resource Include="Resources\course_button.png" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\background_se.jpg" />
     <Resource Include="Resources\XML\courses_se.xml" />
+    <Resource Include="Resources\XML\test.xml" />
     <Content Include="se306p2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
