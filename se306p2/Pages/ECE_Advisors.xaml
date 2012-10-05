@@ -5,7 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:my="http://schemas.microsoft.com/surface/2008">
-    <Grid>
+
+    <!-- Include styles dictionary -->
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml" />
+    </UserControl.Resources>
+
+    <Grid Background="Bisque">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -15,15 +21,38 @@
             <ColumnDefinition></ColumnDefinition>
             
         </Grid.ColumnDefinitions>
-        
-        <Label Grid.Row="0"
-               Grid.ColumnSpan="2">
+
+        <!-- Title -->
+        <TextBlock
+            Style="{StaticResource Title}"
+            Grid.Row="0"
+            Grid.ColumnSpan="2">
             Course Advisors
-        </Label>
-        <TextBlock Grid.Row="1">
-            The course advisor information goes here.
         </TextBlock>
         
+        <TextBlock
+            Style="{StaticResource NormalText}"
+            Grid.Row="1"
+            Width="1080"
+            x:Name="tbMultiLine">
+            <Run
+                Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications. " /><LineBreak /><Run /><LineBreak /><Run
+                Text="All modern systems used in everyday's private or business life, such as mobile phones, vehicles, home and building automation or industrial control systems, will not exist if there are not electrical, computer and software engineers. " /><LineBreak /><Run /><LineBreak /><Run
+                Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run
+                FontWeight="Bold"
+                Text="Professor Zoran Salcic Head of the Department" />
+        </TextBlock>
+        <!--
+        <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
+        </my:LibraryStack> -->
+        <my:LibraryStack Name="MainLibraryStack" Grid.Row="2" Background="Gold">
+            <my:LibraryStack.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}"/>
+                </DataTemplate>
+            </my:LibraryStack.ItemTemplate>
+            
+        </my:LibraryStack>
     </Grid>
     
 </UserControl>

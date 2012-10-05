@@ -227,6 +227,10 @@ namespace se306p2
         {
             DataItem data = e.Cursor.Data as DataItem;
 
+            //added to stop advisors drag from crashing program
+            if (data == null)
+                return;
+
             if (!data.CanDrop)
             {
                 e.Effects = DragDropEffects.None;
