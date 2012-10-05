@@ -31,6 +31,8 @@ namespace se306p2 {
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
+            DataContext = this;
+            _mediaElement.Pause();
 
             // Create an ObservableCollection, and add the items.
             // LibraryBar.ItemsSource should implement INotifyCollectionChanged
@@ -50,8 +52,26 @@ namespace se306p2 {
             defaultView.GroupDescriptions.Add(new PropertyGroupDescription("GroupName"));
         }
         #endregion
-		
 
+        private void _mediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            _mediaElement.Stop();
+        }
+        private void _mediaElement_PreviewTouchDown(object sender, InputEventArgs e)
+        {
+            if (_mediaElement.Tag.ToString() == "pause")
+            {
+                _mediaElement.Tag = "play";
+                _mediaElement.Play();
+                playButton.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else
+            {
+                _mediaElement.Pause();
+                _mediaElement.Tag = "pause";
+                playButton.Visibility = System.Windows.Visibility.Visible;
+             }
+        }
 	}
 
     #region DataThumbnailClass
@@ -94,6 +114,8 @@ namespace se306p2 {
         {
             get { return bitmap; }
         }
+
+
     }
     #endregion
 
