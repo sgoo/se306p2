@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="se306p2.Advisors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="1000"
+             d:DesignWidth="600"
+             xmlns:s="http://schemas.microsoft.com/surface/2008">
+    <Grid Background="BlanchedAlmond">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <s:LibraryStack Name="MainLibraryStack"
+                        AllowDrop="True"
+                        Grid.RowSpan="2"
+                        Grid.ColumnSpan="2"
+                        >
+            
+            <s:LibraryStack.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}" />
+                </DataTemplate>
+            </s:LibraryStack.ItemTemplate>
+        </s:LibraryStack>
+
+    </Grid>
+</UserControl>

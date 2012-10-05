@@ -63,8 +63,15 @@
     <Compile Include="Pages\Advisors.xaml.cs">
       <DependentUpon>Advisors.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ECE_Advisors.xaml.cs">
+      <DependentUpon>ECE_Advisors.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
     <Page Include="Pages\Advisors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ECE_Advisors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,14 +212,17 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Advisor\CS-Roop.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="Resources\Advisors\CS-Roop.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Advisor\EEE-Berber.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="Resources\Advisors\EEE-Berber.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Advisor\SE-Catherine.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="Resources\Advisors\SE-Catherine.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Advisors\sample.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
