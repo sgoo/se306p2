@@ -25,6 +25,7 @@ namespace se306p2 {
 
 		public BaseInfo() {
 			InitializeComponent();
+			MainWindow.window.BackgroundImage="asd";
 		}
 
         #region OnInitialized

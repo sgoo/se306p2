@@ -19,318 +19,288 @@ using System.Collections.ObjectModel;
 using se306p2.Pages;
 
 
-namespace se306p2
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : SurfaceWindow
-    {
+namespace se306p2 {
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : SurfaceWindow {
 
-        private ObservableCollection<DataItem> leftItems;
-        private ObservableCollection<DataItem> rightItems;
-        
+		public static MainWindow window;
 
-        /// <summary>
-        /// Items that bind with the drag source list box.
-        /// </summary>
-        public ObservableCollection<DataItem> LeftItems
-        {
-            get
-            {
-                if (leftItems == null)
-                {
-                    leftItems = new ObservableCollection<DataItem>();
-                }
+		private ObservableCollection<DataItem> leftItems;
+		private ObservableCollection<DataItem> rightItems;
 
-                return leftItems;
-            }
-        }
+		public String BackgroundImage {
 
-        /// <summary>
-        /// Items that bind with the drag source list box.
-        /// </summary>
-        public ObservableCollection<DataItem> RightItems
-        {
-            get
-            {
-                if (rightItems == null)
-                {
-                    rightItems = new ObservableCollection<DataItem>();
-                }
-
-                return rightItems;
-            }
-        }
+			get { return ""; }
+			set {
+				MainWindowGrid.Background = value;
+			}
+		}
 
 
+		/// <summary>
+		/// Items that bind with the drag source list box.
+		/// </summary>
+		public ObservableCollection<DataItem> LeftItems {
+			get {
+				if (leftItems == null) {
+					leftItems = new ObservableCollection<DataItem>();
+				}
+
+				return leftItems;
+			}
+		}
+
+		/// <summary>
+		/// Items that bind with the drag source list box.
+		/// </summary>
+		public ObservableCollection<DataItem> RightItems {
+			get {
+				if (rightItems == null) {
+					rightItems = new ObservableCollection<DataItem>();
+				}
+
+				return rightItems;
+			}
+		}
 
 
-        protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
-            DataContext = this;
-            LeftItems.Add(new DataItem("Home", true, new HomePage()));
-            LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
-            LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
-            LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
+
+
+		protected override void OnInitialized(EventArgs e) {
+			base.OnInitialized(e);
+			DataContext = this;
+			LeftItems.Add(new DataItem("Home", true, new HomePage()));
+			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
+			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
+			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
 
-            RightItems.Add(new DataItem("CSE Info", false,"#0b9246"));
-            RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
-            RightItems.Add(new DataItem("EEE Info", false,"#1e9ad5"));
-            RightItems.Add(new DataItem("EEE Courses", false,"#1e9ad5"));
-            RightItems.Add(new DataItem("SE Info", false,"#f6a220"));
+			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
+			RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
+			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
+			RightItems.Add(new DataItem("EEE Courses", false, "#1e9ad5"));
+			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
 			RightItems.Add(new DataItem("SE Courses", true, new CourseSE(), "#f6a220"));
-        }
+		}
 
 
-        /// <summary>
-        /// Default constructor.
-        /// </summary>
-        public MainWindow()
-        {
-            InitializeComponent();
+		/// <summary>
+		/// Default constructor.
+		/// </summary>
+		public MainWindow() {
+			window = this;
+			InitializeComponent();
 
-            // Add handlers for window availability events
-            AddWindowAvailabilityHandlers();
-        }
+			// Add handlers for window availability events
+			AddWindowAvailabilityHandlers();
+		}
 
-        /// <summary>
-        /// Occurs when the window is about to close. 
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
+		/// <summary>
+		/// Occurs when the window is about to close. 
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnClosed(EventArgs e) {
+			base.OnClosed(e);
 
-            // Remove handlers for window availability events
-            RemoveWindowAvailabilityHandlers();
-        }
+			// Remove handlers for window availability events
+			RemoveWindowAvailabilityHandlers();
+		}
 
-        /// <summary>
-        /// Adds handlers for window availability events.
-        /// </summary>
-        private void AddWindowAvailabilityHandlers()
-        {
-            // Subscribe to surface window availability events
-            ApplicationServices.WindowInteractive += OnWindowInteractive;
-            ApplicationServices.WindowNoninteractive += OnWindowNoninteractive;
-            ApplicationServices.WindowUnavailable += OnWindowUnavailable;
-        }
+		/// <summary>
+		/// Adds handlers for window availability events.
+		/// </summary>
+		private void AddWindowAvailabilityHandlers() {
+			// Subscribe to surface window availability events
+			ApplicationServices.WindowInteractive += OnWindowInteractive;
+			ApplicationServices.WindowNoninteractive += OnWindowNoninteractive;
+			ApplicationServices.WindowUnavailable += OnWindowUnavailable;
+		}
 
-        /// <summary>
-        /// Removes handlers for window availability events.
-        /// </summary>
-        private void RemoveWindowAvailabilityHandlers()
-        {
-            // Unsubscribe from surface window availability events
-            ApplicationServices.WindowInteractive -= OnWindowInteractive;
-            ApplicationServices.WindowNoninteractive -= OnWindowNoninteractive;
-            ApplicationServices.WindowUnavailable -= OnWindowUnavailable;
-        }
+		/// <summary>
+		/// Removes handlers for window availability events.
+		/// </summary>
+		private void RemoveWindowAvailabilityHandlers() {
+			// Unsubscribe from surface window availability events
+			ApplicationServices.WindowInteractive -= OnWindowInteractive;
+			ApplicationServices.WindowNoninteractive -= OnWindowNoninteractive;
+			ApplicationServices.WindowUnavailable -= OnWindowUnavailable;
+		}
 
-        /// <summary>
-        /// This is called when the user can interact with the application's window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowInteractive(object sender, EventArgs e)
-        {
-            //TODO: enable audio, animations here
-        }
+		/// <summary>
+		/// This is called when the user can interact with the application's window.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnWindowInteractive(object sender, EventArgs e) {
+			//TODO: enable audio, animations here
+		}
 
-        /// <summary>
-        /// This is called when the user can see but not interact with the application's window.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowNoninteractive(object sender, EventArgs e)
-        {
-            //TODO: Disable audio here if it is enabled
+		/// <summary>
+		/// This is called when the user can see but not interact with the application's window.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnWindowNoninteractive(object sender, EventArgs e) {
+			//TODO: Disable audio here if it is enabled
 
-            //TODO: optionally enable animations here
-        }
+			//TODO: optionally enable animations here
+		}
 
-        /// <summary>
-        /// This is called when the application's window is not visible or interactive.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnWindowUnavailable(object sender, EventArgs e)
-        {
-            //TODO: disable audio, animations here
-        }
+		/// <summary>
+		/// This is called when the application's window is not visible or interactive.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void OnWindowUnavailable(object sender, EventArgs e) {
+			//TODO: disable audio, animations here
+		}
 
-        private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e)
-        {
-            FrameworkElement findSource = e.OriginalSource as FrameworkElement;
-            SurfaceListBoxItem draggedElement = null;
+		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
+			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
+			SurfaceListBoxItem draggedElement = null;
 
-            // Find the touched SurfaceListBoxItem object.
-            while (draggedElement == null && findSource != null)
-            {
-                if ((draggedElement = findSource as SurfaceListBoxItem) == null)
-                {
-                    findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
-                }
-            }
+			// Find the touched SurfaceListBoxItem object.
+			while (draggedElement == null && findSource != null) {
+				if ((draggedElement = findSource as SurfaceListBoxItem) == null) {
+					findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+				}
+			}
 
-            if (draggedElement == null)
-            {
-                return;
-            }
+			if (draggedElement == null) {
+				return;
+			}
 
-            // Create the cursor visual.
-            ContentControl cursorVisual = new ContentControl()
-            {
-                Content = draggedElement.DataContext,
-                Style = FindResource("CursorStyle") as Style
-            };
+			// Create the cursor visual.
+			ContentControl cursorVisual = new ContentControl() {
+				Content = draggedElement.DataContext,
+				Style = FindResource("CursorStyle") as Style
+			};
 
-            // Add a handler. This will enable the application to change the visual cues.
-            SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
+			// Add a handler. This will enable the application to change the visual cues.
+			SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
 
-            // Create a list of input devices. Add the touches that
-            // are currently captured within the dragged element and
-            // the current touch (if it isn't already in the list).
-            List<InputDevice> devices = new List<InputDevice>();
-            devices.Add(e.Device);
-            foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin)
-            {
-                if (touch != e.Device)
-                {
-                    devices.Add(touch);
-                }
-            }
+			// Create a list of input devices. Add the touches that
+			// are currently captured within the dragged element and
+			// the current touch (if it isn't already in the list).
+			List<InputDevice> devices = new List<InputDevice>();
+			devices.Add(e.Device);
+			foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin) {
+				if (touch != e.Device) {
+					devices.Add(touch);
+				}
+			}
 
-            // Get the drag source object
-            ItemsControl dragSource = ItemsControl.ItemsControlFromItemContainer(draggedElement);
+			// Get the drag source object
+			ItemsControl dragSource = ItemsControl.ItemsControlFromItemContainer(draggedElement);
 
-            SurfaceDragCursor startDragOkay =
-                SurfaceDragDrop.BeginDragDrop(
-                  dragSource,                 // The SurfaceListBox object that the cursor is dragged out from.
-                  draggedElement,             // The SurfaceListBoxItem object that is dragged from the drag source.
-                  cursorVisual,               // The visual element of the cursor.
-                  draggedElement.DataContext, // The data associated with the cursor.
-                  devices,                    // The input devices that start dragging the cursor.
-                  DragDropEffects.Move);      // The allowed drag-and-drop effects of the operation.
+			SurfaceDragCursor startDragOkay =
+				SurfaceDragDrop.BeginDragDrop(
+				  dragSource,                 // The SurfaceListBox object that the cursor is dragged out from.
+				  draggedElement,             // The SurfaceListBoxItem object that is dragged from the drag source.
+				  cursorVisual,               // The visual element of the cursor.
+				  draggedElement.DataContext, // The data associated with the cursor.
+				  devices,                    // The input devices that start dragging the cursor.
+				  DragDropEffects.Move);      // The allowed drag-and-drop effects of the operation.
 
-            // If the drag began successfully, set e.Handled to true. 
-            // Otherwise SurfaceListBoxItem captures the touch 
-            // and causes the drag operation to fail.
-            e.Handled = (startDragOkay != null);
-        }
+			// If the drag began successfully, set e.Handled to true. 
+			// Otherwise SurfaceListBoxItem captures the touch 
+			// and causes the drag operation to fail.
+			e.Handled = (startDragOkay != null);
+		}
 
 
 
-        private void OnDropTargetDragEnter(object sender, SurfaceDragDropEventArgs e)
-        {
-            DataItem data = e.Cursor.Data as DataItem;
+		private void OnDropTargetDragEnter(object sender, SurfaceDragDropEventArgs e) {
+			DataItem data = e.Cursor.Data as DataItem;
 
-            //added to stop advisors drag from crashing program
-            if (data == null)
-                return;
+			//added to stop advisors drag from crashing program
+			if (data == null)
+				return;
 
-            if (!data.CanDrop)
-            {
-                e.Effects = DragDropEffects.None;
-            }
-        }
+			if (!data.CanDrop) {
+				e.Effects = DragDropEffects.None;
+			}
+		}
 
-        private void OnDropTargetDragLeave(object sender, SurfaceDragDropEventArgs e)
-        {
-            // Reset the effects.
-            e.Effects = e.Cursor.AllowedEffects;
-        }
+		private void OnDropTargetDragLeave(object sender, SurfaceDragDropEventArgs e) {
+			// Reset the effects.
+			e.Effects = e.Cursor.AllowedEffects;
+		}
 
 
-        private void OnTargetChanged(object sender, TargetChangedEventArgs e)
-        {
-            if (e.Cursor.CurrentTarget != null)
-            {
-                DataItem data = e.Cursor.Data as DataItem;
-                e.Cursor.Visual.Tag = (data.CanDrop) ? "CanDrop" : "CannotDrop";
-            }
-            else
-            {
-                e.Cursor.Visual.Tag = null;
-            }
-        }
-        private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
-        {
-      
+		private void OnTargetChanged(object sender, TargetChangedEventArgs e) {
+			if (e.Cursor.CurrentTarget != null) {
+				DataItem data = e.Cursor.Data as DataItem;
+				e.Cursor.Visual.Tag = (data.CanDrop) ? "CanDrop" : "CannotDrop";
+			} else {
+				e.Cursor.Visual.Tag = null;
+			}
+		}
+		private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e) {
 
-            DataItem d = e.Cursor.Data as DataItem;
 
-            //added to stop advisors drag from crashing program
-            if (d == null)
-                return;
+			DataItem d = e.Cursor.Data as DataItem;
 
-            Grid.SetColumn(d.PageControl, 0);
-            Grid.SetColumnSpan(d.PageControl, 2);
-            Grid.SetRow(d.PageControl, 0);
-            Grid.SetRowSpan(d.PageControl, 2);
+			//added to stop advisors drag from crashing program
+			if (d == null)
+				return;
 
-            if (!DefaultPanel.Children.Contains(d.PageControl))
-            {
-                DefaultPanel.Children.Clear();
-                DefaultPanel.Children.Add(d.PageControl);
-            }
+			Grid.SetColumn(d.PageControl, 0);
+			Grid.SetColumnSpan(d.PageControl, 2);
+			Grid.SetRow(d.PageControl, 0);
+			Grid.SetRowSpan(d.PageControl, 2);
 
-            DefaultPanel.UpdateLayout();
-        }
+			if (!DefaultPanel.Children.Contains(d.PageControl)) {
+				DefaultPanel.Children.Clear();
+				DefaultPanel.Children.Add(d.PageControl);
+			}
 
-    }
+			DefaultPanel.UpdateLayout();
+		}
 
-    public class DataItem
-    {
-        private string name;
-        private string color;
-        private bool canDrop;
-        private UIElement pageControl;
+	}
 
-        public UIElement PageControl
-        {
-            get { return pageControl; }
-        }
+	public class DataItem {
+		private string name;
+		private string color;
+		private bool canDrop;
+		private UIElement pageControl;
 
-        public string Name
-        {
-            get { return name; }
-        }
+		public UIElement PageControl {
+			get { return pageControl; }
+		}
 
-        public string Color
-        {
-            get { return color; }
-        }
+		public string Name {
+			get { return name; }
+		}
 
-        public bool CanDrop
-        {
-            get { return canDrop; }
-        }
+		public string Color {
+			get { return color; }
+		}
 
-        public DataItem(string name, bool canDrop, UIElement uielement, string color = "Crimson")
-        {
-            this.name = name;
-            this.color = color;
-            this.canDrop = canDrop;
-            this.pageControl = uielement;
-        }
+		public bool CanDrop {
+			get { return canDrop; }
+		}
 
-        public DataItem(string name, bool canDrop)
-            : this(name, canDrop, new ExamplePage(), "Crimson")
-        {
-        }
+		public DataItem(string name, bool canDrop, UIElement uielement, string color = "Crimson") {
+			this.name = name;
+			this.color = color;
+			this.canDrop = canDrop;
+			this.pageControl = uielement;
+		}
 
-        public DataItem(string name, bool canDrop,string color)
-            : this(name, canDrop, new ExamplePage(), color)
-        {
-        }
+		public DataItem(string name, bool canDrop)
+			: this(name, canDrop, new ExamplePage(), "Crimson") {
+		}
 
-        public override String ToString()
-        {
-            return name;
-        }
-    }
+		public DataItem(string name, bool canDrop, string color)
+			: this(name, canDrop, new ExamplePage(), color) {
+		}
+
+		public override String ToString() {
+			return name;
+		}
+	}
 }
