@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Surface.Presentation;
 
 namespace se306p2
 {
@@ -24,11 +25,12 @@ namespace se306p2
         public ECE_Advisors()
         {
             InitializeComponent();
-            
+
 
         }
 
- 
+
+        ObservableCollection<Uri> items;
 
         protected override void OnInitialized(EventArgs e)
         {
@@ -43,7 +45,7 @@ namespace se306p2
 
             //imagesPath = "D:/se306p2/se306p2/Resources/Advisors";
             imagesPath = "Resources\\Advisors";
-           // MessageBox.Show(imagesPath);
+            // MessageBox.Show(imagesPath);
             try
             {
                 // Get the list of files.
@@ -53,16 +55,15 @@ namespace se306p2
                 files[3] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
                 files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp");
                 files[2] = new Uri("pack://application:,,,/Resources/Advisors/Watson.bmp");
-                
-                
+
+
                 //Uri[] files = System.IO.Directory.GetFiles(imagesPath, "*.jpg");
 
 
                 // Create an ObservableCollection from the file names.
                 // Cannot assign string[] files to LibraryStack.ItemsSource.
                 // LibraryStack.ItemsSource must implement INotifyCollectionChanged.
-                ObservableCollection<Uri> items = new ObservableCollection<Uri>(files);
-
+                items = new ObservableCollection<Uri>(files);
                 // Set the ItemsSource property.
                 MainLibraryStack.ItemsSource = items;
             }
@@ -72,7 +73,10 @@ namespace se306p2
             }
         }
 
-        
-
+        private void MainLibraryStack_DragOver(object sender, SurfaceDragDropEventArgs e)
+        {
+            e.Effects = DragDropEffects.None;
+            e.Handled = true;
+        }
     }
 }

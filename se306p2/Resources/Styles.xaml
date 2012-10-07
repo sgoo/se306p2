@@ -15,7 +15,7 @@
     
     <!-- Titles-->
     <Style TargetType="TextBlock" x:Key="Title">
-        <Setter Property="FontFamily" Value="Constantia" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="48" />
         <Setter Property="FontStyle" Value="Normal" />
         <Setter Property="FontWeight" Value="Bold" />
@@ -27,7 +27,7 @@
 
     <!-- Ordinary Text-->
     <Style TargetType="TextBlock" x:Key="NormalText">
-        <Setter Property="FontFamily" Value="Constantia" />
+        <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="FontSize" Value="24" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Foreground" Value="Black" />
