@@ -26,5 +26,9 @@ namespace se306p2.Pages {
 				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
 			}
 		}
+
+		private void Image_PreviewMouseDown(object sender, InputEventArgs e) {
+			MainWindow.window.SelectPage(MainWindow.window.LeftItems[1]);
+		}
 	}
 }

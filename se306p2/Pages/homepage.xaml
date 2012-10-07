@@ -88,7 +88,9 @@
 				</Grid.ColumnDefinitions>
 				<Grid Grid.Column="1">
 					<Image VerticalAlignment="Top"
-						   Source="../Resources/findoutmore.jpg"></Image>
+						   Source="../Resources/findoutmore.jpg"
+						   PreviewMouseDown="Image_PreviewMouseDown"
+						   PreviewTouchDown="Image_PreviewMouseDown"></Image>
 				</Grid>
 			</Grid>
 		</Grid>
