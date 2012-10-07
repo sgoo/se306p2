@@ -50,7 +50,8 @@
                              HorizontalAlignment="Stretch"
                              MaxHeight="600"
                              MaxWidth="2000"
-                             my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver">
+                             my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver"
+                             Background="Transparent">
                 <my:LibraryStack.ItemTemplate >
                     <DataTemplate>
                         <Image Source="{Binding}"

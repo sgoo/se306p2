@@ -28,7 +28,7 @@ namespace se306p2
     {
         private ObservableCollection<Grid> pages = new ObservableCollection<Grid>();
         private ObservableCollection<Grid> subs = new ObservableCollection<Grid>();
-        private int indicator = 0;
+        private int indicator = 2; //changed from 0 to 2 by Sam for demo
 
         public CourseSE()
         {
@@ -47,14 +47,18 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            
-            pages.Add(_page1);
-            pages.Add(_page2);
-            pages.Add(_page3);
 
-            subs.Add(_sub1);
-            subs.Add(_sub2);
+            //changed Add order. 2 by Sam for demo
+            pages.Add(_page3);
+            pages.Add(_page2);
+            pages.Add(_page1);
+
+            //changed Add order. 2 by Sam for demo
             subs.Add(_sub3);
+            subs.Add(_sub2);
+            subs.Add(_sub1);
+            
+            
 
 
         }
