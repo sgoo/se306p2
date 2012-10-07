@@ -12,21 +12,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace se306p2
-{
-    /// <summary>
-    /// Interaction logic for HODpage.xaml
-    /// </summary>
-    public partial class HODpage : UserControl
-    {
-        public HODpage()
-        {
-            InitializeComponent();
-        }
+namespace se306p2 {
+	/// <summary>
+	/// Interaction logic for HODpage.xaml
+	/// </summary>
+	public partial class HODpage : UserControl {
+		public HODpage() {
+			InitializeComponent();
+		}
 
-        private void tbMultiLine_TextChanged(object sender, TextChangedEventArgs e)
-        {
+		private void tbMultiLine_TextChanged(object sender, TextChangedEventArgs e) {
 
-        }
-    }
+		}
+		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (IsVisible) {
+				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
+			}
+		}
+	}
 }

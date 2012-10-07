@@ -4,7 +4,8 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-			 mc:Ignorable="d">
+			 mc:Ignorable="d"
+			 IsVisibleChanged="UserControl_IsVisibleChanged">
 	<!-- Include styles dictionary -->
 	<UserControl.Resources>
 		<ResourceDictionary Source="../Resources/Styles.xaml" />

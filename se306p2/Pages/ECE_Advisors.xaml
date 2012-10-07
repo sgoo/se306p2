@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             xmlns:my="http://schemas.microsoft.com/surface/2008">
+             mc:Ignorable="d"
+			 xmlns:my="http://schemas.microsoft.com/surface/2008"
+			 IsVisibleChanged="UserControl_IsVisibleChanged">
 
-    <!-- Include styles dictionary-->
+	<!-- Include styles dictionary-->
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>

@@ -12,16 +12,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace se306p2.Pages
-{
-    /// <summary>
-    /// Interaction logic for ContactPage.xaml
-    /// </summary>
-    public partial class ContactPage : UserControl
-    {
-        public ContactPage()
-        {
-            InitializeComponent();
-        }
-    }
+namespace se306p2.Pages {
+	/// <summary>
+	/// Interaction logic for ContactPage.xaml
+	/// </summary>
+	public partial class ContactPage : UserControl {
+		public ContactPage() {
+			InitializeComponent();
+		}
+		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (IsVisible) {
+				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
+			}
+		}
+	}
 }

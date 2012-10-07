@@ -12,16 +12,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace se306p2.Pages
-{
-    /// <summary>
-    /// Interaction logic for HomePage.xaml
-    /// </summary>
-    public partial class HomePage : UserControl
-    {
-        public HomePage()
-        {
-            InitializeComponent();
-        }
-    }
+namespace se306p2.Pages {
+	/// <summary>
+	/// Interaction logic for HomePage.xaml
+	/// </summary>
+	public partial class HomePage : UserControl {
+		public HomePage() {
+			InitializeComponent();
+		}
+
+		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (IsVisible) {
+				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
+			}
+		}
+	}
 }
