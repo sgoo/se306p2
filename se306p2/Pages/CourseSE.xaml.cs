@@ -218,6 +218,12 @@ namespace se306p2
 			CourseDescription3.Text = text;
 		}
 
+		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (IsVisible) {
+				MainWindow.window.BackgroundImage = "/Resources/background_se.jpg";
+			}
+		}
+
     }
 
 

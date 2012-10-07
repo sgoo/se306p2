@@ -7,13 +7,13 @@
 			 mc:Ignorable="d"
 			 d:DesignHeight="1080"
 			 d:DesignWidth="1350"
-			 >
+			 IsVisibleChanged="UserControl_IsVisibleChanged">
 
-    <UserControl.Resources>
+    <!--<UserControl.Resources>
         <ImageBrush x:Key="Background" ImageSource="/se306p2;component/Resources/themes/general.jpg"/>
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
-    <Grid Background="{DynamicResource Background}">
+    <Grid>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="0.20*" />

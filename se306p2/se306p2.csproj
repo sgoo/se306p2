@@ -246,7 +246,9 @@
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\themes\general.jpg" />
+    <Resource Include="Resources\themes\general.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\video_play.png" />
     <Resource Include="Resources\Ece0.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -266,14 +268,20 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\background_cse.jpg" />
-    <Resource Include="Resources\background_eee.jpg" />
+    <Content Include="Resources\background_cse.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\background_eee.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\course_button.png" />
     <Resource Include="Resources\Advisors\Berber.bmp" />
     <Resource Include="Resources\Advisors\Roop.bmp" />
     <Resource Include="Resources\Advisors\Watson.bmp" />
     <Resource Include="Resources\Advisors\TopCard.bmp" />
-    <Resource Include="Resources\background_se.jpg" />
+    <Content Include="Resources\background_se.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\XML\courses_se.xml">
       <SubType>Designer</SubType>
     </Resource>
