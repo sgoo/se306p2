@@ -156,7 +156,6 @@
     <Resource Include="Resources\icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\sciencebuilding.jpg" />
     <Resource Include="Resources\Zoran-salcic.JPG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -224,6 +223,8 @@
     <Resource Include="Resources\largeimage.jpg" />
     <Resource Include="Resources\messagebg.jpg" />
     <Resource Include="Resources\building.jpg" />
+    <Resource Include="Resources\purplebox.png" />
+    <Resource Include="Resources\findoutmore.jpg" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

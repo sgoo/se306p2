@@ -10,18 +10,21 @@
         <ImageBrush x:Key="largeimage" ImageSource="../Resources/largeimage.jpg"/>
         <ImageBrush x:Key="messagebg" ImageSource="../Resources/messagebg.jpg"/>
         <ImageBrush x:Key="sciencebuilding" ImageSource="../Resources/building.jpg"/>
+        <ImageBrush x:Key="purplebox" ImageSource="../Resources/purplebox.png"/>
+        <ImageBrush x:Key="findoutmore" ImageSource="../Resources/findoutmore.jpg"/>
     </UserControl.Resources>
-    <Grid Height="1050" Width="1920">
+
+    <Grid Height="1050" Width="1920" Background="#e9e9e9">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="51px"/>
-            <ColumnDefinition Width="813px"/>
+            <ColumnDefinition Width="812px"/>
             <ColumnDefinition Width="406px"/>
             <ColumnDefinition Width="51px"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="69px"/>
             <RowDefinition Height="338px"/>
-            <RowDefinition Height="580px"/>
+            <RowDefinition Height="563px"/>
             <RowDefinition Height="80px"/>
         </Grid.RowDefinitions>
         
@@ -30,9 +33,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+            <Grid Grid.Column="0" Background="{StaticResource purplebox}"></Grid>
             <Grid Grid.Column="1" Background="{StaticResource welcomebg}">
-                
+                <Label Margin="10px" Foreground="White" FontSize="50" FontFamily="Segoe UI" HorizontalAlignment="Right" VerticalAlignment="Bottom">welcome</Label>
             </Grid>
             
         </Grid>
@@ -48,9 +51,16 @@
                 <RowDefinition Height="338px"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="{StaticResource messagebg}">
-                
-            </Grid>    
+            <Grid Grid.Row="0" Background="{StaticResource messagebg}"></Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="133px"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Image VerticalAlignment="Top" Source="../Resources/findoutmore.jpg"></Image>
+                </Grid>
+            </Grid>
         </Grid>
         
     </Grid>
