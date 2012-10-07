@@ -80,6 +80,11 @@ namespace se306p2 {
 				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
 			}
 		}
+
+		private void MainLibraryBar_DragOver(object sender, Microsoft.Surface.Presentation.SurfaceDragDropEventArgs e) {
+			e.Effects = DragDropEffects.None;
+			e.Handled = true;
+		}
 	}
 
     #region DataThumbnailClass

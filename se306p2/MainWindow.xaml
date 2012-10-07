@@ -638,6 +638,7 @@
 								Grid.ColumnSpan="2"></pages:HomePage>
 			</Grid>
 			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
+
 -->
 
 			<s:SurfaceListBox Name="LeftScatterBar"
@@ -660,7 +661,6 @@
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
 							  s:SurfaceDragDrop.Drop="ListBoxDrop"
 							  AllowDrop="True"/>
-
 		</Grid>
 	</ScrollViewer>
 </s:SurfaceWindow>

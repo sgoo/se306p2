@@ -54,6 +54,7 @@
 					  Grid.ColumnSpan="2"
 					  Margin="250,-8,250,62"
 					  Background="#00F99D9D"
+					  s:SurfaceDragDrop.DragOver="MainLibraryBar_DragOver"
 					  BorderThickness="0">
 			<s:LibraryBar.ItemTemplate>
 				<DataTemplate>
