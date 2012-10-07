@@ -24,8 +24,9 @@ namespace se306p2 {
 	public partial class BaseInfo : UserControl {
 
 		public BaseInfo() {
+			
 			InitializeComponent();
-			MainWindow.window.BackgroundImage="asd";
+			
 		}
 
         #region OnInitialized
@@ -73,6 +74,12 @@ namespace se306p2 {
                 playButton.Visibility = System.Windows.Visibility.Visible;
              }
         }
+
+		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (IsVisible) {
+				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
+			}
+		}
 	}
 
     #region DataThumbnailClass

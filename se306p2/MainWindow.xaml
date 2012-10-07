@@ -4,6 +4,7 @@
 				 xmlns:s="http://schemas.microsoft.com/surface/2008"
 				 xmlns:system="clr-namespace:System;assembly=mscorlib"
 				 xmlns:local="clr-namespace:se306p2"
+				 xmlns:pages="clr-namespace:se306p2.Pages"
 				 Title="se306p2"
 				 WindowStyle="None"
 				 WindowState="Maximized"
@@ -28,14 +29,14 @@
 		<local:StyleSel x:Key="styleSelector" />
 
 		<DataTemplate x:Key="SurfaceListBoxItemDataTemplate">
-			
+
 			<Grid Height="150"
 				  Width="260"
 				  Margin="10"
 				  Background="Crimson"
 				  VerticalAlignment="Center"
 				  HorizontalAlignment="Center">
-				
+
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition />
 					<ColumnDefinition />
@@ -602,7 +603,8 @@
         <Grid Width="1920" Height="1050" Name="MainWindowGrid">-->
 		<Grid Width="1920"
 			  Height="1050"
-			  Name="MainWindowGrid">
+			  Name="MainWindowGrid"
+			  Background="Pink">
 			<Grid.RowDefinitions>
 				<RowDefinition />
 			</Grid.RowDefinitions>
@@ -621,7 +623,7 @@
 				  s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
 				  s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
 				  s:SurfaceDragDrop.Drop="OnDropTargetDrop"
-				  Background="Azure">
+				  Background="Transparent">
 				<Grid.RowDefinitions>
 					<RowDefinition />
 					<RowDefinition />
@@ -630,13 +632,14 @@
 					<ColumnDefinition Width="0.5*" />
 					<ColumnDefinition Width="0.5*" />
 				</Grid.ColumnDefinitions>
+				<pages:HomePage Grid.RowSpan="2"
+								Grid.ColumnSpan="2"></pages:HomePage>
 			</Grid>
 			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
 -->
-			
+
 			<s:SurfaceListBox Name="LeftScatterBar"
 							  Grid.Column="0"
-							  Background="White"
 							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
@@ -651,8 +654,7 @@
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}"
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
-							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  Background="#f5f5f5" />
+							  PreviewMouseDown="OnDragSourcePreviewTouchDown" />
 
 		</Grid>
 	</ScrollViewer>

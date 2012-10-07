@@ -30,11 +30,20 @@ namespace se306p2 {
 		private ObservableCollection<DataItem> leftItems;
 		private ObservableCollection<DataItem> rightItems;
 
-		public String BackgroundImage {
+		private String lastBackgroundImage = "";
 
-			get { return ""; }
+		public String BackgroundImage {
 			set {
+				if (lastBackgroundImage == value) {
+					return;
+				}
+				// TODO: implement some fading?
+
 				//MainWindowGrid.Background = value;
+				BitmapImage img = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), value));
+				MainWindowGrid.Background = new ImageBrush(img);
+
+
 			}
 		}
 
