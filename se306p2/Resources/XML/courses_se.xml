@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Courses>
+  
+  <Course>
+    <Name>Software Architecture</Name>
+    <Code>SOFTENG - 325</Code>
+    <Lecturers>Ian Warren, Ewan Tempero</Lecturers>
+    <Prerequisites>Softeng250</Prerequisites>
+    <Blurb>It is a really cool course</Blurb>  
+  </Course>
+  
+  <Course>
+    <Name>Software Design</Name>
+    <Code>SOFTENG - 306</Code>
+    <Lecturers>Bruce, Roshina</Lecturers>
+    <Prerequisites>Softeng250</Prerequisites>
+    <Blurb>It is a really cool course too!</Blurb>
+  </Course>
+  
+</Courses>
