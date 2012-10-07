@@ -5,6 +5,8 @@
 				 xmlns:system="clr-namespace:System;assembly=mscorlib"
 				 xmlns:local="clr-namespace:se306p2"
 				 Title="se306p2"
+				 WindowStyle="None"
+				 WindowState="Maximized"
 				 mc:Ignorable="d"
 				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
@@ -590,59 +592,61 @@
 			</Setter>
 		</Style>
 	</s:SurfaceWindow.Resources>
-	<!--    <s:SurfaceScrollViewer Margin="0,0,0,0">
+	<ScrollViewer CanContentScroll="True"
+				  HorizontalScrollBarVisibility="Auto"
+				  VerticalScrollBarVisibility="Auto">
+		<!--    <s:SurfaceScrollViewer Margin="0,0,0,0">
         <Grid Width="1920" Height="1050" Name="MainWindowGrid">-->
-	<Grid Margin="0,0,0,0">
-		<Grid Width="1920"
-			  Height="1050"
-			  Name="MainWindowGrid">
-			<!--<Grid Name="MainWindowGrid">-->
-			<Grid.RowDefinitions>
-				<RowDefinition />
-			</Grid.RowDefinitions>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="300" />
-				<ColumnDefinition />
-				<ColumnDefinition Width="300" />
-			</Grid.ColumnDefinitions>
-			<!--            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" Background ="White"  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}" />
-            <Grid Name="DefaultPanel" Grid.Column="1" AllowDrop="True" s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter" s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave" s:SurfaceDragDrop.Drop="OnDropTargetDrop" Background="Black">
--->
-
-			<Grid Name="DefaultPanel"
-				  Grid.Column="1"
-				  AllowDrop="True"
-				  s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
-				  s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
-				  s:SurfaceDragDrop.Drop="OnDropTargetDrop"
-				  Background="Azure">
+			<Grid Width="1920"
+				  Height="1050"
+				  Name="MainWindowGrid">
+				<!--<Grid Name="MainWindowGrid">-->
 				<Grid.RowDefinitions>
-					<RowDefinition />
 					<RowDefinition />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="0.5*" />
-					<ColumnDefinition Width="0.5*" />
+					<ColumnDefinition Width="300" />
+					<ColumnDefinition />
+					<ColumnDefinition Width="300" />
 				</Grid.ColumnDefinitions>
-			</Grid>
-			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
+				<!--            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" Background ="White"  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}" />
+            <Grid Name="DefaultPanel" Grid.Column="1" AllowDrop="True" s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter" s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave" s:SurfaceDragDrop.Drop="OnDropTargetDrop" Background="Black">
 -->
-			<s:SurfaceListBox Name="LeftScatterBar"
-							  Grid.Column="0"
-							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
-							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
-							  ItemsSource="{Binding Path=LeftItems}"
-							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
-							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  Background="#4F2D7F" />
-			<s:SurfaceListBox Name="RightScatterBar"
-							  Grid.Column="2"
-							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
-							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
-							  ItemsSource="{Binding Path=RightItems}"
-							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
-							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  Background="#4F2D7F" />
-		</Grid>
-	</Grid>
+
+				<Grid Name="DefaultPanel"
+					  Grid.Column="1"
+					  AllowDrop="True"
+					  s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
+					  s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
+					  s:SurfaceDragDrop.Drop="OnDropTargetDrop"
+					  Background="Azure">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.5*" />
+						<ColumnDefinition Width="0.5*" />
+					</Grid.ColumnDefinitions>
+				</Grid>
+				<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
+-->
+				<s:SurfaceListBox Name="LeftScatterBar"
+								  Grid.Column="0"
+								  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
+								  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+								  ItemsSource="{Binding Path=LeftItems}"
+								  PreviewTouchDown="OnDragSourcePreviewTouchDown"
+								  PreviewMouseDown="OnDragSourcePreviewTouchDown"
+								  Background="#4F2D7F" />
+				<s:SurfaceListBox Name="RightScatterBar"
+								  Grid.Column="2"
+								  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
+								  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
+								  ItemsSource="{Binding Path=RightItems}"
+								  PreviewTouchDown="OnDragSourcePreviewTouchDown"
+								  PreviewMouseDown="OnDragSourcePreviewTouchDown"
+								  Background="#4F2D7F" />
+			</Grid>
+	</ScrollViewer>
 </s:SurfaceWindow>
