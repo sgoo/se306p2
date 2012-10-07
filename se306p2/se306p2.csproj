@@ -70,8 +70,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Compile Include="Pages\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="Pages\homepage.xaml.cs">
+      <DependentUpon>homepage.xaml</DependentUpon>
     </Compile>
     <Compile Include="StyleSel.cs" />
     <Compile Include="Pages\Copy of CourseCSE.xaml.cs">
@@ -95,7 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\HomePage.xaml">
+    <Page Include="Pages\homepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
