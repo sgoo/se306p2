@@ -11,7 +11,7 @@
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
 
-    <Grid Background="Bisque">
+    <Grid Style="{StaticResource PageBackground}">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -36,13 +36,13 @@
             Width="1080"
             x:Name="tbMultiLine">
             <Run
-                Text="The Electrical and Copmuter Engineering Department provides a course advisor for each of the discipleines that it covers. Browse though the course advisors below for their contact details." />
+                Text="The Electrical and Computer Engineering Department provides a course advisor for each of the disciplines that it covers. Browse though the course advisors below for their contact details." />
         </TextBlock>
         <!--
         <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
         </my:LibraryStack> -->
-        <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Pink">
-            <my:LibraryStack Name="MainLibraryStack" Background="aqua" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="2000" MaxWidth="2000">
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <my:LibraryStack Name="MainLibraryStack" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="600" MaxWidth="2000">
                 <my:LibraryStack.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>

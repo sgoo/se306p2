@@ -48,10 +48,12 @@ namespace se306p2
             {
                 // Get the list of files.
 
-                Uri[] files = new Uri[3];
-                files[0] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
+                Uri[] files = new Uri[4];
+                files[0] = new Uri("pack://application:,,,/Resources/Advisors/TopCard.bmp");
+                files[3] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
                 files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp");
                 files[2] = new Uri("pack://application:,,,/Resources/Advisors/Watson.bmp");
+                
                 
                 //Uri[] files = System.IO.Directory.GetFiles(imagesPath, "*.jpg");
 

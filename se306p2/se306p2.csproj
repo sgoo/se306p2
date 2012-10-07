@@ -60,17 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Pages\Advisors.xaml.cs">
-      <DependentUpon>Advisors.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\ECE_Advisors.xaml.cs">
       <DependentUpon>ECE_Advisors.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
-    <Page Include="Pages\Advisors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\ECE_Advisors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -216,21 +209,10 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Advisors\CS-Roop.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Advisors\EEE-Berber.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Advisors\SE-Catherine.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Advisors\sample.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Advisors\Berber.bmp" />
     <Resource Include="Resources\Advisors\Roop.bmp" />
     <Resource Include="Resources\Advisors\Watson.bmp" />
+    <Resource Include="Resources\Advisors\TopCard.bmp" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
