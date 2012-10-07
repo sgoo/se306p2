@@ -73,7 +73,6 @@
     <Compile Include="Pages\CourseSE.xaml.cs">
       <DependentUpon>CourseSE.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Util.cs" />
     <Page Include="Pages\Copy of CourseCSE.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -251,19 +250,13 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-<<<<<<< HEAD
     <Resource Include="Resources\background_cse.jpg" />
     <Resource Include="Resources\background_eee.jpg" />
     <Resource Include="Resources\course_button.png" />
-=======
     <Resource Include="Resources\Advisors\Berber.bmp" />
     <Resource Include="Resources\Advisors\Roop.bmp" />
     <Resource Include="Resources\Advisors\Watson.bmp" />
     <Resource Include="Resources\Advisors\TopCard.bmp" />
->>>>>>> samAdvisors
-    <Content Include="Resources\sampleVid.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\background_se.jpg" />
     <Resource Include="Resources\XML\courses_se.xml">
       <SubType>Designer</SubType>
