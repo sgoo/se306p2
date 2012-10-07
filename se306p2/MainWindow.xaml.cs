@@ -74,7 +74,7 @@ namespace se306p2
             LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
             LeftItems.Add(new DataItem("Base Info", true, new CourseSE()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
-            LeftItems.Add(new DataItem("Course Advisors", false));
+            LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
             LeftItems.Add(new DataItem("Contact/Location", false));
 
 
@@ -84,7 +84,7 @@ namespace se306p2
             RightItems.Add(new DataItem("EEE Courses", false,"#1e9ad5"));
             RightItems.Add(new DataItem("SE Info", false,"#f6a220"));
             RightItems.Add(new DataItem("SE Courses", false,"#f6a220"));
-       
+			
         }
 
 
@@ -231,6 +231,10 @@ namespace se306p2
         {
             DataItem data = e.Cursor.Data as DataItem;
 
+            //added to stop advisors drag from crashing program
+            if (data == null)
+                return;
+
             if (!data.CanDrop)
             {
                 e.Effects = DragDropEffects.None;
@@ -256,10 +260,16 @@ namespace se306p2
                 e.Cursor.Visual.Tag = null;
             }
         }
-
         private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
         {
+      
+
             DataItem d = e.Cursor.Data as DataItem;
+
+            //added to stop advisors drag from crashing program
+            if (d == null)
+                return;
+
             Grid.SetColumn(d.PageControl, 0);
             Grid.SetColumnSpan(d.PageControl, 2);
             Grid.SetRow(d.PageControl, 0);

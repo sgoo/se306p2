@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="se306p2.ECE_Advisors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="http://schemas.microsoft.com/surface/2008">
+
+    <!-- Include styles dictionary-->
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml" />
+    </UserControl.Resources>
+
+    <Grid Style="{StaticResource PageBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="800"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <TextBlock
+            Style="{StaticResource Title}"
+            Grid.Row="0"
+            Grid.ColumnSpan="2">
+            Course Advisors
+        </TextBlock>
+
+        <TextBlock
+            Style="{StaticResource NormalText}"
+            Grid.Row="1"
+            Width="1080"
+            x:Name="tbMultiLine">
+            <Run
+                Text="The Electrical and Computer Engineering Department provides a course advisor for each of the disciplines that it covers. Browse though the course advisors below for their contact details." />
+        </TextBlock>
+        <!--
+        <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
+        </my:LibraryStack> -->
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <my:LibraryStack Name="MainLibraryStack" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="600" MaxWidth="2000">
+                <my:LibraryStack.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+                </DataTemplate>
+            </my:LibraryStack.ItemTemplate>
+
+            </my:LibraryStack>
+        </Grid>
+    </Grid>
+
+</UserControl>

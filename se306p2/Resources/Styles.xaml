@@ -48,7 +48,9 @@
         
         <!-- TODO -->
     </Style>
+    
     <DropShadowEffect x:Key="ImgDropShadow" BlurRadius="50" ShadowDepth="0" />
+    
     <Style TargetType="Border" x:Key="ImgBorder">
         <Setter Property="Effect" Value="{StaticResource ImgDropShadow}" />
     </Style>

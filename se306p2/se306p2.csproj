@@ -90,6 +90,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Pages\ECE_Advisors.xaml.cs">
+      <DependentUpon>ECE_Advisors.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
+    <Page Include="Pages\ECE_Advisors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -243,9 +251,16 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+<<<<<<< HEAD
     <Resource Include="Resources\background_cse.jpg" />
     <Resource Include="Resources\background_eee.jpg" />
     <Resource Include="Resources\course_button.png" />
+=======
+    <Resource Include="Resources\Advisors\Berber.bmp" />
+    <Resource Include="Resources\Advisors\Roop.bmp" />
+    <Resource Include="Resources\Advisors\Watson.bmp" />
+    <Resource Include="Resources\Advisors\TopCard.bmp" />
+>>>>>>> samAdvisors
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
