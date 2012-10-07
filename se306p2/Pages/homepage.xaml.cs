@@ -12,13 +12,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace se306p2 {
-	/// <summary>
-	/// Interaction logic for ExamplePage.xaml
-	/// </summary>
-	public partial class ExamplePage : UserControl {
-		public ExamplePage() {
-			InitializeComponent();
-		}
-	}
+namespace se306p2.Pages
+{
+    /// <summary>
+    /// Interaction logic for HomePage.xaml
+    /// </summary>
+    public partial class HomePage : UserControl
+    {
+        public HomePage()
+        {
+            InitializeComponent();
+        }
+    }
 }
