@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
+using se306p2.Pages;
 
 
 namespace se306p2
@@ -69,7 +70,7 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            LeftItems.Add(new DataItem("Home", false));
+            LeftItems.Add(new DataItem("Home", true, new HomePage()));
             LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
             LeftItems.Add(new DataItem("Base Info", true, new CourseSE()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
