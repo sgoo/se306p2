@@ -34,7 +34,7 @@ namespace se306p2 {
 
 			get { return ""; }
 			set {
-				MainWindowGrid.Background = value;
+				//MainWindowGrid.Background = value;
 			}
 		}
 
