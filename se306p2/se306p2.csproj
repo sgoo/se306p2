@@ -60,10 +60,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\Copy of CourseCSE.xaml.cs">
+      <DependentUpon>Copy of CourseCSE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseEE.xaml.cs">
+      <DependentUpon>CourseEE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CourseSE.xaml.cs">
       <DependentUpon>CourseSE.xaml</DependentUpon>
     </Compile>
     <Compile Include="Util.cs" />
+    <Page Include="Pages\Copy of CourseCSE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CourseEE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\CourseSE.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -216,7 +230,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\background_se.jpg" />
-    <Resource Include="Resources\XML\courses_se.xml" />
+    <Resource Include="Resources\XML\courses_se.xml">
+      <SubType>Designer</SubType>
+    </Resource>
     <Resource Include="Resources\XML\test.xml" />
     <Content Include="se306p2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

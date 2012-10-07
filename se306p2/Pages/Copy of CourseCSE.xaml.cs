@@ -22,15 +22,15 @@ using System.Windows.Media.Animation;
 namespace se306p2
 {
     /// <summary>
-    /// Interaction logic for CourseSE.xaml
+    /// Interaction logic for CourseCSE.xaml
     /// </summary>
-    public partial class CourseSE : UserControl
+    public partial class CourseCSE : UserControl
     {
         private ObservableCollection<Grid> pages = new ObservableCollection<Grid>();
         private ObservableCollection<Grid> subs = new ObservableCollection<Grid>();
         private int indicator = 0;
 
-        public CourseSE()
+        public CourseCSE()
         {
             InitializeComponent();
 

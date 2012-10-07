@@ -1,5 +1,5 @@
 ﻿<UserControl
-	x:Class="se306p2.CourseSE"
+	x:Class="se306p2.CourseEE"
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -114,7 +114,7 @@
 		<!-- Title -->
 		<TextBlock Style="{StaticResource Title}"
 		Grid.Row="0" Grid.ColumnSpan="2">
-			Software Engineering Courses
+			Electrical Engineering Courses
 		</TextBlock>
 
 		<Grid Grid.Row="1" Grid.ColumnSpan="2" Name="_touchGrid"
