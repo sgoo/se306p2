@@ -36,7 +36,7 @@
 
     <!-- Page Backgrounds-->
     <Style TargetType="Grid" x:Key="PageBackground">
-        <Setter Property="Background"  Value="White" />
+        <Setter Property="Background"  Value="Transparent" />
         <!-- <Setter Property="Opacity"  Value="0.5" /> -->
     </Style>
 

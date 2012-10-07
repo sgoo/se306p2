@@ -61,7 +61,7 @@ namespace se306p2 {
         }
         private void _mediaElement_PreviewTouchDown(object sender, InputEventArgs e)
         {
-            if (_mediaElement.Tag.ToString() == "pause")
+            if (_mediaElement.Tag.ToString().Equals("pause"))
             {
                 _mediaElement.Tag = "play";
                 _mediaElement.Play();

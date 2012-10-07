@@ -41,7 +41,11 @@ namespace se306p2 {
 
 				//MainWindowGrid.Background = value;
 				BitmapImage img = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), value));
-				MainWindowGrid.Background = new ImageBrush(img);
+				ImageBrush brush =  new ImageBrush(img);
+				brush.Stretch = Stretch.Uniform;
+				brush.TileMode = TileMode.None;
+
+				//ScrollView.Background = brush;
 
 
 			}

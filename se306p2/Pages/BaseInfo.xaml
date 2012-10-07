@@ -9,81 +9,97 @@
 			 d:DesignWidth="1350"
 			 IsVisibleChanged="UserControl_IsVisibleChanged">
 
-    <!--<UserControl.Resources>
-        <ImageBrush x:Key="Background" ImageSource="/se306p2;component/Resources/themes/general.jpg"/>
-    </UserControl.Resources>-->
+	<UserControl.Resources>
+		<ImageBrush x:Key="Background"
+					ImageSource="/se306p2;component/Resources/themes/general.jpg" />
+	</UserControl.Resources>
 
-    <Grid>
+	<Grid Style="{StaticResource PageBackground}">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.20*" />
-            <RowDefinition Height="0.40*" />
-            <RowDefinition Height="0.40*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="0.5*" />
-        </Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.20*" />
+			<RowDefinition Height="0.40*" />
+			<RowDefinition Height="0.40*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.5*" />
+			<ColumnDefinition Width="0.5*" />
+		</Grid.ColumnDefinitions>
 
+		<s:SurfaceScrollViewer Grid.ColumnSpan="2"
+							   Margin="8,0,-7.5,0">
+		</s:SurfaceScrollViewer>
 
-        <s:SurfaceScrollViewer Grid.ColumnSpan="2" Margin="8,0,-7.5,0">
-        </s:SurfaceScrollViewer>
-
-        <TextBlock Grid.Row="0"
+		<TextBlock Grid.Row="0"
 				   Grid.Column="0"
-                   Grid.ColumnSpan="2"
-				   FontSize="64"
-				   FontFamily="Elephant"
-				   Foreground="White"
+				   Grid.ColumnSpan="2"
+				   Style="{StaticResource Title}"
 				   Margin="8,30.095,9.253,8"
 				   FontWeight="Bold"
-                   HorizontalAlignment="Center"
-				   TextAlignment="Center" d:LayoutOverrides="Width, GridBox" AllowDrop="True" Focusable="True" LineStackingStrategy="BlockLineHeight" TextWrapping="Wrap">
-        	<TextBlock.Effect>
-        		<DropShadowEffect BlurRadius="16" Color="#FFA50B0B"/>
-        	</TextBlock.Effect>
-				   
+				   HorizontalAlignment="Center"
+				   TextAlignment="Center"
+				   d:LayoutOverrides="Width, GridBox"
+				   AllowDrop="True"
+				   Focusable="True"
+				   LineStackingStrategy="BlockLineHeight"
+				   TextWrapping="Wrap">
 				   
 			<Run Text="Electrical and Computer Engineering Department" />
-        </TextBlock>
+		</TextBlock>
 
-        <s:LibraryBar Name="MainLibraryBar"
+		<s:LibraryBar Name="MainLibraryBar"
 					  Rows="1"
-					  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="250,-8,250,62" Background="#00F99D9D" BorderThickness="0">
-            <s:LibraryBar.Effect>
-                <DropShadowEffect BlurRadius="40" Color="#FF932222" Opacity="0.92" RenderingBias="Quality" ShadowDepth="3"/>
-            </s:LibraryBar.Effect>
-            <s:LibraryBar.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Image Source="{Binding Bitmap}" />
-                    </Grid>
-                </DataTemplate>
-            </s:LibraryBar.ItemTemplate>
-        </s:LibraryBar>
-        <TextBlock Grid.Row="2" FontSize="26.667"
-				   FontFamily="Georgia"
-				   Foreground="White"
+					  Grid.Row="1"
+					  Grid.Column="0"
+					  Grid.ColumnSpan="2"
+					  Margin="250,-8,250,62"
+					  Background="#00F99D9D"
+					  BorderThickness="0">
+			<s:LibraryBar.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Image Source="{Binding Bitmap}" />
+					</Grid>
+				</DataTemplate>
+			</s:LibraryBar.ItemTemplate>
+		</s:LibraryBar>
+		<TextBlock Grid.Row="2"
+				   Style="{StaticResource NormalText}"
 				   Margin="93.5,-52.5,0,0"
 				   HorizontalAlignment="Left"
-                   TextWrapping="Wrap" Width="534" Height="443"
-                   LineHeight="16" VerticalAlignment="Top" TextAlignment="Justify" OpacityMask="#FF705DF7" Opacity="0.81"><TextBlock.Background>
-        		<ImageBrush/>
-        	</TextBlock.Background><TextBlock.Effect>
-        		<DropShadowEffect BlurRadius="29" ShadowDepth="24" Opacity="0.775" Color="#FF970000"/>
-        	</TextBlock.Effect><Run Text="The "/><Run FontWeight="Bold" FontStyle="Italic" Text="Faculty of Engineering"/><Run Text=" is committed to creating an environment where people thrive and contribute to improving the quality of life in national and global communities,  as well as enhancing the wealth creation of the nation, through excellence in teaching, research and service."/><LineBreak/><Run/><LineBreak/><Run Text="If you are creative, curious, resourceful, enjoy working with people, designing solutions to problems, and want to use your skills to make a difference then engineering is right for you! "/></TextBlock>      
-            <MediaElement Name="_mediaElement" Tag="pause"
-            LoadedBehavior="Manual" UnloadedBehavior="Play"
-            Source=" Resources\sampleVid.mp4"
-            MediaEnded="_mediaElement_MediaEnded"                                         
-            PreviewTouchDown="_mediaElement_PreviewTouchDown"                                         
-            PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
-            Grid.Row="2" Grid.Column="1" Margin="0,-52.5,83.112,73.5"
-            />
-        <Button Name="playButton" Grid.Row="2"
-                         Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="213,63,308,221" Height="148" Width="154" TouchDown="_mediaElement_PreviewTouchDown" >
-            <Image Source="/Resources/video_play.png" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-            
-        </Button>
-    </Grid>
+				   TextWrapping="Wrap"
+				   Width="534"
+				   Height="443"
+				   LineHeight="16"
+				   VerticalAlignment="Top"
+				   Opacity="0.81"><Run Text="The " /><Run FontWeight="Bold"
+													   FontStyle="Italic"
+													   Text="Faculty of Engineering" /><Run Text=" is committed to creating an environment where people thrive and contribute to improving the quality of life in national and global communities,  as well as enhancing the wealth creation of the nation, through excellence in teaching, research and service." /><LineBreak /><Run /><LineBreak /><Run Text="If you are creative, curious, resourceful, enjoy working with people, designing solutions to problems, and want to use your skills to make a difference then engineering is right for you! " /></TextBlock>
+		<MediaElement Name="_mediaElement"
+					  Tag="pause"
+					  LoadedBehavior="Manual"
+					  UnloadedBehavior="Play"
+					  Source=" Resources\sampleVid.mp4"
+					  MediaEnded="_mediaElement_MediaEnded"
+					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
+					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
+					  Grid.Row="2"
+					  Grid.Column="1"
+					  Margin="0,-52.5,83.112,73.5" />
+		<Button Name="playButton"
+				Grid.Row="2"
+				Grid.Column="1"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Margin="213,63,308,221"
+				Height="148"
+				Width="154"
+				PreviewTouchDown="_mediaElement_PreviewTouchDown"
+				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
+			<Image Source="/Resources/video_play.png"
+				   HorizontalAlignment="Stretch"
+				   VerticalAlignment="Stretch" />
+
+		</Button>
+	</Grid>
 </UserControl>

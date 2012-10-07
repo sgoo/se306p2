@@ -5,12 +5,14 @@
 				 xmlns:system="clr-namespace:System;assembly=mscorlib"
 				 xmlns:local="clr-namespace:se306p2"
 				 xmlns:pages="clr-namespace:se306p2.Pages"
+				 Name="SurfaceWindow"
 				 Title="se306p2"
 				 WindowStyle="None"
 				 WindowState="Maximized"
 				 mc:Ignorable="d"
 				 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+				 >
 	<s:SurfaceWindow.Resources>
 
 		<!-- Get access to resource dictionary. -->
@@ -596,7 +598,7 @@
 		</Style>
 	</s:SurfaceWindow.Resources>
 
-	<ScrollViewer CanContentScroll="True"
+	<ScrollViewer Name="ScrollView" CanContentScroll="True"
 				  HorizontalScrollBarVisibility="Auto"
 				  VerticalScrollBarVisibility="Auto">
 		<!--    <s:SurfaceScrollViewer Margin="0,0,0,0">
@@ -604,7 +606,7 @@
 		<Grid Width="1920"
 			  Height="1050"
 			  Name="MainWindowGrid"
-			  Background="Pink">
+			  Background="#e9e9e9">
 			<Grid.RowDefinitions>
 				<RowDefinition />
 			</Grid.RowDefinitions>
@@ -640,7 +642,6 @@
 
 			<s:SurfaceListBox Name="LeftScatterBar"
 							  Grid.Column="0"
-							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
@@ -650,7 +651,6 @@
 			<s:SurfaceListBox Name="RightScatterBar"
 							  Grid.Column="2"
 							  ItemContainerStyleSelector="{StaticResource styleSelector}"
-							  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}"
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
