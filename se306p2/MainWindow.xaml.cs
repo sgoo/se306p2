@@ -72,19 +72,16 @@ namespace se306p2
             DataContext = this;
             LeftItems.Add(new DataItem("Home", true, new HomePage()));
             LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
-            LeftItems.Add(new DataItem("Base Info", true, new CourseSE()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
             LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
-            LeftItems.Add(new DataItem("Contact/Location", false));
-
+			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
 
             RightItems.Add(new DataItem("CSE Info", false,"#0b9246"));
             RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
             RightItems.Add(new DataItem("EEE Info", false,"#1e9ad5"));
             RightItems.Add(new DataItem("EEE Courses", false,"#1e9ad5"));
             RightItems.Add(new DataItem("SE Info", false,"#f6a220"));
-            RightItems.Add(new DataItem("SE Courses", false,"#f6a220"));
-			
+			RightItems.Add(new DataItem("SE Courses", true, new CourseSE(), "#f6a220"));
         }
 
 

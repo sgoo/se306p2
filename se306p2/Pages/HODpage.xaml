@@ -28,13 +28,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <!-- Title -->
-        <TextBlock
-            Style="{StaticResource Title}"
-            Grid.Row="0"
-            Grid.ColumnSpan="2">
-            HOD Welcome Page
-        </TextBlock>
+    <!-- Title -->
+    <TextBlock
+        Style="{StaticResource Title}"
+        Grid.Row="0"
+        Grid.ColumnSpan="2">
+        HOD Welcome Page
+    </TextBlock>
 
         <!-- Image -->
         <Border
