@@ -100,10 +100,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Styles.xaml">
+    <Resource Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Page Include="Pages\ExamplePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

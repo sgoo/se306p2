@@ -8,7 +8,7 @@
         <ResourceDictionary.MergedDictionaries>
           <ResourceDictionary Source="/Microsoft.Surface.Presentation.Generic;v2.0.0.0;31bf3856ad364e35;component/themes\styles.xaml"/>
             <!-- Can include here instead of in every xaml file. -->
-                <!-- <ResourceDictionary Source="../Resources/Styles.xaml" /> -->
+                 <ResourceDictionary Source="/Resources/Styles.xaml" /> 
             </ResourceDictionary.MergedDictionaries>
       </ResourceDictionary>
     </Application.Resources>
