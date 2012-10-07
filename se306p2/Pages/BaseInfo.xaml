@@ -17,7 +17,7 @@
 	<Grid Style="{StaticResource PageBackground}">
 
 		<Grid.RowDefinitions>
-			<RowDefinition Height="0.20*" />
+			<RowDefinition Height="150" />
 			<RowDefinition Height="0.40*" />
 			<RowDefinition Height="0.40*" />
 		</Grid.RowDefinitions>
@@ -30,21 +30,18 @@
 							   Margin="8,0,-7.5,0">
 		</s:SurfaceScrollViewer>
 
-		<TextBlock Grid.Row="0"
+        <TextBlock Grid.Row="0"
 				   Grid.Column="0"
 				   Grid.ColumnSpan="2"
-				   Style="{StaticResource Title}"
-				   Margin="8,30.095,9.253,8"
-				   FontWeight="Bold"
-				   HorizontalAlignment="Center"
-				   TextAlignment="Center"
+				   Style="{StaticResource Title}">
+            <!-- 
 				   d:LayoutOverrides="Width, GridBox"
 				   AllowDrop="True"
 				   Focusable="True"
 				   LineStackingStrategy="BlockLineHeight"
-				   TextWrapping="Wrap">
+				   TextWrapping="Wrap">-->
 				   
-			<Run Text="Electrical and Computer Engineering Department" />
+			Electrical and Computer Engineering Department
 		</TextBlock>
 
 		<s:LibraryBar Name="MainLibraryBar"

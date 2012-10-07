@@ -15,7 +15,7 @@
     <Grid Style="{StaticResource PageBackground}"
           AllowDrop="False">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="150"/>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="800"></RowDefinition>
         </Grid.RowDefinitions>

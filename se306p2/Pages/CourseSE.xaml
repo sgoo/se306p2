@@ -11,23 +11,14 @@
              IsVisibleChanged="UserControl_IsVisibleChanged">
 
     <UserControl.Resources>
-
         <ResourceDictionary Source="../Resources/Styles.xaml" />
-
-
-
-
-
-
-
     </UserControl.Resources>
-
 
     <Grid>
         <!-- Background="{StaticResource BackgroundSE}" -->
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="150" />
             <RowDefinition Height="0.1*" />
             <RowDefinition Height="0.7*" />
         </Grid.RowDefinitions>

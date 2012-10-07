@@ -310,7 +310,7 @@ namespace se306p2 {
 			get { return canDrop; }
 		}
 
-		public DataItem(string name, bool canDrop, UIElement uielement, string color = "Crimson") {
+		public DataItem(string name, bool canDrop, UIElement uielement, string color = "Purple") {
 			this.name = name;
 			this.color = color;
 			this.canDrop = canDrop;

@@ -34,7 +34,7 @@
 			<Grid Height="120"
 				  Width="200"
 				  Margin="10"
-				  Background="Crimson"
+				  Background="Purple"
 				  VerticalAlignment="Center"
 				  HorizontalAlignment="Center">
 
@@ -173,7 +173,7 @@
 								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
 							<Border x:Name="ButtonBody"
 									BorderThickness="{TemplateBinding BorderThickness}"
-									Background="Crimson"
+									Background="Purple"
 									BorderBrush="{TemplateBinding BorderBrush}"
 									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
 									CornerRadius="20" />
