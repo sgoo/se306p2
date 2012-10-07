@@ -107,6 +107,8 @@ namespace se306p2
                 nextpage.Visibility = System.Windows.Visibility.Visible;
                 //currentSub.Visibility = System.Windows.Visibility.Collapsed;
                 nextSub.Visibility = System.Windows.Visibility.Visible;
+
+				setCourseDescription("");
             }
         }
         private void SwitchNext()
@@ -136,6 +138,8 @@ namespace se306p2
                 nextpage.Visibility = System.Windows.Visibility.Visible;
                 //currentSub.Visibility = System.Windows.Visibility.Collapsed;
                 nextSub.Visibility = System.Windows.Visibility.Visible;
+
+				setCourseDescription("");
             }
         }
         private bool IsPreviousValid()
@@ -194,7 +198,25 @@ namespace se306p2
             }
         }
 
+		private void CourseButton_TouchUp(object sender, MouseButtonEventArgs e)
+		{
+			Grid s = (Grid)sender;
+			String courseDescription = s.Tag.ToString();
 
+			String courseCode = ((TextBlock)s.Children[0]).Text;
+			String courseName = ((TextBlock)s.Children[1]).Text;
+
+			setCourseDescription(courseCode + " - " + courseName + Environment.NewLine + courseDescription);
+		}
+
+
+
+		private void setCourseDescription(string text)
+		{
+			CourseDescription1.Text = text;
+			CourseDescription2.Text = text;
+			CourseDescription3.Text = text;
+		}
 
     }
 
