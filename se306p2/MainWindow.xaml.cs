@@ -192,6 +192,7 @@ namespace se306p2 {
 				Content = draggedElement.DataContext,
 				Style = FindResource("CursorStyle") as Style
 			};
+			
 
 			// Add a handler. This will enable the application to change the visual cues.
 			SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
