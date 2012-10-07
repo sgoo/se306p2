@@ -646,7 +646,10 @@
 							  ItemsSource="{Binding Path=LeftItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}" />
+							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}"
+							  s:SurfaceDragDrop.Drop="ListBoxDrop"
+							  s:SurfaceDragDrop.TargetChanged="OnTargetChanged"
+							  AllowDrop="True"/>
 
 			<s:SurfaceListBox Name="RightScatterBar"
 							  Grid.Column="2"
@@ -654,7 +657,9 @@
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}"
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
-							  PreviewMouseDown="OnDragSourcePreviewTouchDown" />
+							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
+							  s:SurfaceDragDrop.Drop="ListBoxDrop"
+							  AllowDrop="True"/>
 
 		</Grid>
 	</ScrollViewer>

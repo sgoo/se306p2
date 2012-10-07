@@ -41,7 +41,7 @@ namespace se306p2 {
 
 				//MainWindowGrid.Background = value;
 				BitmapImage img = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), value));
-				ImageBrush brush =  new ImageBrush(img);
+				ImageBrush brush = new ImageBrush(img);
 				brush.Stretch = Stretch.Uniform;
 				brush.TileMode = TileMode.None;
 
@@ -171,6 +171,8 @@ namespace se306p2 {
 		}
 
 		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
+
+
 			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
 			SurfaceListBoxItem draggedElement = null;
 
@@ -256,7 +258,10 @@ namespace se306p2 {
 
 			DataItem d = e.Cursor.Data as DataItem;
 
-			//added to stop advisors drag from crashing program
+			SelectPage(d);
+		}
+		public void SelectPage(DataItem d) {
+
 			if (d == null)
 				return;
 
@@ -273,7 +278,14 @@ namespace se306p2 {
 			DefaultPanel.UpdateLayout();
 		}
 
+		public void ListBoxDrop(Object sender, SurfaceDragDropEventArgs e) {
+
+			SelectPage(e.Cursor.Data as DataItem);
+
+		}
 	}
+
+
 
 	public class DataItem {
 		private string name;

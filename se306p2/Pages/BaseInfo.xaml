@@ -79,7 +79,7 @@
 					  Tag="pause"
 					  LoadedBehavior="Manual"
 					  UnloadedBehavior="Play"
-					  Source=" Resources\sampleVid.mp4"
+					  Source="Resources\sampleVid.mp4"
 					  MediaEnded="_mediaElement_MediaEnded"
 					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"

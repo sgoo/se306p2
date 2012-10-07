@@ -280,7 +280,7 @@
     <Resource Include="Resources\Advisors\Watson.bmp" />
     <Resource Include="Resources\Advisors\TopCard.bmp" />
     <Content Include="Resources\background_se.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\XML\courses_se.xml">
       <SubType>Designer</SubType>
