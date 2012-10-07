@@ -60,7 +60,40 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StyleSel.cs" />
+    <Compile Include="Pages\Copy of CourseCSE.xaml.cs">
+      <DependentUpon>Copy of CourseCSE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseEE.xaml.cs">
+      <DependentUpon>CourseEE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseSE.xaml.cs">
+      <DependentUpon>CourseSE.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Util.cs" />
+    <Page Include="Pages\Copy of CourseCSE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CourseEE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CourseSE.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\ExamplePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +213,18 @@
       <All>True</All>
       <AutoFill>True</AutoFill>
     </BlendEmbeddedFont>
+    <Resource Include="Resources\blue0.jpg" />
+    <Resource Include="Resources\blue1.jpg" />
+    <Resource Include="Resources\blue2.jpg" />
+    <Resource Include="Resources\blue4.jpg" />
+    <Resource Include="Resources\green0.jpg" />
+    <Resource Include="Resources\green1.jpg" />
+    <Resource Include="Resources\green2.jpg" />
+    <Content Include="Resources\sampleVid.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\themes\general.jpg" />
+    <Resource Include="Resources\video_play.png" />
     <Resource Include="Resources\Ece0.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -198,14 +243,23 @@
     <Resource Include="Resources\Ece5.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\background_cse.jpg" />
+    <Resource Include="Resources\background_eee.jpg" />
+    <Resource Include="Resources\course_button.png" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\background_se.jpg" />
+    <Resource Include="Resources\XML\courses_se.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Resources\XML\test.xml" />
     <Content Include="se306p2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Expression\Blend\.NETFramework\v4.0\Microsoft.Expression.Blend.WPF.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

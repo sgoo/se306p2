@@ -1,36 +1,64 @@
-﻿<UserControl x:Class="se306p2.HODpage"
-			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 mc:Ignorable="d"
-			 d:DesignHeight="469"
-			 d:DesignWidth="1226">
-	<Grid Margin="20"
-		  Background="White">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="0.1*" />
-			<RowDefinition Height="0.9*" />
-		</Grid.RowDefinitions>
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="0.5*" />
-			<ColumnDefinition />
-		</Grid.ColumnDefinitions>
-		<Label Grid.Row="0"
-			   Grid.ColumnSpan="2"
-			   Foreground="Black"
-			   FontSize="29.333"
-			   HorizontalContentAlignment="Center">HOD Welcome Page</Label>
-		<Image Grid.Row="1"
-			   Grid.Column="0"
-			   Stretch="Fill"
-			   Source="/Resources/Zoran-salcic.JPG"></Image>
-		<TextBlock Grid.Row="1"
-				   Grid.Column="1"
-				   x:Name="tbMultiLine"
-				   TextWrapping="Wrap"
-				   Foreground="Black"
-				   Margin="30px"><Run Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications. " /><LineBreak /><Run /><LineBreak /><Run Text="All modern systems used in everyday's private or business life, such as mobile phones, vehicles, home and building automation or industrial control systems, will not exist if there are not electrical, computer and software engineers. " /><LineBreak /><Run /><LineBreak /><Run Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold"
-																																																																																																																																																																																																																																																																																																																								   Text="Professor Zoran Salcic Head of the Department" /></TextBlock>
-	</Grid>
+﻿<UserControl
+    x:Class="se306p2.HODpage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:se306p2"
+    mc:Ignorable="d"
+    d:DesignHeight="1080"
+    d:DesignWidth="1350">
+
+    <!-- Include styles dictionary -->
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Resources/Styles.xaml" />
+    </UserControl.Resources>
+
+    <Grid
+        Style="{StaticResource PageBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="0.2*" />
+            <RowDefinition
+                Height="0.8*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.5*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!-- Title -->
+        <TextBlock
+            Style="{StaticResource Title}"
+            Grid.Row="0"
+            Grid.ColumnSpan="2">
+            HOD Welcome Page
+        </TextBlock>
+
+        <!-- Image -->
+        <Border
+            Style="{StaticResource ImgBorder}"
+            Grid.Row="1"
+            Grid.Column="0">
+            <Image
+                Style="{StaticResource Img}"
+                Source="/Resources/Zoran-salcic.JPG">
+            </Image>
+        </Border>
+
+        <!-- Text -->
+        <TextBlock
+            Style="{StaticResource NormalText}"
+            Grid.Row="1"
+            Grid.Column="1"
+            x:Name="tbMultiLine">
+            <Run
+                Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications. " /><LineBreak /><Run /><LineBreak /><Run
+                Text="All modern systems used in everyday's private or business life, such as mobile phones, vehicles, home and building automation or industrial control systems, will not exist if there are not electrical, computer and software engineers. " /><LineBreak /><Run /><LineBreak /><Run
+                Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run
+                FontWeight="Bold"
+                Text="Professor Zoran Salcic Head of the Department" />
+                </TextBlock>
+    </Grid>
 </UserControl>

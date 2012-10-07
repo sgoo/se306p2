@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
+using se306p2.Pages;
 
 
 namespace se306p2
@@ -69,18 +70,21 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            LeftItems.Add(new DataItem("Base Info", true, new BaseInfo()));
+            LeftItems.Add(new DataItem("Home", true, new HomePage()));
+            LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
+            LeftItems.Add(new DataItem("Base Info", true, new CourseSE()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
-            LeftItems.Add(new DataItem("General", false));
-            LeftItems.Add(new DataItem("Location", false));
-            LeftItems.Add(new DataItem("blah", false));
+            LeftItems.Add(new DataItem("Course Advisors", false));
+            LeftItems.Add(new DataItem("Contact/Location", false));
 
-            RightItems.Add(new DataItem("SE 1", false));
-            RightItems.Add(new DataItem("SE 2", false));
-            RightItems.Add(new DataItem("CSE info", false));
-            RightItems.Add(new DataItem("CSE course", false));
-            RightItems.Add(new DataItem("EEE", false));
-            RightItems.Add(new DataItem("EEE 2", false));
+
+            RightItems.Add(new DataItem("CSE Info", false,"#0b9246"));
+            RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
+            RightItems.Add(new DataItem("EEE Info", false,"#1e9ad5"));
+            RightItems.Add(new DataItem("EEE Courses", false,"#1e9ad5"));
+            RightItems.Add(new DataItem("SE Info", false,"#f6a220"));
+            RightItems.Add(new DataItem("SE Courses", false,"#f6a220"));
+       
         }
 
 
@@ -275,6 +279,7 @@ namespace se306p2
     public class DataItem
     {
         private string name;
+        private string color;
         private bool canDrop;
         private UIElement pageControl;
 
@@ -288,20 +293,31 @@ namespace se306p2
             get { return name; }
         }
 
+        public string Color
+        {
+            get { return color; }
+        }
+
         public bool CanDrop
         {
             get { return canDrop; }
         }
 
-        public DataItem(string name, bool canDrop, UIElement uielement)
+        public DataItem(string name, bool canDrop, UIElement uielement, string color = "Crimson")
         {
             this.name = name;
+            this.color = color;
             this.canDrop = canDrop;
             this.pageControl = uielement;
         }
 
         public DataItem(string name, bool canDrop)
-            : this(name, canDrop, new ExamplePage())
+            : this(name, canDrop, new ExamplePage(), "Crimson")
+        {
+        }
+
+        public DataItem(string name, bool canDrop,string color)
+            : this(name, canDrop, new ExamplePage(), color)
         {
         }
 
