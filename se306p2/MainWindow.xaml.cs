@@ -16,6 +16,7 @@ using Microsoft.Surface.Presentation;
 using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
+using se306p2.Pages;
 
 
 namespace se306p2
@@ -72,7 +73,7 @@ namespace se306p2
             LeftItems.Add(new DataItem("Base Info", true, new BaseInfo()));
             LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
             LeftItems.Add(new DataItem("General", false));
-            LeftItems.Add(new DataItem("Location", false));
+            LeftItems.Add(new DataItem("Location", true, new ContactPage()));
             LeftItems.Add(new DataItem("blah", false));
 
             RightItems.Add(new DataItem("SE 1", false));
