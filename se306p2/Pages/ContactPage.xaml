@@ -24,7 +24,7 @@
 				   Grid.ColumnSpan="2">
             Location and Contact
 		</TextBlock>
-		
+
 		<!-- Map-->
 		<Border Style="{StaticResource ImgBorder}"
 				Grid.Row="1"
@@ -39,5 +39,12 @@
 						   Tag="Electrical and Computer Engineering Department" />
 			</m:Map>
 		</Border>
+
+		<TextBlock Grid.Row="1"
+				   Grid.Column="1"
+				   Style="{StaticResource NormalText}">
+			<Run /><LineBreak /><Run Text="Building 303, Room 240" /><LineBreak /><Run Text="Level 2, Science Centre" /><LineBreak /><Run Text="38 Princes Street" /><LineBreak /><Run Text="Auckland" /><LineBreak /><Run /><LineBreak /><Run Text="Phone: +64 9 373 7599 ext 88158" /><LineBreak /><Run Text="Fax: +64 9 373 7461" /><LineBreak /><Run Text="Email: ece-info@auckland.ac.nz" /><LineBreak /><Run /><LineBreak /><Run />
+		</TextBlock>
+
 	</Grid>
 </UserControl>
