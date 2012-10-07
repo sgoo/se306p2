@@ -256,10 +256,16 @@ namespace se306p2
                 e.Cursor.Visual.Tag = null;
             }
         }
-
         private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e)
         {
+      
+
             DataItem d = e.Cursor.Data as DataItem;
+
+            //added to stop advisors drag from crashing program
+            if (d == null)
+                return;
+
             Grid.SetColumn(d.PageControl, 0);
             Grid.SetColumnSpan(d.PageControl, 2);
             Grid.SetRow(d.PageControl, 0);

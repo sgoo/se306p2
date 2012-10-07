@@ -41,17 +41,25 @@ namespace se306p2
             string imagesPath =
                 (string)Microsoft.Win32.Registry.GetValue(shellKey, "CommonPictures", null) + @"\Sample Pictures";
 
-            imagesPath = "D:/se306p2/se306p2/Resources/Advisors";
-            MessageBox.Show(imagesPath);
+            //imagesPath = "D:/se306p2/se306p2/Resources/Advisors";
+            imagesPath = "Resources\\Advisors";
+           // MessageBox.Show(imagesPath);
             try
             {
                 // Get the list of files.
-                string[] files = System.IO.Directory.GetFiles(imagesPath, "*.jpg");
+
+                Uri[] files = new Uri[3];
+                files[0] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
+                files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp");
+                files[2] = new Uri("pack://application:,,,/Resources/Advisors/Watson.bmp");
+                
+                //Uri[] files = System.IO.Directory.GetFiles(imagesPath, "*.jpg");
+
 
                 // Create an ObservableCollection from the file names.
                 // Cannot assign string[] files to LibraryStack.ItemsSource.
                 // LibraryStack.ItemsSource must implement INotifyCollectionChanged.
-                ObservableCollection<string> items = new ObservableCollection<string>(files);
+                ObservableCollection<Uri> items = new ObservableCollection<Uri>(files);
 
                 // Set the ItemsSource property.
                 MainLibraryStack.ItemsSource = items;

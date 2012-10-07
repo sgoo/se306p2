@@ -228,6 +228,9 @@
     <Resource Include="Resources\Advisors\sample.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Advisors\Berber.bmp" />
+    <Resource Include="Resources\Advisors\Roop.bmp" />
+    <Resource Include="Resources\Advisors\Watson.bmp" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

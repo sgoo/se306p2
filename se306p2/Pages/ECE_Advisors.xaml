@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              xmlns:my="http://schemas.microsoft.com/surface/2008">
 
-    <!-- Include styles dictionary -->
+    <!-- Include styles dictionary-->
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
@@ -15,11 +15,11 @@
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="500"></RowDefinition>
+            <RowDefinition Height="800"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            
+
         </Grid.ColumnDefinitions>
 
         <!-- Title -->
@@ -29,30 +29,28 @@
             Grid.ColumnSpan="2">
             Course Advisors
         </TextBlock>
-        
+
         <TextBlock
             Style="{StaticResource NormalText}"
             Grid.Row="1"
             Width="1080"
             x:Name="tbMultiLine">
             <Run
-                Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications. " /><LineBreak /><Run /><LineBreak /><Run
-                Text="All modern systems used in everyday's private or business life, such as mobile phones, vehicles, home and building automation or industrial control systems, will not exist if there are not electrical, computer and software engineers. " /><LineBreak /><Run /><LineBreak /><Run
-                Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run
-                FontWeight="Bold"
-                Text="Professor Zoran Salcic Head of the Department" />
+                Text="The Electrical and Copmuter Engineering Department provides a course advisor for each of the discipleines that it covers. Browse though the course advisors below for their contact details." />
         </TextBlock>
         <!--
         <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
         </my:LibraryStack> -->
-        <my:LibraryStack Name="MainLibraryStack" Grid.Row="2" Background="Gold">
-            <my:LibraryStack.ItemTemplate>
+        <Grid Grid.Row="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="Pink">
+            <my:LibraryStack Name="MainLibraryStack" Background="aqua" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MaxHeight="2000" MaxWidth="2000">
+                <my:LibraryStack.ItemTemplate>
                 <DataTemplate>
-                    <Image Source="{Binding}"/>
+                    <Image Source="{Binding}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                 </DataTemplate>
             </my:LibraryStack.ItemTemplate>
-            
-        </my:LibraryStack>
+
+            </my:LibraryStack>
+        </Grid>
     </Grid>
-    
+
 </UserControl>
