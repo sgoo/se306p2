@@ -140,10 +140,6 @@
       <Project>{5DA1D53B-85D5-40D2-BD44-26ABD944354C}</Project>
       <Name>WPFControls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\se306p2\se306p2.csproj">
-      <Project>{68BA941F-3ABB-41EB-8F2B-5DCFB178DC2A}</Project>
-      <Name>se306p2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

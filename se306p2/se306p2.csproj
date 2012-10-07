@@ -238,6 +238,11 @@
     <Resource Include="Resources\green0.jpg" />
     <Resource Include="Resources\green1.jpg" />
     <Resource Include="Resources\green2.jpg" />
+    <Resource Include="Resources\largeimage.jpg" />
+    <Resource Include="Resources\messagebg.jpg" />
+    <Resource Include="Resources\building.jpg" />
+    <Resource Include="Resources\purplebox.png" />
+    <Resource Include="Resources\findoutmore.jpg" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -273,6 +278,8 @@
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Resources\XML\test.xml" />
+    <Resource Include="Resources\test.jpg" />
+    <Resource Include="Resources\welcomebg.jpg" />
     <Content Include="se306p2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
