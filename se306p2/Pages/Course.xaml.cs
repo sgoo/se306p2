@@ -12,6 +12,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace se306p2.Pages {
 	/// <summary>
@@ -80,7 +83,7 @@ namespace se306p2.Pages {
 			get { return currentCourse; }
 			set {
 				currentCourse = value;
-				CurrentCourseTitle = value.Code + " - " + value.Name ;
+				CurrentCourseTitle = value.Code + " - " + value.Name;
 				CurrentCourseDesc = value.Desc;
 				PropertyChanged(this, new PropertyChangedEventArgs("CurrentCourse"));
 			}
@@ -122,6 +125,40 @@ namespace se306p2.Pages {
 			}
 		}
 
+
+		public void readJSON(Uri location) {
+
+			string text = new StreamReader(Application.GetResourceStream(location).Stream).ReadToEnd();
+			Console.WriteLine(text);
+			//JObject json = JObject.Parse(text);
+			
+			String[] yearTitles = { "Part II", "Part III", "Part IV" };
+			JArray courses = JArray.Parse(text);
+			for (int i = 0; i < courses.Count; i++) {
+				CourseSet cs = new CourseSet() {
+					Title = yearTitles[i]
+				};
+
+				JArray yearCourses = courses[i] as JArray;
+
+				for (int j = 0; j < yearCourses.Count; j++) {
+					JObject course = yearCourses[j] as JObject;
+					CourseItem ci = new CourseItem();
+					ci.Name = course["name"].ToString();
+					ci.Code = course["code"].ToString();
+					ci.Points = course["points"].ToString();
+					ci.Desc = course["text"].ToString();
+
+					cs.CourseList.Add(ci.Code, ci);
+				}
+				CourseSets.Add(i, cs);
+			}
+			CurrentCourseSet = 0;
+
+ 
+
+		}
+
 		public class CourseSet {
 			public String Title;
 			public SortedList<String, CourseItem> CourseList = new SortedList<String, CourseItem>();
@@ -129,7 +166,7 @@ namespace se306p2.Pages {
 		public class CourseItem {
 			public String Name { get; set; }
 			public String Code { get; set; }
-			public int Points { get; set; }
+			public String Points { get; set; }
 			public String Desc { get; set; }
 		}
 

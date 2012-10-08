@@ -5,27 +5,28 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 mc:Ignorable="d"
 			 Name="UserControl"
-			 d:DesignHeight="300"
-			 d:DesignWidth="300">
-	<Grid Grid.Row="0"
+			 Height="125"
+			 Width="250"
+             Margin="20,20,20,20">
+    <Grid Grid.Row="0"
 		  Grid.Column="0"
 		  Background="{StaticResource CourseButton}"
-		  Margin="20,20,20,20">
-		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
-		</Grid.RowDefinitions>
-		<TextBlock Grid.Row="0"
+		  >
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
 				   TextAlignment="center"
 				   VerticalAlignment="Center"
 				   HorizontalAlignment="Stretch"
 				   FontSize="20"
 				   Foreground="white"><Run Text="{Binding  ElementName=UserControl, Path=CourseCode}" /></TextBlock>
-		<TextBlock Grid.Row="1"
+        <TextBlock Grid.Row="1"
 				   TextAlignment="Center"
 				   VerticalAlignment="Center"
 				   HorizontalAlignment="Stretch"
 				   FontSize="15"
 				   Foreground="LightGray"><Run Text="{Binding  ElementName=UserControl, Path=CourseTitle}" /></TextBlock>
-	</Grid>
+    </Grid>
 </UserControl>

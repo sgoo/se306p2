@@ -89,70 +89,31 @@ namespace se306p2 {
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
-
-			Course.CourseSet EeePart2 = new Course.CourseSet() {
-				Title = "Part II"
-			};
-			EeePart2.CourseList.Add("ELECTENG 202", new Course.CourseItem() {
-				Name = "Circuits and Systems",
-				Code = "ELECTENG 202",
-				Points = 15,
-				Desc = "This course aims to provide a good understanding of the way electrical circuits work. It covers DC and AC circuit theorems and analysis; transient analysis, including the Laplace transform; transfer functions; AC power calculations; and time and frequency representation of signals."
-			});
-			EeePart2.CourseList.Add("ELECTENG 204", new Course.CourseItem() {
-				Name = "Engineering Electromagnetics",
-				Code = "ELECTENG 204",
-				Points = 15,
-				Desc = "Electrical conduction theories, conducting materials and insulators, magnetic and dielectric properties and materials, electrostatics and magnetostatics, steady electric currents, the magnetic field of steady electric currents, Ampere's law and its applications, electromagnetic induction, Faraday's law and its applications, electromagnetism, simple transmission lines, magnetic circuits, permanent magnets, inductors, transformers, introduction to electrical machines."
-			});
-
-			Course.CourseSet EeePart3 = new Course.CourseSet() {
-				Title = "Part III"
-			};
-			EeePart3.CourseList.Add("ELECTENG 303", new Course.CourseItem() {
-				Name = "Systems and Control",
-				Code = "ELECTENG 303",
-				Points = 15,
-				Desc = "Introduction to linear, time-invariant, continuous-time system theory from both a time-domain and frequency domain standpoint. This leads on to the fundamental body of knowledge underlying the control and enhancement of system behaviour, with application to the analysis and control of electrical systems."
-			});
-			EeePart3.CourseList.Add("ELECTENG 305", new Course.CourseItem() {
-				Name = "Electronics 2",
-				Code = "ELECTENG 305",
-				Points = 15,
-				Desc = "The operation, analysis and design of a range of electronic devices and systems will be discussed, taking examples from the full spectrum of electrical engineering. Such analysis will consider non-ideal circuit models and their frequency dependence. Selected applications will be taken from the fields of signal conditioning, amplifiers, communications systems and energy conversion."
-			});
-
-			Course.CourseSet EeePart4 = new Course.CourseSet() {
-				Title = "Part IV"
-			};
-			EeePart4.CourseList.Add("ELECTENG 701", new Course.CourseItem() {
-				Name = "Wireless Communication",
-				Code = "ELECTENG 701",
-				Points = 15,
-				Desc = "Aspects of the design and planning of wireless communication systems. Introduction to cellular system design. Issues related to radio propagation: multipath, path loss prediction, channel characterisation. System aspects: cellular technologies, system planning and reliability estimation. Wireless systems and standards."
-			});
-			EeePart4.CourseList.Add("ELECTENG 702", new Course.CourseItem() {
-				Name = "Applied Electromagnetics",
-				Code = "ELECTENG 702",
-				Points = 15,
-				Desc = "Selected topics in electromagnetic theory. Consideration will be given to both analytical and numerical techniques."
-			});
-
-
 			Course EeeCourse = new Course() {
 				ProgramTitle = "EEE Courses",
 			};
-			EeeCourse.CourseSets.Add(2, EeePart2);
-			EeeCourse.CourseSets.Add(3, EeePart3);
-			EeeCourse.CourseSets.Add(4, EeePart4);
-			EeeCourse.CurrentCourseSet = 2;
+
+			EeeCourse.readJSON(new Uri("pack://application:,,,/Resources/eeeCourseInfo.json"));
+			
+			Course CseCourse = new Course() {
+				ProgramTitle = "CSE Courses",
+			};
+
+			CseCourse.readJSON(new Uri("pack://application:,,,/Resources/cseCourseInfo.json"));
+			
+			Course SeCourse = new Course() {
+				ProgramTitle = "SE Courses",
+			};
+
+			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
+
 
 			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
-			RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
+			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, "#0b9246"));
 			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
 			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, "#1e9ad5"));
 			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
-			RightItems.Add(new DataItem("SE Courses", true, new CourseSE(), "#f6a220"));
+			RightItems.Add(new DataItem("SE Courses", true, SeCourse, "#f6a220"));
 		}
 
 
