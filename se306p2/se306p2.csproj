@@ -70,6 +70,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Pages\Course.xaml.cs">
+      <DependentUpon>Course.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CourseButton.xaml.cs">
+      <DependentUpon>CourseButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\homepage.xaml.cs">
       <DependentUpon>homepage.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,14 @@
     <Page Include="Pages\Copy of CourseCSE.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Course.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CourseButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CourseEE.xaml">
       <Generator>MSBuild:Compile</Generator>
