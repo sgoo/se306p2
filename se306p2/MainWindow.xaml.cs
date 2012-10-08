@@ -92,19 +92,16 @@ namespace se306p2 {
 			Course EeeCourse = new Course() {
 				ProgramTitle = "EEE Courses",
 			};
-
 			EeeCourse.readJSON(new Uri("pack://application:,,,/Resources/eeeCourseInfo.json"));
 			
 			Course CseCourse = new Course() {
 				ProgramTitle = "CSE Courses",
 			};
-
 			CseCourse.readJSON(new Uri("pack://application:,,,/Resources/cseCourseInfo.json"));
 			
 			Course SeCourse = new Course() {
 				ProgramTitle = "SE Courses",
 			};
-
 			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
 
 
