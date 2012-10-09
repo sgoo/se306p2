@@ -31,10 +31,10 @@ namespace se306p2 {
 		private ObservableCollection<DataItem> rightItems;
 
 		private String lastBackgroundImage = "";
-
+        
 		public String BackgroundImage {
 			set {
-				if (lastBackgroundImage == value) {
+        		if (lastBackgroundImage == value) {
 					return;
 				}
 				// TODO: implement some fading?
@@ -299,6 +299,20 @@ namespace se306p2 {
 			SelectPage(e.Cursor.Data as DataItem);
 
 		}
+
+        private void ScrollView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
+            {
+                ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+                ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+            }
+            if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
+            {
+                ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+                ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            }
+        }
 	}
 
 
