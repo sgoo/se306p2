@@ -110,7 +110,7 @@ namespace se306p2 {
 			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
 			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, "#1e9ad5"));
 			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
-			RightItems.Add(new DataItem("SE Courses", true, SeCourse, "#f6a220"));
+			RightItems.Add(new DataItem("SE Courses", true, new CourseSE(), "#f6a220"));
 		}
 
 

@@ -15,6 +15,7 @@ using System.ComponentModel;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using System.Windows.Media.Animation;
 
 namespace se306p2.Pages {
 	/// <summary>
@@ -23,6 +24,7 @@ namespace se306p2.Pages {
 	public partial class Course : UserControl, INotifyPropertyChanged {
 		public Course() {
 			InitializeComponent();
+			fadePanels = new Grid[] { FadePanel1, FadePanel2 };
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -30,12 +32,35 @@ namespace se306p2.Pages {
 		public int CurrentCourseSet {
 			get { return currentCourseSet; }
 			set {
+
+				Storyboard sb1;
+				Storyboard sb2;
+				if (currentCourseSet > value) {
+					sb1 = (Storyboard)Resources["SlideOriginToRight"];
+					sb2 = (Storyboard)Resources["SlideLeftToOrigin"];
+				} else {
+					sb1 = (Storyboard)Resources["SlideOriginToLeft"];
+					sb2 = (Storyboard)Resources["SlideRightToOrigin"];
+				}
 				currentCourseSet = value;
+
+
+				//CourseSetTitle = "";
+
 				CourseSet cs = CourseSets[value];
-				CourseSetTitle = cs.Title;
+
+				//CourseSetTitle = cs.Title;
+
 				addButtons(cs.CourseList);
 				CurrentCourseDesc = "";
 				CurrentCourseTitle = "";
+
+				SlideOutTitle = SlideInTitle;
+				SlideInTitle = cs.Title;
+
+				sb1.Begin(SlideOutTextBlock);
+				sb2.Begin(SlideInTextBlock);
+
 				PropertyChanged(this, new PropertyChangedEventArgs("CurrentCourseSet"));
 			}
 		}
@@ -49,12 +74,33 @@ namespace se306p2.Pages {
 			}
 		}
 
-		private string courseTitle = "";
+
+
+
+		/*private string courseTitle = "";
 		public string CourseSetTitle {
 			get { return courseTitle; }
 			set {
 				courseTitle = value;
 				PropertyChanged(this, new PropertyChangedEventArgs("CourseSetTitle"));
+			}
+		}*/
+
+		private string slideOutTitle = "";
+		public string SlideOutTitle {
+			get { return slideOutTitle; }
+			set {
+				slideOutTitle = value;
+				PropertyChanged(this, new PropertyChangedEventArgs("SlideOutTitle"));
+			}
+		}
+
+		private string slideInTitle = "";
+		public string SlideInTitle {
+			get { return slideInTitle; }
+			set {
+				slideInTitle = value;
+				PropertyChanged(this, new PropertyChangedEventArgs("SlideInTitle"));
 			}
 		}
 
@@ -92,10 +138,25 @@ namespace se306p2.Pages {
 
 		public SortedList<int, CourseSet> CourseSets = new SortedList<int, CourseSet>();
 
+		private Grid[] fadePanels;
+		private int currrentPanel = 0;
 
 		public void addButtons(SortedList<String, CourseItem> courseList) {
-			StackPanel.Children.Clear();
+			Grid fadeIn = fadePanels[currrentPanel++ % 2];
+			Grid fadeOut = fadePanels[currrentPanel % 2];
 
+			StackPanel topLine = fadeIn.Children[0] as StackPanel;
+			StackPanel bottomLine = fadeIn.Children[1] as StackPanel;
+			
+			topLine.Children.Clear();
+			bottomLine.Children.Clear();
+
+			StackPanel[] panelLines = new StackPanel[] { topLine, bottomLine };
+			
+			if (courseList.Count < 4) {
+				panelLines = new StackPanel[] { topLine };
+			}
+			int line = 0;
 			foreach (KeyValuePair<String, CourseItem> kvp in courseList) {
 				CourseButton button = new CourseButton() {
 					CourseTitle = kvp.Value.Name,
@@ -104,8 +165,26 @@ namespace se306p2.Pages {
 				};
 				button.PreviewTouchDown += ClickCourse;
 				button.PreviewMouseDown += ClickCourse;
-				StackPanel.Children.Add(button);
+				panelLines[line++ % panelLines.Count()].Children.Add(button);
 			}
+
+			fadeIn.Opacity = 0;
+
+			Storyboard sb1 = (Storyboard)Resources["FadeOut"];
+			Storyboard sb2 = (Storyboard)Resources["FadeIn"];
+
+			sb1.Completed += FadeOut_Completed;
+
+			sb1.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
+			sb2.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
+
+			sb1.Begin(fadeOut);
+			sb2.Begin(fadeIn);
+		}
+
+		void FadeOut_Completed(object sender, EventArgs e) {
+			(fadePanels[currrentPanel % 2].Children[0] as StackPanel).Children.Clear();
+			(fadePanels[currrentPanel % 2].Children[1] as StackPanel).Children.Clear();
 		}
 
 		public void ClickCourse(object sender, InputEventArgs e) {
@@ -131,7 +210,7 @@ namespace se306p2.Pages {
 			string text = new StreamReader(Application.GetResourceStream(location).Stream).ReadToEnd();
 			Console.WriteLine(text);
 			//JObject json = JObject.Parse(text);
-			
+
 			String[] yearTitles = { "Part II", "Part III", "Part IV" };
 			JArray courses = JArray.Parse(text);
 			for (int i = 0; i < courses.Count; i++) {
@@ -154,9 +233,42 @@ namespace se306p2.Pages {
 				CourseSets.Add(i, cs);
 			}
 			CurrentCourseSet = 0;
+		}
 
- 
-
+		// swipe code
+		private Dictionary<MouseDevice, Point> currentTouchDevices = new Dictionary<MouseDevice, Point>();
+		private void Swipe_TouchDown(object sender, MouseButtonEventArgs e) {
+			currentTouchDevices.Add(e.MouseDevice, e.MouseDevice.GetPosition(this));
+		}
+		private void Swipe_TouchUp(object sender, MouseEventArgs e) {
+			currentTouchDevices.Remove(e.MouseDevice);
+		}
+		private void Swipe_TouchMove(object sender, MouseEventArgs e) {
+			if (currentTouchDevices.Count == 1) {
+				int isLeft = 0;
+				int isRight = 0;
+				foreach (KeyValuePair<MouseDevice, Point> td in currentTouchDevices) {
+					if (td.Key != null && e.MouseDevice.GetPosition(this).X - td.Value.X > 100)
+						isRight++;
+					else if (td.Key != null && td.Value.X - e.MouseDevice.GetPosition(this).X > 100)
+						isLeft++;
+					else
+						return;
+				}
+				if (isLeft == 1 && isRight == 0) {
+					if (CourseSets.ContainsKey(currentCourseSet + 1)) {
+						CurrentCourseSet++;
+					}
+					currentTouchDevices.Clear();
+					return;
+				} else if (isRight == 1 && isLeft == 0) {
+					if (CourseSets.ContainsKey(currentCourseSet - 1)) {
+						CurrentCourseSet--;
+					}
+					currentTouchDevices.Clear();
+					return;
+				}
+			}
 		}
 
 		public class CourseSet {
@@ -169,6 +281,7 @@ namespace se306p2.Pages {
 			public String Points { get; set; }
 			public String Desc { get; set; }
 		}
+
 
 	}
 }

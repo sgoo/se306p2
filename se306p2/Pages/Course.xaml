@@ -6,12 +6,17 @@
 			 xmlns:s="http://schemas.microsoft.com/surface/2008"
 			 mc:Ignorable="d"
 			 x:Name="CourseControl"
-			 d:DesignHeight="300"
+			 d:DesignHeight="600"
 			 d:DesignWidth="300">
+
+	<UserControl.Resources>
+		<ResourceDictionary Source="../Resources/Styles.xaml" />
+	</UserControl.Resources>
+
 	<Grid Style="{StaticResource PageBackground}">
 		<Grid.RowDefinitions>
-			<RowDefinition />
-			<RowDefinition />
+			<RowDefinition Height="100" />
+			<RowDefinition Height="100" />
 			<RowDefinition />
 			<RowDefinition />
 		</Grid.RowDefinitions>
@@ -21,7 +26,11 @@
 			<Run Text="{Binding ElementName=CourseControl, Path=ProgramTitle}" />
 		</TextBlock>
 
-		<Grid Grid.Row="1">
+		<Grid Grid.Row="1"
+			  MouseDown="Swipe_TouchDown"
+			  MouseUp="Swipe_TouchUp"
+			  MouseMove="Swipe_TouchMove"
+			  Background="Transparent">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
 				<ColumnDefinition />
@@ -35,12 +44,34 @@
 					   PreviewMouseDown="LeftButtonClick">
 				&lt;
 			</TextBlock>
-			<TextBlock Grid.Column="1"
-					   Style="{StaticResource NormalText}"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center">
-				<Run Text="{Binding ElementName=CourseControl, Path=CourseSetTitle}" />
-			</TextBlock>
+
+			<!-- Swip area-->
+			<Grid Grid.Column="1">
+
+				<TextBlock Name="SlideOutTextBlock"
+						   Style="{StaticResource NormalText}"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform />
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+				<Run Text="{Binding ElementName=CourseControl, Path=SlideOutTitle}" />
+				</TextBlock>
+				<TextBlock Name="SlideInTextBlock"
+						   Style="{StaticResource NormalText}"
+						   HorizontalAlignment="Center"
+						   VerticalAlignment="Center">
+				<TextBlock.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform />
+					</TransformGroup>
+				</TextBlock.RenderTransform>
+				<Run Text="{Binding ElementName=CourseControl, Path=SlideInTitle}" />
+				</TextBlock>
+			</Grid>
+
 			<TextBlock Grid.Column="2"
 					   Style="{StaticResource NormalText}"
 					   HorizontalAlignment="Center"
@@ -51,9 +82,31 @@
 			</TextBlock>
 		</Grid>
 
-		<s:SurfaceScrollViewer Grid.Row="2">
-			<StackPanel  Name="StackPanel"
-						 Orientation="Horizontal" />
+		<s:SurfaceScrollViewer Grid.Row="2"
+							   VerticalScrollBarVisibility="Disabled"
+							   HorizontalScrollBarVisibility="Visible">
+			<Grid>
+				<Grid Name="FadePanel1">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<StackPanel Orientation="Horizontal"
+								Grid.Row="0" />
+					<StackPanel Orientation="Horizontal"
+								Grid.Row="1" />
+				</Grid>
+				<Grid  Name="FadePanel2">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<StackPanel Orientation="Horizontal"
+								Grid.Row="0" />
+					<StackPanel Orientation="Horizontal"
+								Grid.Row="1" />
+				</Grid>
+			</Grid>
 		</s:SurfaceScrollViewer>
 		<TextBlock Grid.Row="3"
 				   Style="{StaticResource NormalText}">
