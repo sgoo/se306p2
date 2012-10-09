@@ -89,13 +89,28 @@ namespace se306p2 {
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
+			Course EeeCourse = new Course() {
+				ProgramTitle = "EEE Courses",
+			};
+			EeeCourse.readJSON(new Uri("pack://application:,,,/Resources/eeeCourseInfo.json"));
+			
+			Course CseCourse = new Course() {
+				ProgramTitle = "CSE Courses",
+			};
+			CseCourse.readJSON(new Uri("pack://application:,,,/Resources/cseCourseInfo.json"));
+			
+			Course SeCourse = new Course() {
+				ProgramTitle = "SE Courses",
+			};
+			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
+
 
 			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
-			RightItems.Add(new DataItem("CSE Courses", false, "#0b9246"));
+			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, "#0b9246"));
 			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
-			RightItems.Add(new DataItem("EEE Courses", false, "#1e9ad5"));
+			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, "#1e9ad5"));
 			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
-			RightItems.Add(new DataItem("SE Courses", true, new CourseSE(), "#f6a220"));
+			RightItems.Add(new DataItem("SE Courses", true, SeCourse, "#f6a220"));
 		}
 
 
@@ -192,7 +207,7 @@ namespace se306p2 {
 				Content = draggedElement.DataContext,
 				Style = FindResource("CursorStyle") as Style
 			};
-			
+
 
 			// Add a handler. This will enable the application to change the visual cues.
 			SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
