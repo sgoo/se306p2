@@ -8,6 +8,20 @@
 		  HorizontalAlignment="Stretch"
 		  Width="Auto"
 		  Height="Auto">
-		<Label>Example Text</Label>
+        
+       
+        <!--trying to get animations to work-->
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        
+        
+        
+        <Label>Example Text</Label>
 	</Grid>
 </UserControl>

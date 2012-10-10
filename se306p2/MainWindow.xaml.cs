@@ -17,6 +17,7 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
 using se306p2.Pages;
+using System.Windows.Media.Animation;
 
 
 namespace se306p2 {
@@ -29,6 +30,11 @@ namespace se306p2 {
 
 		private ObservableCollection<DataItem> leftItems;
 		private ObservableCollection<DataItem> rightItems;
+
+        //testing animations
+        private ObservableCollection<UserControl> pages = new ObservableCollection<UserControl>();
+
+
 
 		private String lastBackgroundImage = "";
         
@@ -84,6 +90,15 @@ namespace se306p2 {
 		protected override void OnInitialized(EventArgs e) {
 			base.OnInitialized(e);
 			DataContext = this;
+
+            //testing animations
+            pages.Add(new HomePage());
+            pages.Add(new ExamplePage());
+            pages.Add(new BaseInfo());
+            // and so on...add all if this approach works
+
+
+
 			LeftItems.Add(new DataItem("Home", true, new HomePage()));
 			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
@@ -288,18 +303,26 @@ namespace se306p2 {
 
 			if (d == null)
 				return;
+            
+            
+            //testing animations - doesn't work
+            Storyboard sb2 = (Storyboard)Resources["SlideLeftToOrigin"];
+            sb2.Begin(pages.ElementAt(1));
+            pages.ElementAt(2).Visibility = System.Windows.Visibility.Visible;
+            
+            //uncomment the following lines to make it work again
+            
+            //Grid.SetColumn(d.PageControl, 0);
+            //Grid.SetColumnSpan(d.PageControl, 2);
+            //Grid.SetRow(d.PageControl, 0);
+            //Grid.SetRowSpan(d.PageControl, 2);
 
-			Grid.SetColumn(d.PageControl, 0);
-			Grid.SetColumnSpan(d.PageControl, 2);
-			Grid.SetRow(d.PageControl, 0);
-			Grid.SetRowSpan(d.PageControl, 2);
+            //if (!DefaultPanel.Children.Contains(d.PageControl)) {
+            //    DefaultPanel.Children.Clear();
+            //    DefaultPanel.Children.Add(d.PageControl);
+            //}
 
-			if (!DefaultPanel.Children.Contains(d.PageControl)) {
-				DefaultPanel.Children.Clear();
-				DefaultPanel.Children.Add(d.PageControl);
-			}
-
-			DefaultPanel.UpdateLayout();
+            //DefaultPanel.UpdateLayout();
 		}
 
 		//dont need
@@ -318,11 +341,11 @@ namespace se306p2 {
                 ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
                 ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             }
-            if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
-            {
-                ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
-            }
+            //if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
+            //{
+            //    ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            //    ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+            //}
         }
 	}
 

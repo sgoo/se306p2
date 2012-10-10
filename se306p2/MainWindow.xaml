@@ -14,7 +14,26 @@
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 
-		<!-- Get access to resource dictionary. -->
+        
+        <!--trying to get animations to work-->
+        
+        <Storyboard x:Key="SlideOriginToLeft">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0.0" To="-1920" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="SlideOriginToRight">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0.0" To="1920" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="SlideRightToOrigin">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="SlideLeftToOrigin">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        
+        
+        
+        <!-- Get access to resource dictionary. -->
 		<!--
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
