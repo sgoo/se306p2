@@ -202,47 +202,51 @@ namespace se306p2 {
 				return;
 			}
 
-			// Create the cursor visual.
-			ContentControl cursorVisual = new ContentControl() {
-				Content = draggedElement.DataContext,
-				Style = FindResource("CursorStyle") as Style
-			};
+            
+            SelectPage(draggedElement.DataContext as DataItem);
+
+            //// Create the cursor visual.
+            //ContentControl cursorVisual = new ContentControl() {
+            //    Content = draggedElement.DataContext,
+            //    Style = FindResource("CursorStyle") as Style
+            //};
 
 
-			// Add a handler. This will enable the application to change the visual cues.
-			SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
+            //// Add a handler. This will enable the application to change the visual cues.
+            //SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
 
-			// Create a list of input devices. Add the touches that
-			// are currently captured within the dragged element and
-			// the current touch (if it isn't already in the list).
-			List<InputDevice> devices = new List<InputDevice>();
-			devices.Add(e.Device);
-			foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin) {
-				if (touch != e.Device) {
-					devices.Add(touch);
-				}
-			}
+            //// Create a list of input devices. Add the touches that
+            //// are currently captured within the dragged element and
+            //// the current touch (if it isn't already in the list).
+            //List<InputDevice> devices = new List<InputDevice>();
+            //devices.Add(e.Device);
+            //foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin) {
+            //    if (touch != e.Device) {
+            //        devices.Add(touch);
+            //    }
+            //}
 
-			// Get the drag source object
-			ItemsControl dragSource = ItemsControl.ItemsControlFromItemContainer(draggedElement);
+            //// Get the drag source object
+            //ItemsControl dragSource = ItemsControl.ItemsControlFromItemContainer(draggedElement);
 
-			SurfaceDragCursor startDragOkay =
-				SurfaceDragDrop.BeginDragDrop(
-				  dragSource,                 // The SurfaceListBox object that the cursor is dragged out from.
-				  draggedElement,             // The SurfaceListBoxItem object that is dragged from the drag source.
-				  cursorVisual,               // The visual element of the cursor.
-				  draggedElement.DataContext, // The data associated with the cursor.
-				  devices,                    // The input devices that start dragging the cursor.
-				  DragDropEffects.Move);      // The allowed drag-and-drop effects of the operation.
+            //SurfaceDragCursor startDragOkay =
+            //    SurfaceDragDrop.BeginDragDrop(
+            //      dragSource,                 // The SurfaceListBox object that the cursor is dragged out from.
+            //      draggedElement,             // The SurfaceListBoxItem object that is dragged from the drag source.
+            //      cursorVisual,               // The visual element of the cursor.
+            //      draggedElement.DataContext, // The data associated with the cursor.
+            //      devices,                    // The input devices that start dragging the cursor.
+            //      DragDropEffects.Move);      // The allowed drag-and-drop effects of the operation.
 
-			// If the drag began successfully, set e.Handled to true. 
-			// Otherwise SurfaceListBoxItem captures the touch 
-			// and causes the drag operation to fail.
-			e.Handled = (startDragOkay != null);
+            //// If the drag began successfully, set e.Handled to true. 
+            //// Otherwise SurfaceListBoxItem captures the touch 
+            //// and causes the drag operation to fail.
+            //e.Handled = (startDragOkay != null);
+            e.Handled = true;
 		}
 
 
-
+        //dont need, also remove s:SurfaceDragDrop.Drop="ListBoxDrop" type code from xaml file from the Default Panel and the two ListBoxes
 		private void OnDropTargetDragEnter(object sender, SurfaceDragDropEventArgs e) {
 			DataItem data = e.Cursor.Data as DataItem;
 
@@ -255,13 +259,15 @@ namespace se306p2 {
 			}
 		}
 
-		private void OnDropTargetDragLeave(object sender, SurfaceDragDropEventArgs e) {
+		//dont need
+        private void OnDropTargetDragLeave(object sender, SurfaceDragDropEventArgs e) {
 			// Reset the effects.
 			e.Effects = e.Cursor.AllowedEffects;
 		}
 
 
-		private void OnTargetChanged(object sender, TargetChangedEventArgs e) {
+		//dont need
+        private void OnTargetChanged(object sender, TargetChangedEventArgs e) {
 			if (e.Cursor.CurrentTarget != null) {
 				DataItem data = e.Cursor.Data as DataItem;
 				e.Cursor.Visual.Tag = (data.CanDrop) ? "CanDrop" : "CannotDrop";
@@ -269,7 +275,9 @@ namespace se306p2 {
 				e.Cursor.Visual.Tag = null;
 			}
 		}
-		private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e) {
+		
+        //dont need
+        private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e) {
 
 
 			DataItem d = e.Cursor.Data as DataItem;
@@ -294,11 +302,14 @@ namespace se306p2 {
 			DefaultPanel.UpdateLayout();
 		}
 
-		public void ListBoxDrop(Object sender, SurfaceDragDropEventArgs e) {
+		//dont need
+        public void ListBoxDrop(Object sender, SurfaceDragDropEventArgs e) {
 
 			SelectPage(e.Cursor.Data as DataItem);
 
 		}
+
+        
 
         private void ScrollView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {

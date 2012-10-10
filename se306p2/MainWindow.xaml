@@ -632,11 +632,13 @@
 			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
 
 -->
+            <!--PreviewMouseDown="OnDragSourcePreviewTouchDown"-->
 
-			<s:SurfaceListBox Name="LeftScatterBar"
+            <s:SurfaceListBox Name="LeftScatterBar"
 							  Grid.Column="0"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
+                             
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
 							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}"
