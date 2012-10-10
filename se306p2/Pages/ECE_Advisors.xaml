@@ -51,15 +51,21 @@
                              MaxHeight="600"
                              MaxWidth="2000"
                              my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver"
+                             my:SurfaceDragDrop.PreviewDragCompleted="MainLibraryStack_DragCompleted"
+                             my:SurfaceDragDrop.DragLeave="MainLibraryStack_DragLeave"
+                             DataContextChanged="MainLibraryStack_DataContextChanged"
+                             my:SurfaceDragDrop.PreviewDragCanceled="MainLibraryStack_DragCanceled"
                              Background="Transparent">
                 <my:LibraryStack.ItemTemplate >
                     <DataTemplate>
-                        <Image Source="{Binding}"
-                               VerticalAlignment="Stretch"
-                               HorizontalAlignment="Stretch"
+                       
+                            <Image Source="{Binding}"
+                                   VerticalAlignment="Stretch"
+                                   HorizontalAlignment="Stretch"
                                
 
-                               />
+                                   />
+
                     </DataTemplate>
                 </my:LibraryStack.ItemTemplate>
 

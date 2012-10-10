@@ -31,6 +31,7 @@ namespace se306p2
 
 
         ObservableCollection<Uri> items;
+        Uri[] files;
 
         protected override void OnInitialized(EventArgs e)
         {
@@ -50,7 +51,7 @@ namespace se306p2
             {
                 // Get the list of files.
 
-                Uri[] files = new Uri[4];
+                files = new Uri[4];
                 files[0] = new Uri("pack://application:,,,/Resources/Advisors/TopCard.bmp");
                 files[3] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
                 files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp");
@@ -77,6 +78,50 @@ namespace se306p2
         {
             e.Effects = DragDropEffects.None;
             e.Handled = true;
+        }
+
+        private void MainLibraryStack_DragCompleted(object sender, SurfaceDragCompletedEventArgs e)
+        {
+            Uri data = e.Cursor.Data as Uri;
+            if (!items.Contains<Uri>(data))
+            {
+                items.Add(data);
+            }
+        }
+
+
+
+        private void MainLibraryStack_DragLeave(object sender, SurfaceDragDropEventArgs e)
+        {
+            //Uri data = e.Cursor.Data as Uri;
+            //if (!items.Contains<Uri>(data))
+            //{
+            //    items.Add(data);
+            //}
+
+
+            //(e.Cursor.Data as Uri);
+            //items = new ObservableCollection<Uri>(files);
+            //MessageBox.Show(e.Cursor.Data.ToString());
+            //if (!items.Contains(e.Source)) {
+                
+                //MessageBox.Show(e.Cursor.Data as Uri);
+                
+                //items.Add<Uri>(files);
+                    //= new ObservableCollection<Uri>(files);
+            
+            
+        }
+
+        private void MainLibraryStack_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            items = new ObservableCollection<Uri>(files);
+            MainLibraryStack.ItemsSource = items;
+        }
+
+        private void MainLibraryStack_DragCanceled(object sender, SurfaceDragDropEventArgs e)
+        {
+            //MessageBox.Show("Cancelled");
         }
     }
 }
