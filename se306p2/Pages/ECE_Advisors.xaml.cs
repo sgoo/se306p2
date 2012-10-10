@@ -53,9 +53,12 @@ namespace se306p2
 
                 files = new Uri[4];
                 files[0] = new Uri("pack://application:,,,/Resources/Advisors/TopCard.bmp");
-                files[3] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp");
-                files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp");
-                files[2] = new Uri("pack://application:,,,/Resources/Advisors/Watson.bmp");
+                
+                files[1] = new Uri("pack://application:,,,/Resources/Advisors/Roop.bmp"); //CSE
+                files[2] = new Uri("pack://application:,,,/Resources/Advisors/card.png");
+                //files[2] = new Uri("pack://application:,,,/Resources/Advisors/Berber.bmp"); //EEE                
+                files[3] = new Uri("pack://application:,,,/Resources/Advisors/Watson.bmp"); //SE
+                
 
 
                 //Uri[] files = System.IO.Directory.GetFiles(imagesPath, "*.jpg");
@@ -89,39 +92,38 @@ namespace se306p2
             }
         }
 
-
-
-        private void MainLibraryStack_DragLeave(object sender, SurfaceDragDropEventArgs e)
-        {
-            //Uri data = e.Cursor.Data as Uri;
-            //if (!items.Contains<Uri>(data))
-            //{
-            //    items.Add(data);
-            //}
-
-
-            //(e.Cursor.Data as Uri);
-            //items = new ObservableCollection<Uri>(files);
-            //MessageBox.Show(e.Cursor.Data.ToString());
-            //if (!items.Contains(e.Source)) {
-                
-                //MessageBox.Show(e.Cursor.Data as Uri);
-                
-                //items.Add<Uri>(files);
-                    //= new ObservableCollection<Uri>(files);
-            
-            
-        }
-
+        //resets the Library Stack when you leave
         private void MainLibraryStack_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             items = new ObservableCollection<Uri>(files);
             MainLibraryStack.ItemsSource = items;
         }
 
-        private void MainLibraryStack_DragCanceled(object sender, SurfaceDragDropEventArgs e)
+        private void Button_PreviewCSEDown(object sender, InputEventArgs e)
         {
-            //MessageBox.Show("Cancelled");
+            items.IndexOf(files[1]);
+            MainLibraryStack.SelectedIndex = items.IndexOf(files[1]);
+            //items.Remove(files[1]);
+            //items.Insert(0, files[1]);
         }
+
+        private void Button_PreviewEEEDown(object sender, InputEventArgs e)
+        {
+            items.IndexOf(files[2]);
+            MainLibraryStack.SelectedIndex = items.IndexOf(files[2]);
+            //items.Remove(files[1]);
+            //items.Insert(0, files[1]);
+        }
+
+        
+
+        private void Button_PreviewSEDown(object sender, InputEventArgs e)
+        {
+            items.IndexOf(files[3]);
+            MainLibraryStack.SelectedIndex = items.IndexOf(files[3]);
+            //items.Remove(files[1]);
+            //items.Insert(0, files[1]);
+        }
+
     }
 }

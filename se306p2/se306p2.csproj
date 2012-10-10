@@ -270,6 +270,11 @@
     <Resource Include="Resources\building.jpg" />
     <Resource Include="Resources\purplebox.png" />
     <Resource Include="Resources\findoutmore.jpg" />
+    <Resource Include="Resources\Advisors\card.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Background\flowers.jpg" />
+    <Resource Include="Resources\Background\lightsky2.jpg" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

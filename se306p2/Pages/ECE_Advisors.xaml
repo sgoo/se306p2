@@ -4,10 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             xmlns:my="http://schemas.microsoft.com/surface/2008"
-             >
+             xmlns:my="http://schemas.microsoft.com/surface/2008">
 
-	<!-- Include styles dictionary-->
+    <!-- Include styles dictionary-->
     <UserControl.Resources>
         <ResourceDictionary Source="../Resources/Styles.xaml" />
     </UserControl.Resources>
@@ -15,9 +14,10 @@
     <Grid Style="{StaticResource PageBackground}"
           AllowDrop="False">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="800"></RowDefinition>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="550"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -27,8 +27,7 @@
         <!-- Title -->
         <TextBlock Style="{StaticResource Title}"
                    Grid.Row="0"
-                   Grid.ColumnSpan="2"
-                   >
+                   Grid.ColumnSpan="2">
             Course Advisors
         </TextBlock>
 
@@ -36,39 +35,61 @@
                    Grid.Row="1"
                    Width="1080"
                    x:Name="tbMultiLine"
-                  >
+                   Background="Transparent"
+                   Opacity="100">
             <Run Text="The Electrical and Computer Engineering Department provides a course advisor for each of the disciplines that it covers. Browse though the course advisors below for their contact details." />
         </TextBlock>
         <!--
         <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
         </my:LibraryStack> -->
-        <Grid Grid.Row="2"
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <my:SurfaceButton Style="{StaticResource Btn}"
+                              Background="#0b9246"
+                              PreviewTouchDown="Button_PreviewCSEDown"
+                              PreviewMouseDown="Button_PreviewCSEDown"
+                              Content="Computer Systems &#xd;&#xa;Engineering"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              HorizontalContentAlignment="Center" />
+            <my:SurfaceButton Style="{StaticResource Btn}"
+                              Background="#1e9ad5"
+                              PreviewTouchDown="Button_PreviewEEEDown"
+                              PreviewMouseDown="Button_PreviewEEEDown"
+                              Content="Electrical and Electronic &#xd;&#xa;Engineering"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" />
+            <my:SurfaceButton Style="{StaticResource Btn}"
+                              Background="#f6a220"
+                              PreviewTouchDown="Button_PreviewSEDown"
+                              PreviewMouseDown="Button_PreviewSEDown"
+                              Content="Software &#xd;&#xa;Engineering"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center" />
+        </StackPanel>
+
+
+        <Grid Grid.Row="3"
               VerticalAlignment="Stretch"
               HorizontalAlignment="Stretch">
             <my:LibraryStack Name="MainLibraryStack"
                              VerticalAlignment="Stretch"
                              HorizontalAlignment="Stretch"
-                             MaxHeight="600"
-                             MaxWidth="2000"
+                             MaxHeight="490"
+                             MaxWidth="1920"
                              my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver"
                              my:SurfaceDragDrop.PreviewDragCompleted="MainLibraryStack_DragCompleted"
-                             my:SurfaceDragDrop.DragLeave="MainLibraryStack_DragLeave"
                              DataContextChanged="MainLibraryStack_DataContextChanged"
-                             my:SurfaceDragDrop.PreviewDragCanceled="MainLibraryStack_DragCanceled"
                              Background="Transparent">
-                <my:LibraryStack.ItemTemplate >
+                <my:LibraryStack.ItemTemplate>
                     <DataTemplate>
-                       
-                            <Image Source="{Binding}"
-                                   VerticalAlignment="Stretch"
-                                   HorizontalAlignment="Stretch"
-                               
-
-                                   />
-
+                        <Image Source="{Binding}"
+                               VerticalAlignment="Stretch"
+                               HorizontalAlignment="Stretch" />
                     </DataTemplate>
                 </my:LibraryStack.ItemTemplate>
-
             </my:LibraryStack>
         </Grid>
     </Grid>
