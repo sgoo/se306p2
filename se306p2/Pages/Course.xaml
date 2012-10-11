@@ -17,15 +17,17 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="100" />
 			<RowDefinition Height="100" />
-			<RowDefinition />
-			<RowDefinition />
+			<RowDefinition Height="200"/>
+			<RowDefinition Height="200"/>
 		</Grid.RowDefinitions>
 
+        <!-- Title -->
 		<TextBlock Grid.Row="0"
 				   Style="{StaticResource Title}">
 			<Run Text="{Binding ElementName=CourseControl, Path=ProgramTitle}" />
 		</TextBlock>
 
+        <!-- Swipe and "< >" buttons -->
 		<Grid Grid.Row="1"
 			  MouseDown="Swipe_TouchDown"
 			  MouseUp="Swipe_TouchUp"
@@ -36,8 +38,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<TextBlock Grid.Column="0"
-					   Style="{StaticResource NormalText}"
+
+            <!-- "<" -->
+            <TextBlock Grid.Column="0"
+                       Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   PreviewTouchDown="LeftButtonClick"
@@ -45,11 +49,11 @@
 				&lt;
 			</TextBlock>
 
-			<!-- Swip area-->
+			<!-- Swipe area-->
 			<Grid Grid.Column="1">
 
 				<TextBlock Name="SlideOutTextBlock"
-						   Style="{StaticResource NormalText}"
+						   Style="{StaticResource SwipeText}"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center">
 				<TextBlock.RenderTransform>
@@ -59,8 +63,9 @@
 				</TextBlock.RenderTransform>
 				<Run Text="{Binding ElementName=CourseControl, Path=SlideOutTitle}" />
 				</TextBlock>
+                
 				<TextBlock Name="SlideInTextBlock"
-						   Style="{StaticResource NormalText}"
+						   Style="{StaticResource SwipeText}"
 						   HorizontalAlignment="Center"
 						   VerticalAlignment="Center">
 				<TextBlock.RenderTransform>
@@ -72,8 +77,9 @@
 				</TextBlock>
 			</Grid>
 
+            <!-- ">" -->
 			<TextBlock Grid.Column="2"
-					   Style="{StaticResource NormalText}"
+					   Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   PreviewTouchDown="RightButtonClick"
@@ -82,6 +88,7 @@
 			</TextBlock>
 		</Grid>
 
+        <!-- Courses Buttons -->
 		<s:SurfaceScrollViewer Grid.Row="2"
 							   VerticalScrollBarVisibility="Disabled"
 							   HorizontalScrollBarVisibility="Visible">
@@ -90,26 +97,53 @@
 					<Grid.RowDefinitions>
 						<RowDefinition />
 						<RowDefinition />
+                        <RowDefinition />
+                        <!--
+                        <RowDefinition />
+                        <RowDefinition /> -->
 					</Grid.RowDefinitions>
+                    <!-- Rows-->
 					<StackPanel Orientation="Horizontal"
 								Grid.Row="0" />
 					<StackPanel Orientation="Horizontal"
 								Grid.Row="1" />
-				</Grid>
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="2" />
+                    <!-- 
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="3" />
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="4" /> -->
+                </Grid>
 				<Grid  Name="FadePanel2">
 					<Grid.RowDefinitions>
 						<RowDefinition />
 						<RowDefinition />
-					</Grid.RowDefinitions>
+                        <RowDefinition />
+                        <!--
+                        <RowDefinition />
+                        <RowDefinition /> -->
+                    </Grid.RowDefinitions>
+                    <!-- Rows-->
 					<StackPanel Orientation="Horizontal"
 								Grid.Row="0" />
 					<StackPanel Orientation="Horizontal"
 								Grid.Row="1" />
-				</Grid>
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="2" />
+                    <!--
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="3" />
+                    <StackPanel Orientation="Horizontal"
+								Grid.Row="4" /> -->
+                </Grid>
 			</Grid>
 		</s:SurfaceScrollViewer>
+        
+        <!-- Course Description -->
 		<TextBlock Grid.Row="3"
-				   Style="{StaticResource NormalText}">
+				   Style="{StaticResource NormalText}"
+                   Margin="10">
 			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseTitle}" />
 			<LineBreak />
 			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseDesc}" />
