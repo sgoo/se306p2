@@ -46,8 +46,6 @@ namespace se306p2 {
 				brush.TileMode = TileMode.None;
 
 				//ScrollView.Background = brush;
-
-
 			}
 		}
 
@@ -89,22 +87,25 @@ namespace se306p2 {
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
+
+            // Felix:  I use these titles in Courses, so I put them in a common place.
 			Course EeeCourse = new Course() {
-				ProgramTitle = "EEE Courses",
+                ProgramTitle = (string) Application.Current.FindResource("EEE_Courses_Title"),
 			};
 			EeeCourse.readJSON(new Uri("pack://application:,,,/Resources/eeeCourseInfo.json"));
 			
 			Course CseCourse = new Course() {
-				ProgramTitle = "CSE Courses",
+                ProgramTitle = (string)Application.Current.FindResource("CSE_Courses_Title"),
 			};
 			CseCourse.readJSON(new Uri("pack://application:,,,/Resources/cseCourseInfo.json"));
 			
 			Course SeCourse = new Course() {
-				ProgramTitle = "SE Courses",
+                ProgramTitle = (string)Application.Current.FindResource("SE_Courses_Title"),
 			};
 			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
 
-
+            // Needed the colours in the Courses page, so put them in a common file (Resources>Colours.xaml).
+            // TODO:  Replace hex values with those in Resources.Colours.xaml.
 			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
 			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, "#0b9246"));
 			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));

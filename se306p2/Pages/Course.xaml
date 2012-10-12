@@ -6,8 +6,8 @@
 			 xmlns:s="http://schemas.microsoft.com/surface/2008"
 			 mc:Ignorable="d"
 			 x:Name="CourseControl"
-			 d:DesignHeight="600"
-			 d:DesignWidth="300">
+			 d:DesignHeight="1080"
+			 d:DesignWidth="1350">
 
 	<UserControl.Resources>
 		<ResourceDictionary Source="../Resources/Styles.xaml" />
@@ -15,10 +15,10 @@
 
 	<Grid Style="{StaticResource PageBackground}">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="100" />
-			<RowDefinition Height="100" />
-			<RowDefinition Height="200"/>
-			<RowDefinition Height="200"/>
+			<RowDefinition Height="150" />
+			<RowDefinition Height="150" />
+            <RowDefinition Height="300"/>
+			<RowDefinition />
 		</Grid.RowDefinitions>
 
         <!-- Title -->
@@ -41,6 +41,7 @@
 
             <!-- "<" -->
             <TextBlock Grid.Column="0"
+                       x:Name="LeftArrow"
                        Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
@@ -79,6 +80,7 @@
 
             <!-- ">" -->
 			<TextBlock Grid.Column="2"
+                       x:Name="RightArrow"
 					   Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
@@ -88,16 +90,27 @@
 			</TextBlock>
 		</Grid>
 
+        <!-- Course Description -->
+        <TextBlock Grid.Row="2"
+				   Style="{StaticResource NormalText}">
+			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseTitle}" 
+                 FontWeight="Bold"/>
+			<LineBreak />
+            <LineBreak />
+			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseDesc}" />
+            </TextBlock>
+
         <!-- Courses Buttons -->
-		<s:SurfaceScrollViewer Grid.Row="2"
+        <!-- TODO:  Change scrollbar colour from white so it can be seen. -->
+        <s:SurfaceScrollViewer Grid.Row="3"
 							   VerticalScrollBarVisibility="Disabled"
-							   HorizontalScrollBarVisibility="Visible">
+							   HorizontalScrollBarVisibility="Auto">
 			<Grid>
 				<Grid Name="FadePanel1">
 					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                         <!--
                         <RowDefinition />
                         <RowDefinition /> -->
@@ -109,21 +122,14 @@
 								Grid.Row="1" />
                     <StackPanel Orientation="Horizontal"
 								Grid.Row="2" />
-                    <!-- 
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="3" />
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="4" /> -->
                 </Grid>
 				<Grid  Name="FadePanel2">
 					<Grid.RowDefinitions>
-						<RowDefinition />
-						<RowDefinition />
-                        <RowDefinition />
-                        <!--
-                        <RowDefinition />
-                        <RowDefinition /> -->
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
+                    
                     <!-- Rows-->
 					<StackPanel Orientation="Horizontal"
 								Grid.Row="0" />
@@ -131,22 +137,8 @@
 								Grid.Row="1" />
                     <StackPanel Orientation="Horizontal"
 								Grid.Row="2" />
-                    <!--
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="3" />
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="4" /> -->
                 </Grid>
 			</Grid>
 		</s:SurfaceScrollViewer>
-        
-        <!-- Course Description -->
-		<TextBlock Grid.Row="3"
-				   Style="{StaticResource NormalText}"
-                   Margin="10">
-			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseTitle}" />
-			<LineBreak />
-			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseDesc}" />
-		</TextBlock>
 	</Grid>
 </UserControl>

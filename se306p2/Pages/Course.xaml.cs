@@ -53,6 +53,8 @@ namespace se306p2.Pages
                 }
                 currentCourseSet = value;
 
+                // Make "<" or ">" button appear/disappear as necessary.
+                handleArrows(currentCourseSet);
 
                 //CourseSetTitle = "";
 
@@ -72,6 +74,27 @@ namespace se306p2.Pages
 
                 PropertyChanged(this, new PropertyChangedEventArgs("CurrentCourseSet"));
             }
+        }
+
+        // Make the "<" or ">" disappear if clicking them would do nothging.
+        // Ie, if we are in Part II or Part IV and cannot go further left or right.
+        private void handleArrows(int currentPos)
+        {
+            // 1) Make arrows disappear.
+            if (currentPos == 0)
+                // Make "<" disappear.
+                LeftArrow.Visibility = Visibility.Hidden;
+            else if (currentPos == 2)
+                // Make ">" disappear.
+                RightArrow.Visibility = Visibility.Hidden;
+
+            // 2) Make arrows appear.
+            if (currentPos != 0)
+                // Make "<" appear.
+                LeftArrow.Visibility = Visibility.Visible;
+            if (currentPos != 2)
+                // Make ">" appear.
+                RightArrow.Visibility = Visibility.Visible;
         }
 
         private string title = "";
@@ -159,20 +182,14 @@ namespace se306p2.Pages
         public void addButtons(SortedList<String, CourseItem> courseList)
         {
             // Electrical has 30 4th year courses!!!
-            int coursesPerRow = 10;
-            int maxRowNum = 3;
 
             Grid fadeIn = fadePanels[currrentPanel++ % 2];
             Grid fadeOut = fadePanels[currrentPanel % 2];
 
             StackPanel row0 = fadeIn.Children[0] as StackPanel;
             StackPanel row1 = fadeIn.Children[1] as StackPanel;
-            // Added row(s) for 4th year papers.
             StackPanel row2 = fadeIn.Children[2] as StackPanel;
-            //StackPanel row3 = fadeIn.Children[3] as StackPanel;
-            //StackPanel row4 = fadeIn.Children[4] as StackPanel;
 
-            //StackPanel[] allLines = new StackPanel[] { row0, row1, row2, row3, row4 };
             StackPanel[] allLines = new StackPanel[] { row0, row1, row2 };
 
             // Clear old courses.
@@ -207,6 +224,9 @@ namespace se306p2.Pages
 
                 // Add courses to lines alternatively (eg:  line 1, 2, 1, 2 etc).
                 panelLines[line++ % panelLines.Count()].Children.Add(button);
+
+                // Make button the colour of that specialisation.
+                setButtonColour(button);
             }
 
             fadeIn.Opacity = 0;
@@ -221,6 +241,16 @@ namespace se306p2.Pages
 
             sb1.Begin(fadeOut);
             sb2.Begin(fadeIn);
+        }
+
+        // TODO:  NEXT
+        private void setButtonColour(CourseButton button)
+        {
+            if (ProgramTitle.Equals((string)Application.Current.FindResource("EEE_Courses_Title")))
+                // Excpetion!!!
+                button.Background = (SolidColorBrush)Application.Current.FindResource("EEE_Color");
+
+            // TODO:  Add colours for other specialisation buttons.
         }
 
         void FadeOut_Completed(object sender, EventArgs e)
@@ -254,7 +284,7 @@ namespace se306p2.Pages
         public void readJSON(Uri location)
         {
             string text = new StreamReader(Application.GetResourceStream(location).Stream).ReadToEnd();
-            Console.WriteLine(text);
+            //Console.WriteLine(text);
             //JObject json = JObject.Parse(text);
 
             String[] yearTitles = { "Part II", "Part III", "Part IV" };
