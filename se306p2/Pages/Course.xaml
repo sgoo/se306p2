@@ -45,6 +45,7 @@
                        Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
+                       Padding="15"
 					   PreviewTouchDown="LeftButtonClick"
 					   PreviewMouseDown="LeftButtonClick">
 				&lt;
@@ -84,6 +85,7 @@
 					   Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
+                       Padding="15"
 					   PreviewTouchDown="RightButtonClick"
 					   PreviewMouseDown="RightButtonClick">
 				&gt;
@@ -104,7 +106,8 @@
         <!-- TODO:  Change scrollbar colour from white so it can be seen. -->
         <s:SurfaceScrollViewer Grid.Row="3"
 							   VerticalScrollBarVisibility="Disabled"
-							   HorizontalScrollBarVisibility="Auto">
+							   HorizontalScrollBarVisibility="Auto"
+                               Background="LightGray">
 			<Grid>
 				<Grid Name="FadePanel1">
 					<Grid.RowDefinitions>

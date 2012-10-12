@@ -243,14 +243,14 @@ namespace se306p2.Pages
             sb2.Begin(fadeIn);
         }
 
-        // TODO:  NEXT
         private void setButtonColour(CourseButton button)
         {
-            if (ProgramTitle.Equals((string)Application.Current.FindResource("EEE_Courses_Title")))
-                // Excpetion!!!
-                button.Background = (SolidColorBrush)Application.Current.FindResource("EEE_Color");
-
-            // TODO:  Add colours for other specialisation buttons.
+            if (ProgramTitle.Equals((string)Application.Current.FindResource("CSE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_CSE");
+            else if (ProgramTitle.Equals((string)Application.Current.FindResource("EEE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_EEE");
+            else if (ProgramTitle.Equals((string)Application.Current.FindResource("SE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_SE");
         }
 
         void FadeOut_Completed(object sender, EventArgs e)

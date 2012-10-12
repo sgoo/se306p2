@@ -105,13 +105,15 @@ namespace se306p2 {
 			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
 
             // Needed the colours in the Courses page, so put them in a common file (Resources>Colours.xaml).
-            // TODO:  Replace hex values with those in Resources.Colours.xaml.
-			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
-			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, "#0b9246"));
-			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
-			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, "#1e9ad5"));
-			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
-            RightItems.Add(new DataItem("SE Courses", true, SeCourse, "#f6a220"));
+            string cseColour = (string)Application.Current.FindResource("Colour_CSE_Str");
+            RightItems.Add(new DataItem("CSE Info", false, cseColour));
+			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, cseColour));
+            string eeeColour = (string)Application.Current.FindResource("Colour_EEE_Str");
+			RightItems.Add(new DataItem("EEE Info", false, eeeColour));
+			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, eeeColour));
+            string seColour = (string)Application.Current.FindResource("Colour_SE_Str");
+			RightItems.Add(new DataItem("SE Info", false, seColour));
+            RightItems.Add(new DataItem("SE Courses", true, SeCourse, seColour));
 		}
 
 
