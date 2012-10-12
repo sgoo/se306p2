@@ -14,20 +14,21 @@
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 
+        <Storyboard x:Key="MyPress">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="0.8" Duration="0:0:0.1"/>
+        </Storyboard>
+        <Storyboard x:Key="MyRelease">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="1" Duration="0:0:0.1"/>
+        </Storyboard>
         
         <!--trying to get animations to work-->
         
-        <Storyboard x:Key="SlideOriginToLeft">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0.0" To="-1920" Duration="0:0:0.5"/>
-        </Storyboard>
-        <Storyboard x:Key="SlideOriginToRight">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0.0" To="1920" Duration="0:0:0.5"/>
-        </Storyboard>
+        
         <Storyboard x:Key="SlideRightToOrigin">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
         </Storyboard>
         <Storyboard x:Key="SlideLeftToOrigin">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
         </Storyboard>
 
         
@@ -660,6 +661,8 @@
                              
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
+                              PreviewTouchUp="OnDragSourcePreviewTouchUp"
+							  PreviewMouseUp="OnDragSourcePreviewTouchUp"
 							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}"
 							  s:SurfaceDragDrop.Drop="ListBoxDrop"
 							  s:SurfaceDragDrop.TargetChanged="OnTargetChanged"

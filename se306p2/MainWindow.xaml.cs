@@ -32,7 +32,7 @@ namespace se306p2 {
 		private ObservableCollection<DataItem> rightItems;
 
         //testing animations
-        private ObservableCollection<UserControl> pages = new ObservableCollection<UserControl>();
+        private ObservableCollection<UIElement> pages = new ObservableCollection<UIElement>();
 
 
 
@@ -97,9 +97,11 @@ namespace se306p2 {
             pages.Add(new BaseInfo());
             // and so on...add all if this approach works
 
-
+            
 
 			LeftItems.Add(new DataItem("Home", true, new HomePage()));
+            
+
 			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
@@ -200,7 +202,33 @@ namespace se306p2 {
 			//TODO: disable audio, animations here
 		}
 
-		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
+
+        private void OnDragSourcePreviewTouchUp(object sender, InputEventArgs e)
+        {
+            FrameworkElement findSource = e.OriginalSource as FrameworkElement;
+            SurfaceListBoxItem draggedElement = null;
+
+            // Find the touched SurfaceListBoxItem object.
+            while (draggedElement == null && findSource != null)
+            {
+                if ((draggedElement = findSource as SurfaceListBoxItem) == null)
+                {
+                    findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+
+                }
+            }
+
+            if (draggedElement == null)
+            {
+                return;
+            }
+
+            Storyboard sbb = (Storyboard)Resources["MyRelease"];
+            sbb.Begin(draggedElement);
+
+        }
+        
+        private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
 
 
 			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
@@ -210,6 +238,7 @@ namespace se306p2 {
 			while (draggedElement == null && findSource != null) {
 				if ((draggedElement = findSource as SurfaceListBoxItem) == null) {
 					findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+
 				}
 			}
 
@@ -217,8 +246,24 @@ namespace se306p2 {
 				return;
 			}
 
+            TransformGroup ty = new TransformGroup();
+            ScaleTransform sf = new ScaleTransform();
+            sf.ScaleX = 1;
+            sf.ScaleY = 1;
+            ty.Children.Add(sf);
+            draggedElement.RenderTransform = ty;
+            Storyboard sb = (Storyboard)Resources["MyPress"];
+            sb.Begin(draggedElement);
+
+
+           
+
+
+            //Storyboard sbb = (Storyboard)Resources["MyRelease"];
+            //sbb.Begin(draggedElement);
+
             
-            SelectPage(draggedElement.DataContext as DataItem);
+            SelectPage(draggedElement.DataContext as DataItem,sender);
 
             //// Create the cursor visual.
             //ContentControl cursorVisual = new ContentControl() {
@@ -297,18 +342,38 @@ namespace se306p2 {
 
 			DataItem d = e.Cursor.Data as DataItem;
 
-			SelectPage(d);
+			SelectPage(d,null);
 		}
-		public void SelectPage(DataItem d) {
 
-			if (d == null)
+		public void SelectPage(DataItem d,object sender) {
+
+            Storyboard sb1; 
+            
+            if (d == null)
 				return;
-            
-            
+
+            if (sender == null)
+            {
+                return;
+            }
+            else
+            {
+                SurfaceListBox lb = sender as SurfaceListBox;
+
+                if (lb.Name == "LeftScatterBar")
+                {
+                   sb1 = (Storyboard)Resources["SlideLeftToOrigin"];
+                }
+                else
+                {
+                    sb1 = (Storyboard)Resources["SlideRightToOrigin"];
+                }
+                
+            }
             //testing animations - doesn't work
-            Storyboard sb2 = (Storyboard)Resources["SlideLeftToOrigin"];
-            sb2.Begin(pages.ElementAt(1));
-            pages.ElementAt(2).Visibility = System.Windows.Visibility.Visible;
+            //Storyboard sb2 = (Storyboard)Resources["SlideLeftToOrigin"];
+            //sb2.Begin(pages.ElementAt(1));
+            //pages.ElementAt(2).Visibility = System.Windows.Visibility.Visible;
             
             //uncomment the following lines to make it work again
             
@@ -317,10 +382,53 @@ namespace se306p2 {
             //Grid.SetRow(d.PageControl, 0);
             //Grid.SetRowSpan(d.PageControl, 2);
 
-            //if (!DefaultPanel.Children.Contains(d.PageControl)) {
-            //    DefaultPanel.Children.Clear();
-            //    DefaultPanel.Children.Add(d.PageControl);
-            //}
+            if (!DefaultPanel.Children.Contains(d.PageControl)) {
+               
+           
+                DefaultPanel.Children.Clear();
+
+
+                //DefaultPanel.Children.Add(d.PageControl);
+
+                UserControl something = d.PageControl as UserControl;
+                Grid newGrid = new Grid();
+
+                try
+                {
+                    Grid c = VisualTreeHelper.GetParent(something) as Grid;
+                    c.Children.Clear();
+                }
+                catch(Exception e)
+                {
+
+                }
+                
+                newGrid.Children.Add(something);
+
+                
+                TranslateTransform tr = new TranslateTransform();             
+
+                TransformGroup myTransformGroup = new TransformGroup();
+                
+               
+                myTransformGroup.Children.Add(tr);
+
+                newGrid.RenderTransform = myTransformGroup;
+
+                
+
+                sb1.Begin(newGrid);
+
+
+                Grid.SetColumn(newGrid, 0);
+                Grid.SetColumnSpan(newGrid, 2);
+                Grid.SetRow(newGrid, 0);
+                Grid.SetRowSpan(newGrid, 2);
+                
+                
+                DefaultPanel.Children.Add(newGrid);
+                   
+            }
 
             //DefaultPanel.UpdateLayout();
 		}
@@ -328,7 +436,7 @@ namespace se306p2 {
 		//dont need
         public void ListBoxDrop(Object sender, SurfaceDragDropEventArgs e) {
 
-			SelectPage(e.Cursor.Data as DataItem);
+			SelectPage(e.Cursor.Data as DataItem,null);
 
 		}
 
