@@ -3,28 +3,25 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-			 xmlns:local="clr-namespace:se306p2"
+             xmlns:s="http://schemas.microsoft.com/surface/2008"
+             xmlns:l="clr-namespace:se306p2.Pages"
+             xmlns:local="clr-namespace:se306p2"  
 			 mc:Ignorable="d"
 			 d:DesignHeight="1080"
 			 d:DesignWidth="1350"
 			 IsVisibleChanged="UserControl_IsVisibleChanged">
 
-	<!-- Include styles dictionary -->
+        <!-- Include styles dictionary -->
 	<UserControl.Resources>
 		<ResourceDictionary Source="../Resources/Styles.xaml" />
 	</UserControl.Resources>
 
 	<Grid Style="{StaticResource PageBackground}">
-        <!-- 
-		<Grid.RowDefinitions>
-			<RowDefinition Height="0.2*" />
-			<RowDefinition Height="0.8*" />
-		</Grid.RowDefinitions>
-        -->
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="660" />
-            <RowDefinition />
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height=" 0.3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*" />
@@ -42,8 +39,8 @@
 		<Border Style="{StaticResource ImgBorder}"
 				Grid.Row="1"
 				Grid.Column="0">
-			<Image Style="{StaticResource Img}"
-				   Source="/Resources/Zoran-salcic.JPG">
+			<Image Name="zoran" Style="{StaticResource Img}"
+				   Source="/Resources/Zoran/ZORAN2.JPG" Margin="50,70,52,110">
 			</Image>
 		</Border>
 
@@ -51,9 +48,31 @@
 		<TextBlock Style="{StaticResource NormalText}"
 				   Grid.Row="1"
 				   Grid.Column="1"
-				   x:Name="tbMultiLine">
-            <Run Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications. " /><LineBreak /><Run /><LineBreak /><Run Text="All modern systems used in everyday's private or business life, such as mobile phones, vehicles, home and building automation or industrial control systems, will not exist if there are not electrical, computer and software engineers. " /><LineBreak /><Run /><LineBreak /><Run Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold"
+                   TextAlignment="Justify"
+				   x:Name="tbMultiLine" Margin="20,49,20,92.5">
+            <Run Text="Modern world infrastructure is largely based on the work of electrical, computer and software engineers; from generation and distribution of electricity to providing telecommunication and internet services, portable and embedded computers and numerous software applications." /><LineBreak /><Run /><LineBreak /><Run Text="Our department offers three Bachelor of Engineering (Honours) programmes, namely: Electrical and Electronic Computer Systems Software We also offer Masters and PhD programmes in these areas. The department typically enrols around 200 undergraduate students in bachelor programmes every year, and also has more than 50 Masters and nearly 100 PhD students at any point of time. Academic and research staff conduct research and have gained international reputation in a number of specific areas of interest not only for the present but also for the future world. " /><LineBreak /><Run /><LineBreak /><Run FontWeight="Bold"
 																																																																																																																																																																																																																																																																																																																			  Text="Professor Zoran Salcic Head of the Department" />
 		</TextBlock>
-	</Grid>
+
+        <s:SurfaceListBox Name="MainSurfaceListBox"  Grid.Row="2" HorizontalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="2" Margin="100,-61.5,100,0" BorderBrush="#00404040" Background="#00812D2D" SelectionChanged="MainSurfaceListBox_SelectionChanged">
+            <s:SurfaceListBox.ItemTemplate >
+                <DataTemplate>
+                    <Image Source="{Binding Bitmap}" Width="270"/>
+                </DataTemplate>
+            </s:SurfaceListBox.ItemTemplate>
+            <s:SurfaceListBox.Template>
+                <ControlTemplate>
+                    <Border BorderBrush="Black">
+                        <s:SurfaceScrollViewer
+                        VerticalScrollBarVisibility="Hidden"
+                        HorizontalScrollBarVisibility="Disabled"
+                        CanContentScroll="true">
+                            <l:LoopingPanel IsItemsHost="True"/>
+                        </s:SurfaceScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </s:SurfaceListBox.Template>
+        </s:SurfaceListBox>
+
+    </Grid>
 </UserControl>

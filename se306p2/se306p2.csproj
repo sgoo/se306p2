@@ -80,9 +80,11 @@
     <Compile Include="Pages\CourseButton.xaml.cs">
       <DependentUpon>CourseButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DataThumbnail.cs" />
     <Compile Include="Pages\homepage.xaml.cs">
       <DependentUpon>homepage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\LoopingPanel.cs" />
     <Compile Include="StyleSel.cs" />
     <Compile Include="Pages\Copy of CourseCSE.xaml.cs">
       <DependentUpon>Copy of CourseCSE.xaml</DependentUpon>
@@ -258,18 +260,60 @@
       <All>True</All>
       <AutoFill>True</AutoFill>
     </BlendEmbeddedFont>
-    <Resource Include="Resources\blue0.jpg" />
-    <Resource Include="Resources\blue1.jpg" />
-    <Resource Include="Resources\blue2.jpg" />
-    <Resource Include="Resources\blue4.jpg" />
-    <Resource Include="Resources\green0.jpg" />
-    <Resource Include="Resources\green1.jpg" />
-    <Resource Include="Resources\green2.jpg" />
     <Resource Include="Resources\largeimage.jpg" />
     <Resource Include="Resources\messagebg.jpg" />
     <Resource Include="Resources\building.jpg" />
     <Resource Include="Resources\purplebox.png" />
     <Resource Include="Resources\findoutmore.jpg" />
+    <Resource Include="Resources\Information\CSE0.jpg" />
+    <Resource Include="Resources\Information\CSE1.jpg" />
+    <Resource Include="Resources\Information\CSE10.jpg" />
+    <Resource Include="Resources\Information\CSE11.jpg" />
+    <Resource Include="Resources\Information\CSE12.jpg" />
+    <Resource Include="Resources\Information\CSE13.jpg" />
+    <Resource Include="Resources\Information\CSE2.jpg" />
+    <Resource Include="Resources\Information\CSE3.jpg" />
+    <Resource Include="Resources\Information\CSE5.jpg" />
+    <Resource Include="Resources\Information\CSE6.jpg" />
+    <Resource Include="Resources\Information\CSE7.jpg" />
+    <Resource Include="Resources\Information\CSE8.jpg" />
+    <Resource Include="Resources\Information\ECE0.jpg" />
+    <Resource Include="Resources\Information\ECE1.jpg" />
+    <Resource Include="Resources\Information\ECE10.jpg" />
+    <Resource Include="Resources\Information\ECE2.jpg" />
+    <Resource Include="Resources\Information\ECE3.jpg" />
+    <Resource Include="Resources\Information\ECE4.jpg" />
+    <Resource Include="Resources\Information\ECE5.jpg" />
+    <Resource Include="Resources\Information\ECE6.jpg" />
+    <Resource Include="Resources\Information\ECE7.jpg" />
+    <Resource Include="Resources\Information\ECE8.jpg" />
+    <Resource Include="Resources\Information\ECE9.jpg" />
+    <Resource Include="Resources\Information\EEE0.JPG" />
+    <Resource Include="Resources\Information\EEE10.jpg" />
+    <Resource Include="Resources\Information\EEE11.jpg" />
+    <Resource Include="Resources\Information\EEE12.jpg" />
+    <Resource Include="Resources\Information\EEE13.jpg" />
+    <Resource Include="Resources\Information\EEE2.jpg" />
+    <Resource Include="Resources\Information\EEE3.jpg" />
+    <Resource Include="Resources\Information\EEE4.jpg" />
+    <Resource Include="Resources\Information\EEE5.jpg" />
+    <Resource Include="Resources\Information\EEE6.jpg" />
+    <Resource Include="Resources\Information\EEE7.jpg" />
+    <Resource Include="Resources\Information\EEE9.jpg" />
+    <Resource Include="Resources\Information\SE10.jpg" />
+    <Resource Include="Resources\Information\SE12.jpg" />
+    <Resource Include="Resources\Information\SE14.gif" />
+    <Resource Include="Resources\Information\SE15.jpg" />
+    <Resource Include="Resources\Information\SE16.jpg" />
+    <Resource Include="Resources\Information\SE17.jpg" />
+    <Resource Include="Resources\Information\SE2.jpg" />
+    <Resource Include="Resources\Information\SE3.jpg" />
+    <Resource Include="Resources\Information\SE4.jpg" />
+    <Resource Include="Resources\Information\SE5.jpg" />
+    <Resource Include="Resources\Information\SE7.jpg" />
+    <Resource Include="Resources\Information\SE8.jpg" />
+    <Resource Include="Resources\background_se.jpg" />
+    <Resource Include="Resources\Information\CSE9.gif" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -277,44 +321,28 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\video_play.png" />
-    <Resource Include="Resources\Ece0.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Ece1.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Ece2.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Ece3.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Ece4.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Ece5.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Content Include="Resources\background_cse.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\background_eee.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\course_button.png" />
     <Resource Include="Resources\Advisors\Berber.bmp" />
     <Resource Include="Resources\Advisors\Roop.bmp" />
     <Resource Include="Resources\Advisors\Watson.bmp" />
     <Resource Include="Resources\Advisors\TopCard.bmp" />
-    <Content Include="Resources\background_se.jpg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\XML\courses_se.xml">
       <SubType>Designer</SubType>
     </Resource>
     <Resource Include="Resources\XML\test.xml" />
     <Resource Include="Resources\test.jpg" />
     <Resource Include="Resources\welcomebg.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN0.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN10.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN11.png" />
+    <Resource Include="Resources\Zoran\ZORAN2.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN3.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN4.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN5.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN6.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN7.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN8.jpg" />
+    <Resource Include="Resources\Zoran\ZORAN9.jpg" />
     <Content Include="se306p2.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
