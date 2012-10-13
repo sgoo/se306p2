@@ -80,11 +80,20 @@
     <Compile Include="Pages\CourseButton.xaml.cs">
       <DependentUpon>CourseButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CSEInfo.xaml.cs">
+      <DependentUpon>CSEInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DataThumbnail.cs" />
+    <Compile Include="Pages\EEEInfo.xaml.cs">
+      <DependentUpon>EEEInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\homepage.xaml.cs">
       <DependentUpon>homepage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoopingPanel.cs" />
+    <Compile Include="Pages\SEInfo.xaml.cs">
+      <DependentUpon>SEInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StyleSel.cs" />
     <Compile Include="Pages\Copy of CourseCSE.xaml.cs">
       <DependentUpon>Copy of CourseCSE.xaml</DependentUpon>
@@ -115,6 +124,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\CSEInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EEEInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\homepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +141,10 @@
     </Compile>
     <Compile Include="Util.cs" />
     <Page Include="Pages\ECE_Advisors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SEInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

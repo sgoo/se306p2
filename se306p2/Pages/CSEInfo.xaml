@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="se306p2.CSEInfo"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:l="clr-namespace:se306p2.Pages"
+			 xmlns:local="clr-namespace:se306p2"
+			 xmlns:s="http://schemas.microsoft.com/surface/2008"
+			 mc:Ignorable="d"
+			 d:DesignHeight="1080"
+			 d:DesignWidth="1350">
+
+	<UserControl.Resources>
+		<ResourceDictionary Source="../Resources/Styles.xaml" />
+	</UserControl.Resources>
+
+	<Grid Style="{StaticResource PageBackground}">
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.20*" />
+			<RowDefinition Height="0.40*" />
+			<RowDefinition Height="0.40*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.5*" />
+			<ColumnDefinition Width="0.5*" />
+		</Grid.ColumnDefinitions>
+
+		<s:SurfaceScrollViewer Grid.ColumnSpan="2"
+							   Margin="8,0,-7.5,0" />
+
+		<TextBlock Grid.Row="0"
+				   Grid.Column="0"
+				   Grid.ColumnSpan="2"
+				   Style="{StaticResource Title}">
+           				   
+			Computer Systems Engineering Department
+		</TextBlock>
+
+		<s:SurfaceListBox Name="MainSurfaceListBox"
+						  Grid.Row="1"
+						  Margin="120,38,120,427"
+						  Grid.ColumnSpan="2"
+						  VerticalAlignment="Center"
+						  Grid.RowSpan="2">
+			<s:SurfaceListBox.ItemTemplate>
+				<DataTemplate>
+					<Image Source="{Binding Bitmap}"
+						   Width="270" />
+				</DataTemplate>
+			</s:SurfaceListBox.ItemTemplate>
+			<s:SurfaceListBox.Template>
+				<ControlTemplate>
+					<Border BorderBrush="Black">
+						<s:SurfaceScrollViewer VerticalScrollBarVisibility="Hidden"
+											   HorizontalScrollBarVisibility="Disabled"
+											   CanContentScroll="true">
+							<l:LoopingPanel IsItemsHost="True" />
+						</s:SurfaceScrollViewer>
+					</Border>
+				</ControlTemplate>
+			</s:SurfaceListBox.Template>
+		</s:SurfaceListBox>
+
+		<TextBlock Grid.Row="1"
+				   Style="{StaticResource NormalText}"
+				   Margin="120,376,0,0"
+				   HorizontalAlignment="Left"
+				   TextAlignment="Justify"
+				   TextWrapping="Wrap"
+				   Width="534"
+				   Height="476"
+				   LineHeight="16"
+				   VerticalAlignment="Top"
+				   Opacity="0.81"
+				   Grid.RowSpan="2"><Run Text="The programme gives excellent insight into the inner workings of computers and involves a diverse set of engineering design skills that are essential in areas ranging from bioengineering to software as well as complex controllers for automotive, military, consumer, medical, communications and electrical systems." /><LineBreak /><Run /><LineBreak /><Run Text="The degree is obtained by successfully completing courses over four parts (years), combining: computer hardware and software supplemented with a solid grounding in electrical and electronic engineering." /></TextBlock>
+		<MediaElement Name="_mediaElement"
+					  Tag="pause"
+					  LoadedBehavior="Manual"
+					  Source="Resources\sampleVid.mp4"
+					  MediaEnded="_mediaElement_MediaEnded"
+					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
+					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
+					  Grid.Row="2"
+					  Grid.Column="1"
+					  Margin="0,-52.5,83.112,73.5"
+					  Style="{StaticResource Video}" />
+		<Button Name="playButton"
+				Grid.Row="2"
+				Grid.Column="1"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Margin="213,63,308,221"
+				Height="148"
+				Width="154"
+				PreviewTouchDown="_mediaElement_PreviewTouchDown"
+				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
+			<Image Source="/Resources/video_play.png"
+				   HorizontalAlignment="Stretch"
+				   VerticalAlignment="Stretch"
+				   Style="{StaticResource Img}" />
+
+		</Button>
+	</Grid>
+</UserControl>
+
+            
