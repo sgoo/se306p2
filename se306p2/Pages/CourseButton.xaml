@@ -41,8 +41,8 @@
 				            TextAlignment="Center"
 				            VerticalAlignment="Center"
 				            HorizontalAlignment="Stretch"
-				            FontSize="18"
-				            Foreground="LightGray"><Run Text="{Binding  ElementName=UserControl, Path=CourseTitle}" />
+				            FontSize="15"
+				            Foreground="#000"><Run Text="{Binding  ElementName=UserControl, Path=CourseTitle}" />
                     </TextBlock>
                 </Grid>
                 

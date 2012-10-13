@@ -17,7 +17,7 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="150" />
 			<RowDefinition Height="150" />
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="230"/>
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
@@ -105,42 +105,52 @@
         <!-- Courses Buttons -->
         <!-- TODO:  Change scrollbar colour from white so it can be seen. -->
         <s:SurfaceScrollViewer Grid.Row="3"
-							   VerticalScrollBarVisibility="Disabled"
-							   HorizontalScrollBarVisibility="Auto"
-                               Background="LightGray">
+							   VerticalScrollBarVisibility="Visible"
+							   HorizontalScrollBarVisibility="Disabled"
+                               >
+			
 			<Grid>
 				<Grid Name="FadePanel1">
-					<Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <!--
-                        <RowDefinition />
-                        <RowDefinition /> -->
-					</Grid.RowDefinitions>
-                    <!-- Rows-->
-					<StackPanel Orientation="Horizontal"
-								Grid.Row="0" />
-					<StackPanel Orientation="Horizontal"
-								Grid.Row="1" />
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="2" />
-                </Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="1*" />
+					</Grid.ColumnDefinitions>
+
+					<!-- Rows-->
+					<StackPanel Orientation="Vertical"
+								Grid.Column="1" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="2" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="3" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="4" />
+				</Grid>
 				<Grid  Name="FadePanel2">
-					<Grid.RowDefinitions>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                        <RowDefinition Height="1*"/>
-                    </Grid.RowDefinitions>
-                    
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="5*" />
+						<ColumnDefinition Width="1*" />
+					</Grid.ColumnDefinitions>
+
                     <!-- Rows-->
-					<StackPanel Orientation="Horizontal"
-								Grid.Row="0" />
-					<StackPanel Orientation="Horizontal"
-								Grid.Row="1" />
-                    <StackPanel Orientation="Horizontal"
-								Grid.Row="2" />
-                </Grid>
+					<StackPanel Orientation="Vertical"
+								Grid.Column="1" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="2" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="3" />
+					<StackPanel Orientation="Vertical"
+								Grid.Column="4" />
+					
+				</Grid>
 			</Grid>
 		</s:SurfaceScrollViewer>
 	</Grid>

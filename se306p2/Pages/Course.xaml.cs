@@ -30,6 +30,7 @@ namespace se306p2.Pages
         {
             InitializeComponent();
             fadePanels = new Grid[] { FadePanel1, FadePanel2 };
+			
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -186,31 +187,14 @@ namespace se306p2.Pages
             Grid fadeIn = fadePanels[currrentPanel++ % 2];
             Grid fadeOut = fadePanels[currrentPanel % 2];
 
-            StackPanel row0 = fadeIn.Children[0] as StackPanel;
-            StackPanel row1 = fadeIn.Children[1] as StackPanel;
-            StackPanel row2 = fadeIn.Children[2] as StackPanel;
-
-            StackPanel[] allLines = new StackPanel[] { row0, row1, row2 };
+			StackPanel[] cols = { fadeIn.Children[0] as StackPanel, fadeIn.Children[1] as StackPanel, fadeIn.Children[2] as StackPanel, fadeIn.Children[3] as StackPanel };
 
             // Clear old courses.
-            foreach (StackPanel row in allLines)
-                row.Children.Clear();
+            foreach (StackPanel c in cols)
+                c.Children.Clear();
 
-            // Determine the number of rows to use.
-            //int rowCount = courseList.Count / coursesPerRow + 1;
-            int courseNum = courseList.Count;
-            int rowCount = 3;
-            if (courseNum < 4)
-                rowCount = 1;
-            else if (courseNum < 20)
-                rowCount = 2;
-
-            StackPanel[] panelLines = new StackPanel[rowCount];
-            for (int i = 0; i < rowCount; ++i)
-                panelLines[i] = allLines[i];
-            
             // Actually add courses.
-            int line = 0;
+            int currentCol = 0;
             foreach (KeyValuePair<String, CourseItem> kvp in courseList)
             {
                 CourseButton button = new CourseButton()
@@ -222,8 +206,11 @@ namespace se306p2.Pages
                 button.PreviewTouchDown += ClickCourse;
                 button.PreviewMouseDown += ClickCourse;
 
+				cols[currentCol].Children.Add(button);
+				currentCol = (currentCol + 1) % cols.Length;
+
                 // Add courses to lines alternatively (eg:  line 1, 2, 1, 2 etc).
-                panelLines[line++ % panelLines.Count()].Children.Add(button);
+                //panelLines[line++ % panelLines.Count()].Children.Add(button);
 
                 // Make button the colour of that specialisation.
                 setButtonColour(button);
