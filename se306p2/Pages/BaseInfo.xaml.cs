@@ -14,20 +14,24 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using se306p2.Pages;
 
-namespace se306p2 {
-	/// <summary>
-	/// Interaction logic for InfoOnEEE.xaml
-	/// </summary>
-	/// 
+namespace se306p2
+{
+    /// <summary>
+    /// Interaction logic for InfoOnEEE.xaml
+    /// </summary>
+    /// 
 
-	public partial class BaseInfo : UserControl {
+    public partial class BaseInfo : UserControl
+    {
 
-		public BaseInfo() {
-			
-			InitializeComponent();
-			
-		}
+        public BaseInfo()
+        {
+
+            InitializeComponent();
+
+        }
 
         #region OnInitialized
         protected override void OnInitialized(EventArgs e)
@@ -41,17 +45,19 @@ namespace se306p2 {
             // in order for the built-in drag-and-drop capability to work properly.
             ObservableCollection<DataThumbnail> items = new ObservableCollection<DataThumbnail>();
 
-            items.Add(new DataThumbnail(@"..\Resources\blue0.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\blue1.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\blue2.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\blue4.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\green0.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\green1.jpg"));
-            items.Add(new DataThumbnail(@"..\Resources\green2.jpg"));
-            MainLibraryBar.ItemsSource = items;
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE0.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE1.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE2.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE3.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE4.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE5.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE6.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE7.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE8.jpg"));
+            items.Add(new DataThumbnail(@"..\Resources\Information\ECE9.jpg"));
+                  
+            MainSurfaceListBox.ItemsSource = items;
             // Get the default view and establish grouping.
-            ICollectionView defaultView = CollectionViewSource.GetDefaultView(items);
-            defaultView.GroupDescriptions.Add(new PropertyGroupDescription("GroupName"));
         }
         #endregion
 
@@ -72,64 +78,14 @@ namespace se306p2 {
                 _mediaElement.Pause();
                 _mediaElement.Tag = "pause";
                 playButton.Visibility = System.Windows.Visibility.Visible;
-             }
+            }
         }
 
-		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
-			if (IsVisible) {
-				MainWindow.window.BackgroundImage = "/Resources/themes/general.jpg";
-			}
-		}
-
-		private void MainLibraryBar_DragOver(object sender, Microsoft.Surface.Presentation.SurfaceDragDropEventArgs e) {
-			e.Effects = DragDropEffects.None;
-			e.Handled = true;
-		}
-	}
-
-    #region DataThumbnailClass
-    /// <summary>
-    /// Represents an image thumbnail with an associated label and a group name.
-    /// </summary>
-    public class DataThumbnail
-    {
        
-        private string fileName;
-        private BitmapImage bitmap;
-
-        /// <summary>
-        /// Creates a new instance of the DataThumbnail class.
-        /// </summary>
-        /// <param name="fileName">The file name of the image.</param>
-        /// <param name="label">The text associated with the image.</param>
-        /// <param name="groupName">The group name for the image.</param>
-        public DataThumbnail(string fileName)
+        private void MainLibraryBar_DragOver(object sender, Microsoft.Surface.Presentation.SurfaceDragDropEventArgs e)
         {
-            // For simplicity, not checking for null parameters.
-            this.fileName = fileName;
-            this.bitmap = new BitmapImage(new Uri(fileName, UriKind.Relative));
+            e.Effects = DragDropEffects.None;
+            e.Handled = true;
         }
-
-        /// <summary>
-        /// Gets the label of this instance.
-        /// </summary>
-       
-
-        /// <summary>
-        /// Gets the group name of this instance.
-        /// </summary>
-       
-
-        /// <summary>
-        /// Gets the image used by this instance.
-        /// </summary>
-        public BitmapSource Bitmap
-        {
-            get { return bitmap; }
-        }
-
-
     }
-    #endregion
-
 }

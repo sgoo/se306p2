@@ -107,11 +107,11 @@ namespace se306p2 {
 			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
 
 
-			RightItems.Add(new DataItem("CSE Info", false, "#0b9246"));
+			RightItems.Add(new DataItem("CSE Info", true, new CSEInfo(), "#0b9246"));
 			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, "#0b9246"));
-			RightItems.Add(new DataItem("EEE Info", false, "#1e9ad5"));
+			RightItems.Add(new DataItem("EEE Info", true, new EEEInfo(), "#1e9ad5"));
 			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, "#1e9ad5"));
-			RightItems.Add(new DataItem("SE Info", false, "#f6a220"));
+			RightItems.Add(new DataItem("SE Info", false, new SEInfo(), "#f6a220"));
             RightItems.Add(new DataItem("SE Courses", true, SeCourse, "#f6a220"));
 		}
 
