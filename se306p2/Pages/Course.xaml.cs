@@ -64,6 +64,7 @@ namespace se306p2.Pages {
 
 				sb1.Begin(SlideOutTextBlock);
 				sb2.Begin(SlideInTextBlock);
+				CurrentCourse = cs.CourseList.First().Value;
 
 				PropertyChanged(this, new PropertyChangedEventArgs("CurrentCourseSet"));
 			}
@@ -229,14 +230,25 @@ namespace se306p2.Pages {
 			CourseButton cb = sender as CourseButton;
 			CurrentCourse = cb.CourseItem;
 		}
-
+		
+		private DateTime lastTimeRight = DateTime.Now;
 		public void RightButtonClick(object sender, InputEventArgs e) {
+			if ((DateTime.Now - lastTimeRight).TotalMilliseconds < 100) {
+				return;
+			}
+			lastTimeRight = DateTime.Now;
 			if (CourseSets.ContainsKey(currentCourseSet + 1)) {
 				CurrentCourseSet++;
 			}
 		}
 
+		private DateTime lastTimeLeft = DateTime.Now;
 		public void LeftButtonClick(object sender, InputEventArgs e) {
+			if ((DateTime.Now - lastTimeLeft).TotalMilliseconds < 100) {
+				return;
+			}
+			lastTimeLeft = DateTime.Now;
+
 			if (CourseSets.ContainsKey(currentCourseSet - 1)) {
 				CurrentCourseSet--;
 			}

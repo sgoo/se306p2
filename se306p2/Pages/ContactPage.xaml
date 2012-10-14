@@ -88,16 +88,16 @@
 				   PreviewMouseDown="recenterMap"
 				   PreviewTouchDown="recenterMap"
 				   Margin="40"
-				   Width="26"
-				   Height="26"
+				   Width="78"
+				   Height="78"
 				   Source="/Resources/home.png" />
 			<Image HorizontalAlignment="Right"
 				   VerticalAlignment="Top"
 				   PreviewMouseDown="repointMap"
 				   PreviewTouchDown="repointMap"
-				   Margin="40,40,80,40"
-				   Width="26"
-				   Height="26"
+				   Margin="40,40,130,40"
+				   Width="78"
+				   Height="78"
 				   Source="/Resources/compass.png" />
 		</Grid>
 	</Grid>

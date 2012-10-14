@@ -14,29 +14,52 @@
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 
-        <Storyboard x:Key="MyPress">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="0.9" Duration="0:0:0.1"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)" From="0" To="15" Duration="0:0:0.1"/>
-        </Storyboard>
-        <Storyboard x:Key="MyRelease">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="1" Duration="0:0:0.1"/>
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)" From="15" To="0" Duration="0:0:0.1"/>
-        </Storyboard>
-        
-      
-        
-        
-        <Storyboard x:Key="SlideRightToOrigin">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
-        </Storyboard>
-        <Storyboard x:Key="SlideLeftToOrigin">
-            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
-        </Storyboard>
+		<Storyboard x:Key="MyPress">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
+							 To="0.9"
+							 Duration="0:0:0.1" />
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+							 From="0"
+							 To="15"
+							 Duration="0:0:0.1" />
+		</Storyboard>
+		<Storyboard x:Key="MyRelease">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
+							 To="1"
+							 Duration="0:0:0.1" />
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+							 From="15"
+							 To="0"
+							 Duration="0:0:0.1" />
+		</Storyboard>
 
-        
-        
-        
-        <!-- Get access to resource dictionary. -->
+		<Storyboard x:Key="SlideRightToOrigin">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+							 From="1920"
+							 To="0"
+							 Duration="0:0:0.5" />
+		</Storyboard>
+		<Storyboard x:Key="SlideLeftToOrigin">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+							 From="-1920"
+							 To="0"
+							 Duration="0:0:0.5" />
+
+		</Storyboard>
+		<Storyboard x:Key="SlideOriginToRight">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+							 From="0"
+							 To="1920"
+							 Duration="0:0:0.5" />
+		</Storyboard>
+		<Storyboard x:Key="SlideOriginToLeft">
+			<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+							 From="0"
+							 To="-1920"
+							 Duration="0:0:0.5" />
+		</Storyboard>
+
+		<!-- Get access to resource dictionary. -->
 		<!--
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -64,14 +87,15 @@
 					<ColumnDefinition />
 					<ColumnDefinition />
 				</Grid.ColumnDefinitions>
-				<Label Grid.Column="0"
-					   Grid.ColumnSpan="2"
-					   Foreground="White"
-					   Content="{Binding Name}"
-					   VerticalAlignment="Center"
-					   HorizontalAlignment="Center"
-					   FontSize="30"
-					   Style="{DynamicResource RoundCornerLabel}" />
+				<TextBlock Grid.Column="0"
+						   Grid.ColumnSpan="2"
+						   Foreground="White"
+						   Text="{Binding Name}"
+						   VerticalAlignment="Center"
+						   HorizontalAlignment="Center"
+						   TextAlignment="Center"
+						   FontSize="30"
+						   Style="{DynamicResource RoundCornerLabel}" />
 			</Grid>
 		</DataTemplate>
 
@@ -91,6 +115,7 @@
 					   Content="{Binding Name}"
 					   VerticalAlignment="Center"
 					   HorizontalAlignment="Center"
+					   HorizontalContentAlignment="Center"
 					   FontSize="30" />
 			</Grid>
 		</DataTemplate>
@@ -147,9 +172,9 @@
 			<Setter Property="Margin"
 					Value="1" />
 			<Setter Property="HorizontalContentAlignment"
-					Value="Left" />
+					Value="Center" />
 			<Setter Property="VerticalContentAlignment"
-					Value="Top" />
+					Value="Center" />
 			<Setter Property="BorderThickness"
 					Value="2" />
 		</Style>
@@ -204,11 +229,14 @@
 									Opacity="0"
 									SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
 									CornerRadius="20" />
-							<ContentPresenter   x:Name="Content"
-												Margin="{TemplateBinding Padding}"
-												HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-												VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-												SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							<Grid HorizontalAlignment="Center"
+								  VerticalAlignment="Center">
+								<ContentPresenter   x:Name="Content"
+													HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+													VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+													SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</Grid>
+							<!--Margin="{TemplateBinding Padding}"-->
 						</Grid>
 						<ControlTemplate.Triggers>
 							<Trigger Property="IsSelected"
@@ -274,20 +302,13 @@
 				  CanContentScroll="True"
 				  HorizontalScrollBarVisibility="Auto"
 				  VerticalScrollBarVisibility="Auto"
-                    IsVisibleChanged="ScrollView_IsVisibleChanged"
-                  >
-		<!--    <s:SurfaceScrollViewer Margin="0,0,0,0">
-        <Grid Width="1920" Height="1050" Name="MainWindowGrid">-->
+				  IsVisibleChanged="ScrollView_IsVisibleChanged">
 		<Grid Width="1920"
 			  Height="1080"
-			  Name="MainWindowGrid"
-              
-              
-              
-			  >
-            <Grid.Background>
-                <ImageBrush ImageSource="/Resources/Background/lightsky2.jpg" />
-            </Grid.Background>
+			  Name="MainWindowGrid">
+			<Grid.Background>
+				<ImageBrush ImageSource="/Resources/Background/lightsky2.jpg" />
+			</Grid.Background>
 			<Grid.RowDefinitions>
 				<RowDefinition />
 			</Grid.RowDefinitions>
@@ -296,14 +317,9 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="300" />
 			</Grid.ColumnDefinitions>
-			<!--            <s:SurfaceListBox Name="LeftScatterBar" Grid.Column="0" Background ="White"  BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}" ItemsSource="{Binding Path=LeftItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}" />
-            <Grid Name="DefaultPanel" Grid.Column="1" AllowDrop="True" s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter" s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave" s:SurfaceDragDrop.Drop="OnDropTargetDrop" Background="Black">
--->
 
 			<Grid Name="DefaultPanel"
 				  Grid.Column="1"
-				  
-				  
 				  Background="Transparent">
 				<Grid.RowDefinitions>
 					<RowDefinition />
@@ -313,24 +329,21 @@
 					<ColumnDefinition Width="0.5*" />
 					<ColumnDefinition Width="0.5*" />
 				</Grid.ColumnDefinitions>
-				<pages:HomePage Grid.RowSpan="2"
-								Grid.ColumnSpan="2"></pages:HomePage>
+				<Grid Grid.RowSpan="2"
+					  Grid.ColumnSpan="2">
+					<pages:HomePage />
+				</Grid>
 			</Grid>
-			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
 
--->
-            <!--PreviewMouseDown="OnDragSourcePreviewTouchDown"-->
-
-            <s:SurfaceListBox Name="LeftScatterBar"
+			<s:SurfaceListBox Name="LeftScatterBar"
 							  Grid.Column="0"
 							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle}"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-                              PreviewTouchUp="OnDragSourcePreviewTouchUp"
-							  PreviewMouseUp="OnDragSourcePreviewTouchUp"
-							  />
+							  PreviewTouchUp="OnDragSourcePreviewTouchUp"
+							  PreviewMouseUp="OnDragSourcePreviewTouchUp" />
 
 			<s:SurfaceListBox Name="RightScatterBar"
 							  Grid.Column="2"
@@ -339,7 +352,7 @@
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-                              PreviewTouchUp="OnDragSourcePreviewTouchUp"
+							  PreviewTouchUp="OnDragSourcePreviewTouchUp"
 							  PreviewMouseUp="OnDragSourcePreviewTouchUp" />
 		</Grid>
 	</ScrollViewer>

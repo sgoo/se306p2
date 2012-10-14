@@ -32,10 +32,10 @@ namespace se306p2 {
 		private ObservableCollection<DataItem> rightItems;
 
 		private String lastBackgroundImage = "";
-        
+
 		public String BackgroundImage {
 			set {
-        		if (lastBackgroundImage == value) {
+				if (lastBackgroundImage == value) {
 					return;
 				}
 				// TODO: implement some fading?
@@ -85,37 +85,37 @@ namespace se306p2 {
 			DataContext = this;
 
 			LeftItems.Add(new DataItem("Home", true, new HomePage()));
-           	LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
+			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
 
-            // Felix:  I use these titles in Courses, so I put them in a common place.
+			// Felix:  I use these titles in Courses, so I put them in a common place.
 			Course EeeCourse = new Course() {
-                ProgramTitle = (string) Application.Current.FindResource("EEE_Courses_Title"),
+				ProgramTitle = (string)Application.Current.FindResource("EEE_Courses_Title"),
 			};
 			EeeCourse.readJSON(new Uri("pack://application:,,,/Resources/eeeCourseInfo.json"));
-			
+
 			Course CseCourse = new Course() {
-                ProgramTitle = (string)Application.Current.FindResource("CSE_Courses_Title"),
+				ProgramTitle = (string)Application.Current.FindResource("CSE_Courses_Title"),
 			};
 			CseCourse.readJSON(new Uri("pack://application:,,,/Resources/cseCourseInfo.json"));
-			
+
 			Course SeCourse = new Course() {
-                ProgramTitle = (string)Application.Current.FindResource("SE_Courses_Title"),
+				ProgramTitle = (string)Application.Current.FindResource("SE_Courses_Title"),
 			};
 			SeCourse.readJSON(new Uri("pack://application:,,,/Resources/seCourseInfo.json"));
 
-            // Needed the colours in the Courses page, so put them in a common file (Resources>Colours.xaml).
-            string cseColour = (string)Application.Current.FindResource("Colour_CSE_Str");
+			// Needed the colours in the Courses page, so put them in a common file (Resources>Colours.xaml).
+			string cseColour = (string)Application.Current.FindResource("Colour_CSE_Str");
 			RightItems.Add(new DataItem("CSE Info", true, new CSEInfo(), cseColour));
 			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, cseColour));
-            string eeeColour = (string)Application.Current.FindResource("Colour_EEE_Str");
+			string eeeColour = (string)Application.Current.FindResource("Colour_EEE_Str");
 			RightItems.Add(new DataItem("EEE Info", true, new EEEInfo(), eeeColour));
 			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, eeeColour));
-            string seColour = (string)Application.Current.FindResource("Colour_SE_Str");
+			string seColour = (string)Application.Current.FindResource("Colour_SE_Str");
 			RightItems.Add(new DataItem("SE Info", true, new SEInfo(), seColour));
-            RightItems.Add(new DataItem("SE Courses", true, SeCourse, seColour));
+			RightItems.Add(new DataItem("SE Courses", true, SeCourse, seColour));
 		}
 
 
@@ -191,32 +191,28 @@ namespace se306p2 {
 		}
 
 
-        private void OnDragSourcePreviewTouchUp(object sender, InputEventArgs e)
-        {
-            FrameworkElement findSource = e.OriginalSource as FrameworkElement;
-            SurfaceListBoxItem draggedElement = null;
+		private void OnDragSourcePreviewTouchUp(object sender, InputEventArgs e) {
+			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
+			SurfaceListBoxItem draggedElement = null;
 
-            // Find the touched SurfaceListBoxItem object.
-            while (draggedElement == null && findSource != null)
-            {
-                if ((draggedElement = findSource as SurfaceListBoxItem) == null)
-                {
-                    findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+			// Find the touched SurfaceListBoxItem object.
+			while (draggedElement == null && findSource != null) {
+				if ((draggedElement = findSource as SurfaceListBoxItem) == null) {
+					findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
 
-                }
-            }
+				}
+			}
 
-            if (draggedElement == null)
-            {
-                return;
-            }
+			if (draggedElement == null) {
+				return;
+			}
 
-            Storyboard sbrd = (Storyboard)Resources["MyRelease"];
-            sbrd.Begin(draggedElement);
+			Storyboard sbrd = (Storyboard)Resources["MyRelease"];
+			sbrd.Begin(draggedElement);
 
-        }
-        
-        private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
+		}
+
+		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
 
 
 			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
@@ -234,121 +230,122 @@ namespace se306p2 {
 				return;
 			}
 
-            TransformGroup tGroup = new TransformGroup();
-            ScaleTransform sTrans = new ScaleTransform();
-            TranslateTransform tTrans = new TranslateTransform();
+			TransformGroup tGroup = new TransformGroup();
+			ScaleTransform sTrans = new ScaleTransform();
+			TranslateTransform tTrans = new TranslateTransform();
 
-            sTrans.ScaleX = 1;
-            sTrans.ScaleY = 1;
+			sTrans.ScaleX = 1;
+			sTrans.ScaleY = 1;
 
-            tTrans.X = 0;
-            tTrans.Y = 0;
+			tTrans.X = 0;
+			tTrans.Y = 0;
 
-            tGroup.Children.Add(sTrans);
-            tGroup.Children.Add(tTrans);
-            draggedElement.RenderTransform = tGroup;
+			tGroup.Children.Add(sTrans);
+			tGroup.Children.Add(tTrans);
+			draggedElement.RenderTransform = tGroup;
 
-            Storyboard sb = (Storyboard)Resources["MyPress"];
-            sb.Begin(draggedElement);
-            SelectPage(draggedElement.DataContext as DataItem,sender);
-     
-            e.Handled = true;
+			Storyboard sb = (Storyboard)Resources["MyPress"];
+			sb.Begin(draggedElement);
+			SelectPage(draggedElement.DataContext as DataItem, sender);
+
+			e.Handled = true;
 		}
 
 
 
-		public void SelectPage(DataItem d,object sender) {
+		public void SelectPage(DataItem d, object sender) {
 
-            Storyboard sBrd; 
-            
-            if (d == null)
+			Storyboard sBrd;
+			Storyboard sBrd2;
+
+			if (d == null)
 				return;
 
-            if (sender == null)
-            {
-                return;
-            }
-            else
-            {
-                SurfaceListBox lb = sender as SurfaceListBox;
+			if (sender == null) {
+				return;
+			} else {
+				SurfaceListBox lb = sender as SurfaceListBox;
 
-                if (lb.Name == "LeftScatterBar")
-                {
-                   sBrd = (Storyboard)Resources["SlideLeftToOrigin"];
-                }
-                else
-                {
-                    sBrd = (Storyboard)Resources["SlideRightToOrigin"];
-                }
-                
-            }
-            
+				if (lb.Name == "LeftScatterBar") {
+					sBrd = (Storyboard)Resources["SlideLeftToOrigin"];
+					sBrd2 = (Storyboard)Resources["SlideOriginToRight"];
+				} else {
+					sBrd = (Storyboard)Resources["SlideRightToOrigin"];
+					sBrd2 = (Storyboard)Resources["SlideOriginToLeft"];
+				}
 
-            if (!DefaultPanel.Children.Contains(d.PageControl)) {
-               
-           
-                DefaultPanel.Children.Clear();
+			}
 
-                UserControl ctrl = d.PageControl as UserControl;
-                Grid newGrid = new Grid();
 
-                try
-                {
-                    Grid c = VisualTreeHelper.GetParent(ctrl) as Grid;
-                    c.Children.Clear();
-                }
-                catch(Exception e)
-                {
-                    //no need to do anything here
-                }
-                
-                newGrid.Children.Add(ctrl);
+			if (!DefaultPanel.Children.Contains(d.PageControl)) {
+
+				FrameworkElement oldPage = DefaultPanel.Children[0] as FrameworkElement;
+				//DefaultPanel.Children.Clear();
+
+				UserControl ctrl = d.PageControl as UserControl;
+				Grid newGrid = new Grid();
+
+				//Grid c = VisualTreeHelper.GetParent(ctrl) as Grid;
+				//c.Children.Clear();
+				if (ctrl.Parent != null) {
+					(ctrl.Parent as Panel).Children.Remove(ctrl);
+				}
+				newGrid.Children.Add(ctrl);
 
 				if (ctrl is ResettableControl) {
 					(ctrl as ResettableControl).reset();
 				}
 
-                
-                TranslateTransform tr = new TranslateTransform();             
 
-                TransformGroup myTransformGroup = new TransformGroup();
-                
-               
-                myTransformGroup.Children.Add(tr);
+				TranslateTransform tr = new TranslateTransform();
+				TransformGroup myTransformGroup = new TransformGroup();
+				myTransformGroup.Children.Add(tr);
+				newGrid.RenderTransform = myTransformGroup;
 
-                newGrid.RenderTransform = myTransformGroup;
+				tr = new TranslateTransform();
+				myTransformGroup = new TransformGroup();
+				myTransformGroup.Children.Add(tr);
+				oldPage.RenderTransform = myTransformGroup;
 
-                sBrd.Begin(newGrid);
+				sBrd.Begin(newGrid);
+				sBrd2.Completed += sBrd2Complete;
 
-                Grid.SetColumn(newGrid, 0);
-                Grid.SetColumnSpan(newGrid, 2);
-                Grid.SetRow(newGrid, 0);
-                Grid.SetRowSpan(newGrid, 2);
-                
-                DefaultPanel.Children.Add(newGrid);
-                   
-            }
+				sBrd2.Begin(oldPage);
 
-            
+				Grid.SetColumn(newGrid, 0);
+				Grid.SetColumnSpan(newGrid, 2);
+				Grid.SetRow(newGrid, 0);
+				Grid.SetRowSpan(newGrid, 2);
+
+				DefaultPanel.Children.Add(newGrid);
+
+			}
+
+
 		}
 
 
-        private void ScrollView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
-            {
-                ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
-                ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
-            }
-            
-            //comment out the following lines to get the scrollBars
+		private void ScrollView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
+			if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920) {
+				ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+				ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
+			}
 
-            if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
-            {
-                ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
-                ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
-            }
-        }
+			//comment out the following lines to get the scrollBars
+
+			if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920) {
+				ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;
+				ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
+			}
+		}
+
+		void sBrd2Complete(object sender, EventArgs e) {
+			if (DefaultPanel.Children.Count > 1) {
+				DefaultPanel.Children.RemoveRange(0, DefaultPanel.Children.Count - 1);
+			}
+		}
+
+		public EventHandler sBrd2_Completed { get; set; }
 	}
 
 
