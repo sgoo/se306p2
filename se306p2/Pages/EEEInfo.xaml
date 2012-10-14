@@ -42,7 +42,9 @@
 						  Margin="120,38,120,427"
 						  Grid.ColumnSpan="2"
 						  VerticalAlignment="Center"
-						  Grid.RowSpan="2">
+						  Grid.RowSpan="2"
+						  SelectionChanged="MainSurfaceListBox_SelectionChanged">
+			
 			<s:SurfaceListBox.ItemTemplate>
 				<DataTemplate>
 					<Image Source="{Binding Bitmap}"
@@ -74,33 +76,20 @@
 				   VerticalAlignment="Top"
 				   Opacity="0.81"
 				   Grid.RowSpan="2"><Run Text="Electrical and electronic engineering encompasses exciting and diverse fields such as power systems, communications and digital signal processing. This four-year course is an ideal first step for undergraduates seeking a degree with broad applications." /><LineBreak /><Run /><LineBreak /><Run Text="The pace of change in this field is so rapid that it is not advantageous to attempt covering all aspects of current technology in a four-year course. Instead the degree provides a broad foundation of basic science, engineering science, electrical engineering, and selected fields of current technology." /></TextBlock>
-		<MediaElement Name="_mediaElement"
-					  Tag="pause"
-					  LoadedBehavior="Manual"
-					  Source="Resources\sampleVid.mp4"
-					  MediaEnded="_mediaElement_MediaEnded"
-					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
-					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
-					  Grid.Row="2"
-					  Grid.Column="1"
-					  Margin="0,-52.5,83.112,73.5"
-					  Style="{StaticResource Video}" />
-		<Button Name="playButton"
-				Grid.Row="2"
-				Grid.Column="1"
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Margin="213,63,308,221"
-				Height="148"
-				Width="154"
-				PreviewTouchDown="_mediaElement_PreviewTouchDown"
-				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
-			<Image Source="/Resources/video_play.png"
+
+		<Border Style="{StaticResource ImgBorder}"
+				Grid.ColumnSpan="2"
+				Grid.RowSpan="2"
+				Grid.Row="1">
+			<Image Source="..\Resources\Information\EEE10.jpg"
+				   Name="EEEImage"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
-				   Style="{StaticResource Img}" />
+				   Style="{StaticResource Img}"
+				   Margin="666,380,81,42"
+				   />
+		</Border>
 
-		</Button>
 	</Grid>
 </UserControl>
 

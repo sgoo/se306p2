@@ -32,7 +32,7 @@
 		<TextBlock Style="{StaticResource Title}"
 				   Grid.Row="0"
 				   Grid.ColumnSpan="2">
-        HOD Welcome Page
+        HOD Welcome
 		</TextBlock>
 
 		<!-- Image -->
