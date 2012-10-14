@@ -5,28 +5,49 @@
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 mc:Ignorable="d"
 			 Name="UserControl"
-			 Height="125"
+			 Height="130"
 			 Width="250"
-             Margin="20,20,20,20">
-    <Grid Grid.Row="0"
-		  Grid.Column="0"
-		  Background="{StaticResource CourseButton}"
-		  >
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"
-				   TextAlignment="center"
-				   VerticalAlignment="Center"
-				   HorizontalAlignment="Stretch"
-				   FontSize="20"
-				   Foreground="white"><Run Text="{Binding  ElementName=UserControl, Path=CourseCode}" /></TextBlock>
-        <TextBlock Grid.Row="1"
-				   TextAlignment="Center"
-				   VerticalAlignment="Center"
-				   HorizontalAlignment="Stretch"
-				   FontSize="15"
-				   Foreground="LightGray"><Run Text="{Binding  ElementName=UserControl, Path=CourseTitle}" /></TextBlock>
+             Margin="10">
+
+    <Grid>
+        <Grid>
+            <!-- Border for rounded corneres and shadow -->
+            <Border 
+                Style="{StaticResource CourseButtonBorder}"
+                x:Name="Border"
+                Margin="5" 
+                Background="Purple" 
+                CornerRadius="10,10,10,10">
+
+                <Grid>
+                    <!--Background="{StaticResource CourseButton}">-->
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!-- Course code (eg:  SOFTENG 306) -->
+                    <TextBlock Grid.Row="0"
+				            TextAlignment="center"
+				            VerticalAlignment="Center"
+				            HorizontalAlignment="Stretch"
+				            FontSize="24"
+				            Foreground="white"><Run Text="{Binding  ElementName=UserControl, Path=CourseCode}" />
+                    </TextBlock>
+
+                    <!-- Course title (eg:  Software Engineering Design 2) -->
+                    <TextBlock Grid.Row="1"
+				            TextAlignment="Center"
+				            VerticalAlignment="Center"
+				            HorizontalAlignment="Stretch"
+				            FontSize="15"
+				            Foreground="#000"><Run Text="{Binding  ElementName=UserControl, Path=CourseTitle}" />
+                    </TextBlock>
+                </Grid>
+                
+            </Border>
+        </Grid>
     </Grid>
+
 </UserControl>

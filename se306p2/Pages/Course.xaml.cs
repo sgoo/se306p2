@@ -17,6 +17,8 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Windows.Media.Animation;
 
+// TODO:  Change colour of buttons to specialisation colours (from purple).
+
 namespace se306p2.Pages
 {
     /// <summary>
@@ -28,6 +30,7 @@ namespace se306p2.Pages
         {
             InitializeComponent();
             fadePanels = new Grid[] { FadePanel1, FadePanel2 };
+			
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -37,7 +40,6 @@ namespace se306p2.Pages
             get { return currentCourseSet; }
             set
             {
-
                 Storyboard sb1;
                 Storyboard sb2;
                 if (currentCourseSet > value)
@@ -52,6 +54,8 @@ namespace se306p2.Pages
                 }
                 currentCourseSet = value;
 
+                // Make "<" or ">" button appear/disappear as necessary.
+                handleArrows(currentCourseSet);
 
                 //CourseSetTitle = "";
 
@@ -73,6 +77,27 @@ namespace se306p2.Pages
             }
         }
 
+        // Make the "<" or ">" disappear if clicking them would do nothging.
+        // Ie, if we are in Part II or Part IV and cannot go further left or right.
+        private void handleArrows(int currentPos)
+        {
+            // 1) Make arrows disappear.
+            if (currentPos == 0)
+                // Make "<" disappear.
+                LeftArrow.Visibility = Visibility.Hidden;
+            else if (currentPos == 2)
+                // Make ">" disappear.
+                RightArrow.Visibility = Visibility.Hidden;
+
+            // 2) Make arrows appear.
+            if (currentPos != 0)
+                // Make "<" appear.
+                LeftArrow.Visibility = Visibility.Visible;
+            if (currentPos != 2)
+                // Make ">" appear.
+                RightArrow.Visibility = Visibility.Visible;
+        }
+
         private string title = "";
         public string ProgramTitle
         {
@@ -83,9 +108,6 @@ namespace se306p2.Pages
                 PropertyChanged(this, new PropertyChangedEventArgs("ProgramTitle"));
             }
         }
-
-
-
 
         /*private string courseTitle = "";
         public string CourseSetTitle {
@@ -118,8 +140,6 @@ namespace se306p2.Pages
             }
         }
 
-
-
         private String currentCourseTitle;
         public String CurrentCourseTitle
         {
@@ -141,7 +161,6 @@ namespace se306p2.Pages
             }
         }
 
-
         private CourseItem currentCourse;
         public CourseItem CurrentCourse
         {
@@ -155,30 +174,27 @@ namespace se306p2.Pages
             }
         }
 
-
         public SortedList<int, CourseSet> CourseSets = new SortedList<int, CourseSet>();
 
         private Grid[] fadePanels;
         private int currrentPanel = 0;
 
+        // Adds the course buttons.
         public void addButtons(SortedList<String, CourseItem> courseList)
         {
+            // Electrical has 30 4th year courses!!!
+
             Grid fadeIn = fadePanels[currrentPanel++ % 2];
             Grid fadeOut = fadePanels[currrentPanel % 2];
 
-            StackPanel topLine = fadeIn.Children[0] as StackPanel;
-            StackPanel bottomLine = fadeIn.Children[1] as StackPanel;
+			StackPanel[] cols = { fadeIn.Children[0] as StackPanel, fadeIn.Children[1] as StackPanel, fadeIn.Children[2] as StackPanel, fadeIn.Children[3] as StackPanel };
 
-            topLine.Children.Clear();
-            bottomLine.Children.Clear();
+            // Clear old courses.
+            foreach (StackPanel c in cols)
+                c.Children.Clear();
 
-            StackPanel[] panelLines = new StackPanel[] { topLine, bottomLine };
-
-            if (courseList.Count < 4)
-            {
-                panelLines = new StackPanel[] { topLine };
-            }
-            int line = 0;
+            // Actually add courses.
+            int currentCol = 0;
             foreach (KeyValuePair<String, CourseItem> kvp in courseList)
             {
                 CourseButton button = new CourseButton()
@@ -189,7 +205,15 @@ namespace se306p2.Pages
                 };
                 button.PreviewTouchDown += ClickCourse;
                 button.PreviewMouseDown += ClickCourse;
-                panelLines[line++ % panelLines.Count()].Children.Add(button);
+
+				cols[currentCol].Children.Add(button);
+				currentCol = (currentCol + 1) % cols.Length;
+
+                // Add courses to lines alternatively (eg:  line 1, 2, 1, 2 etc).
+                //panelLines[line++ % panelLines.Count()].Children.Add(button);
+
+                // Make button the colour of that specialisation.
+                setButtonColour(button);
             }
 
             fadeIn.Opacity = 0;
@@ -204,6 +228,16 @@ namespace se306p2.Pages
 
             sb1.Begin(fadeOut);
             sb2.Begin(fadeIn);
+        }
+
+        private void setButtonColour(CourseButton button)
+        {
+            if (ProgramTitle.Equals((string)Application.Current.FindResource("CSE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_CSE");
+            else if (ProgramTitle.Equals((string)Application.Current.FindResource("EEE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_EEE");
+            else if (ProgramTitle.Equals((string)Application.Current.FindResource("SE_Courses_Title")))
+                button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_SE");
         }
 
         void FadeOut_Completed(object sender, EventArgs e)
@@ -234,12 +268,10 @@ namespace se306p2.Pages
             }
         }
 
-
         public void readJSON(Uri location)
         {
-
             string text = new StreamReader(Application.GetResourceStream(location).Stream).ReadToEnd();
-            Console.WriteLine(text);
+            //Console.WriteLine(text);
             //JObject json = JObject.Parse(text);
 
             String[] yearTitles = { "Part II", "Part III", "Part IV" };
@@ -269,7 +301,7 @@ namespace se306p2.Pages
             CurrentCourseSet = 0;
         }
 
-        // swipe code
+        // === swipe code ===
         private Dictionary<MouseDevice, Point> currentTouchDevices = new Dictionary<MouseDevice, Point>();
         private void Swipe_TouchDown(object sender, MouseButtonEventArgs e)
         {
@@ -323,6 +355,7 @@ namespace se306p2.Pages
             public String Title;
             public SortedList<String, CourseItem> CourseList = new SortedList<String, CourseItem>();
         }
+
         public class CourseItem
         {
             public String Name { get; set; }
@@ -330,7 +363,5 @@ namespace se306p2.Pages
             public String Points { get; set; }
             public String Desc { get; set; }
         }
-
-
     }
 }

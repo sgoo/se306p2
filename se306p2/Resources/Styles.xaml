@@ -45,14 +45,29 @@
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="Margin" Value="20px" />
-        
-        <!-- TODO -->
     </Style>
-    
+
     <DropShadowEffect x:Key="ImgDropShadow" BlurRadius="50" ShadowDepth="0" />
-    
     <Style TargetType="Border" x:Key="ImgBorder">
         <Setter Property="Effect" Value="{StaticResource ImgDropShadow}" />
+    </Style>
+
+    <!-- Courses page-->
+    <!-- < & > buttons-->
+    <Style TargetType="TextBlock" BasedOn="{StaticResource NormalText}" x:Key="CourseLeftRightButtons">
+        <Setter Property="FontSize" Value="48" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    
+    <!-- Middle text (eg:  Part II) -->
+    <Style TargetType="TextBlock" BasedOn="{StaticResource NormalText}" x:Key="SwipeText">
+        <Setter Property="FontSize" Value="48" />
+    </Style>
+    
+    <!-- Course buttons -->
+    <DropShadowEffect x:Key="CourseButtonDropShadow" BlurRadius="15" ShadowDepth="0" />
+    <Style TargetType="Border" x:Key="CourseButtonBorder">
+        <Setter Property="Effect" Value="{StaticResource CourseButtonDropShadow}" />
     </Style>
 
     <!-- Videos-->
@@ -122,6 +137,16 @@
     <ImageBrush x:Key="BackgroundSE" ImageSource="../Resources/background_se.jpg"/>
     <ImageBrush x:Key="CourseButton"
                 ImageSource="../Resources/course_button.png" />
+
+
+
+
+
+	
+	
+	
+
+
 
 
 

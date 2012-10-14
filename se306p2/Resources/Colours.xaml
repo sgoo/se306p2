@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <SolidColorBrush x:Key="Colour_CSE" >#0b9246</SolidColorBrush>
+    <SolidColorBrush x:Key="Colour_EEE" >#1e9ad5</SolidColorBrush>
+    <SolidColorBrush x:Key="Colour_SE" >#f6a220</SolidColorBrush>
+
+    <system:String x:Key="Colour_CSE_Str" >#0b9246</system:String>
+    <system:String x:Key="Colour_EEE_Str" >#1e9ad5</system:String>
+    <system:String x:Key="Colour_SE_Str" >#f6a220</system:String>
+
+</ResourceDictionary>
