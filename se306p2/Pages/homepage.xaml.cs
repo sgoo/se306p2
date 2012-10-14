@@ -28,7 +28,7 @@ namespace se306p2.Pages {
 		}
 
 		private void Image_PreviewMouseDown(object sender, InputEventArgs e) {
-			MainWindow.window.SelectPage(MainWindow.window.LeftItems[1]);
+			MainWindow.window.SelectPage(MainWindow.window.LeftItems[1],sender);
 		}
 	}
 }

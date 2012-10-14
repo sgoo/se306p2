@@ -17,6 +17,7 @@ using Microsoft.Surface.Presentation.Controls;
 using Microsoft.Surface.Presentation.Input;
 using System.Collections.ObjectModel;
 using se306p2.Pages;
+using System.Windows.Media.Animation;
 
 
 namespace se306p2 {
@@ -84,8 +85,9 @@ namespace se306p2 {
 		protected override void OnInitialized(EventArgs e) {
 			base.OnInitialized(e);
 			DataContext = this;
+
 			LeftItems.Add(new DataItem("Home", true, new HomePage()));
-			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
+           	LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
 			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
@@ -185,7 +187,33 @@ namespace se306p2 {
 			//TODO: disable audio, animations here
 		}
 
-		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
+
+        private void OnDragSourcePreviewTouchUp(object sender, InputEventArgs e)
+        {
+            FrameworkElement findSource = e.OriginalSource as FrameworkElement;
+            SurfaceListBoxItem draggedElement = null;
+
+            // Find the touched SurfaceListBoxItem object.
+            while (draggedElement == null && findSource != null)
+            {
+                if ((draggedElement = findSource as SurfaceListBoxItem) == null)
+                {
+                    findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+
+                }
+            }
+
+            if (draggedElement == null)
+            {
+                return;
+            }
+
+            Storyboard sbrd = (Storyboard)Resources["MyRelease"];
+            sbrd.Begin(draggedElement);
+
+        }
+        
+        private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
 
 
 			FrameworkElement findSource = e.OriginalSource as FrameworkElement;
@@ -195,6 +223,7 @@ namespace se306p2 {
 			while (draggedElement == null && findSource != null) {
 				if ((draggedElement = findSource as SurfaceListBoxItem) == null) {
 					findSource = VisualTreeHelper.GetParent(findSource) as FrameworkElement;
+
 				}
 			}
 
@@ -202,103 +231,100 @@ namespace se306p2 {
 				return;
 			}
 
-			// Create the cursor visual.
-			ContentControl cursorVisual = new ContentControl() {
-				Content = draggedElement.DataContext,
-				Style = FindResource("CursorStyle") as Style
-			};
+            TransformGroup tGroup = new TransformGroup();
+            ScaleTransform sTrans = new ScaleTransform();
+            TranslateTransform tTrans = new TranslateTransform();
 
+            sTrans.ScaleX = 1;
+            sTrans.ScaleY = 1;
 
-			// Add a handler. This will enable the application to change the visual cues.
-			SurfaceDragDrop.AddTargetChangedHandler(cursorVisual, OnTargetChanged);
+            tTrans.X = 0;
+            tTrans.Y = 0;
 
-			// Create a list of input devices. Add the touches that
-			// are currently captured within the dragged element and
-			// the current touch (if it isn't already in the list).
-			List<InputDevice> devices = new List<InputDevice>();
-			devices.Add(e.Device);
-			foreach (TouchDevice touch in draggedElement.TouchesCapturedWithin) {
-				if (touch != e.Device) {
-					devices.Add(touch);
-				}
-			}
+            tGroup.Children.Add(sTrans);
+            tGroup.Children.Add(tTrans);
+            draggedElement.RenderTransform = tGroup;
 
-			// Get the drag source object
-			ItemsControl dragSource = ItemsControl.ItemsControlFromItemContainer(draggedElement);
-
-			SurfaceDragCursor startDragOkay =
-				SurfaceDragDrop.BeginDragDrop(
-				  dragSource,                 // The SurfaceListBox object that the cursor is dragged out from.
-				  draggedElement,             // The SurfaceListBoxItem object that is dragged from the drag source.
-				  cursorVisual,               // The visual element of the cursor.
-				  draggedElement.DataContext, // The data associated with the cursor.
-				  devices,                    // The input devices that start dragging the cursor.
-				  DragDropEffects.Move);      // The allowed drag-and-drop effects of the operation.
-
-			// If the drag began successfully, set e.Handled to true. 
-			// Otherwise SurfaceListBoxItem captures the touch 
-			// and causes the drag operation to fail.
-			e.Handled = (startDragOkay != null);
+            Storyboard sb = (Storyboard)Resources["MyPress"];
+            sb.Begin(draggedElement);
+            SelectPage(draggedElement.DataContext as DataItem,sender);
+     
+            e.Handled = true;
 		}
 
 
 
-		private void OnDropTargetDragEnter(object sender, SurfaceDragDropEventArgs e) {
-			DataItem data = e.Cursor.Data as DataItem;
+		public void SelectPage(DataItem d,object sender) {
 
-			//added to stop advisors drag from crashing program
-			if (data == null)
+            Storyboard sBrd; 
+            
+            if (d == null)
 				return;
 
-			if (!data.CanDrop) {
-				e.Effects = DragDropEffects.None;
-			}
+            if (sender == null)
+            {
+                return;
+            }
+            else
+            {
+                SurfaceListBox lb = sender as SurfaceListBox;
+
+                if (lb.Name == "LeftScatterBar")
+                {
+                   sBrd = (Storyboard)Resources["SlideLeftToOrigin"];
+                }
+                else
+                {
+                    sBrd = (Storyboard)Resources["SlideRightToOrigin"];
+                }
+                
+            }
+            
+
+            if (!DefaultPanel.Children.Contains(d.PageControl)) {
+               
+           
+                DefaultPanel.Children.Clear();
+
+                UserControl ctrl = d.PageControl as UserControl;
+                Grid newGrid = new Grid();
+
+                try
+                {
+                    Grid c = VisualTreeHelper.GetParent(ctrl) as Grid;
+                    c.Children.Clear();
+                }
+                catch(Exception e)
+                {
+                    //no need to do anything here
+                }
+                
+                newGrid.Children.Add(ctrl);
+
+                
+                TranslateTransform tr = new TranslateTransform();             
+
+                TransformGroup myTransformGroup = new TransformGroup();
+                
+               
+                myTransformGroup.Children.Add(tr);
+
+                newGrid.RenderTransform = myTransformGroup;
+
+                sBrd.Begin(newGrid);
+
+                Grid.SetColumn(newGrid, 0);
+                Grid.SetColumnSpan(newGrid, 2);
+                Grid.SetRow(newGrid, 0);
+                Grid.SetRowSpan(newGrid, 2);
+                
+                DefaultPanel.Children.Add(newGrid);
+                   
+            }
+
+            
 		}
 
-		private void OnDropTargetDragLeave(object sender, SurfaceDragDropEventArgs e) {
-			// Reset the effects.
-			e.Effects = e.Cursor.AllowedEffects;
-		}
-
-
-		private void OnTargetChanged(object sender, TargetChangedEventArgs e) {
-			if (e.Cursor.CurrentTarget != null) {
-				DataItem data = e.Cursor.Data as DataItem;
-				e.Cursor.Visual.Tag = (data.CanDrop) ? "CanDrop" : "CannotDrop";
-			} else {
-				e.Cursor.Visual.Tag = null;
-			}
-		}
-		private void OnDropTargetDrop(object sender, SurfaceDragDropEventArgs e) {
-
-
-			DataItem d = e.Cursor.Data as DataItem;
-
-			SelectPage(d);
-		}
-		public void SelectPage(DataItem d) {
-
-			if (d == null)
-				return;
-
-			Grid.SetColumn(d.PageControl, 0);
-			Grid.SetColumnSpan(d.PageControl, 2);
-			Grid.SetRow(d.PageControl, 0);
-			Grid.SetRowSpan(d.PageControl, 2);
-
-			if (!DefaultPanel.Children.Contains(d.PageControl)) {
-				DefaultPanel.Children.Clear();
-				DefaultPanel.Children.Add(d.PageControl);
-			}
-
-			DefaultPanel.UpdateLayout();
-		}
-
-		public void ListBoxDrop(Object sender, SurfaceDragDropEventArgs e) {
-
-			SelectPage(e.Cursor.Data as DataItem);
-
-		}
 
         private void ScrollView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
@@ -307,6 +333,9 @@ namespace se306p2 {
                 ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
                 ScrollView.HorizontalScrollBarVisibility = ScrollBarVisibility.Auto;
             }
+            
+            //comment out the following lines to get the scrollBars
+
             if (SurfaceWindow.Height != 1080 || SurfaceWindow.Width != 1920)
             {
                 ScrollView.VerticalScrollBarVisibility = ScrollBarVisibility.Hidden;

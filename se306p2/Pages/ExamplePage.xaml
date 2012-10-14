@@ -8,6 +8,13 @@
 		  HorizontalAlignment="Stretch"
 		  Width="Auto"
 		  Height="Auto">
-		<Label>Example Text</Label>
+        
+       
+        
+       
+        
+        
+        
+        <Label>Example Text</Label>
 	</Grid>
 </UserControl>

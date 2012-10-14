@@ -14,7 +14,29 @@
 				 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
 	<s:SurfaceWindow.Resources>
 
-		<!-- Get access to resource dictionary. -->
+        <Storyboard x:Key="MyPress">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="0.9" Duration="0:0:0.1"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)" From="0" To="15" Duration="0:0:0.1"/>
+        </Storyboard>
+        <Storyboard x:Key="MyRelease">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)" To="1" Duration="0:0:0.1"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)" From="15" To="0" Duration="0:0:0.1"/>
+        </Storyboard>
+        
+      
+        
+        
+        <Storyboard x:Key="SlideRightToOrigin">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="SlideLeftToOrigin">
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
+        </Storyboard>
+
+        
+        
+        
+        <!-- Get access to resource dictionary. -->
 		<!--
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -619,10 +641,8 @@
 
 			<Grid Name="DefaultPanel"
 				  Grid.Column="1"
-				  AllowDrop="True"
-				  s:SurfaceDragDrop.DragEnter="OnDropTargetDragEnter"
-				  s:SurfaceDragDrop.DragLeave="OnDropTargetDragLeave"
-				  s:SurfaceDragDrop.Drop="OnDropTargetDrop"
+				  
+				  
 				  Background="Transparent">
 				<Grid.RowDefinitions>
 					<RowDefinition />
@@ -638,17 +658,18 @@
 			<!--            <s:SurfaceListBox Name="RightScatterBar" Grid.Column="2" ItemContainerStyleSelector="{StaticResource styleSelector}" BorderBrush="{DynamicResource {x:Static s:SurfaceColors.ListBoxItemBackgroundBrushKey}}" ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplateR}" ItemsSource="{Binding Path=RightItems}" PreviewTouchDown="OnDragSourcePreviewTouchDown" PreviewMouseDown="OnDragSourcePreviewTouchDown" Background="#f5f5f5" />
 
 -->
+            <!--PreviewMouseDown="OnDragSourcePreviewTouchDown"-->
 
-			<s:SurfaceListBox Name="LeftScatterBar"
+            <s:SurfaceListBox Name="LeftScatterBar"
 							  Grid.Column="0"
 							  ItemTemplate="{StaticResource SurfaceListBoxItemDataTemplate}"
 							  ItemsSource="{Binding Path=LeftItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
+                              PreviewTouchUp="OnDragSourcePreviewTouchUp"
+							  PreviewMouseUp="OnDragSourcePreviewTouchUp"
 							  ItemContainerStyle="{DynamicResource SurfaceListBoxItemStyle1}"
-							  s:SurfaceDragDrop.Drop="ListBoxDrop"
-							  s:SurfaceDragDrop.TargetChanged="OnTargetChanged"
-							  AllowDrop="True" />
+							  />
 
 			<s:SurfaceListBox Name="RightScatterBar"
 							  Grid.Column="2"
@@ -657,8 +678,9 @@
 							  ItemsSource="{Binding Path=RightItems}"
 							  PreviewTouchDown="OnDragSourcePreviewTouchDown"
 							  PreviewMouseDown="OnDragSourcePreviewTouchDown"
-							  s:SurfaceDragDrop.Drop="ListBoxDrop"
-							  AllowDrop="True" />
+                              PreviewTouchUp="OnDragSourcePreviewTouchUp"
+							  PreviewMouseUp="OnDragSourcePreviewTouchUp"
+							   />
 		</Grid>
 	</ScrollViewer>
 </s:SurfaceWindow>
