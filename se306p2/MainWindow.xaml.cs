@@ -108,13 +108,13 @@ namespace se306p2 {
 
             // Needed the colours in the Courses page, so put them in a common file (Resources>Colours.xaml).
             string cseColour = (string)Application.Current.FindResource("Colour_CSE_Str");
-            RightItems.Add(new DataItem("CSE Info", false, cseColour));
+			RightItems.Add(new DataItem("CSE Info", true, new CSEInfo(), cseColour));
 			RightItems.Add(new DataItem("CSE Courses", true, CseCourse, cseColour));
             string eeeColour = (string)Application.Current.FindResource("Colour_EEE_Str");
-			RightItems.Add(new DataItem("EEE Info", false, eeeColour));
+			RightItems.Add(new DataItem("EEE Info", true, new EEEInfo(), eeeColour));
 			RightItems.Add(new DataItem("EEE Courses", true, EeeCourse, eeeColour));
             string seColour = (string)Application.Current.FindResource("Colour_SE_Str");
-			RightItems.Add(new DataItem("SE Info", false, seColour));
+			RightItems.Add(new DataItem("SE Info", true, new SEInfo(), seColour));
             RightItems.Add(new DataItem("SE Courses", true, SeCourse, seColour));
 		}
 
