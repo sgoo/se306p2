@@ -94,8 +94,8 @@
 					   Height="78"
 					   Source="/Resources/home.png" />
 			</Grid>
-			<Grid PreviewMouseDown="recenterMap"
-				  PreviewTouchDown="recenterMap"
+			<Grid PreviewMouseDown="repointMap"
+				  PreviewTouchDown="repointMap"
 				  HorizontalAlignment="Right"
 				  VerticalAlignment="Top"
 				  Margin="40,40,130,40"

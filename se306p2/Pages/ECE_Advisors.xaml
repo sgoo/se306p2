@@ -46,32 +46,47 @@
 					Orientation="Horizontal"
 					HorizontalAlignment="Center">
 
-			<my:SurfaceButton Style="{StaticResource Btn}"
+			<my:SurfaceButton Width="400"
+							  Style="{StaticResource Btn}"
 							  Background="#0b9246"
 							  PreviewTouchDown="Button_PreviewCSEDown"
 							  PreviewMouseDown="Button_PreviewCSEDown">
-				<TextBlock TextAlignment="Center">
+				<Border BorderBrush="{x:Null}"
+						Height="100">
+					<TextBlock HorizontalAlignment="Center"
+							   TextAlignment="Center">
 					<Run Text="Computer Systems" /><LineBreak />
 					<Run Text="Engineering" /><LineBreak />
-				</TextBlock>
+					</TextBlock>
+				</Border>
 			</my:SurfaceButton>
-			<my:SurfaceButton Style="{StaticResource Btn}"
+			<my:SurfaceButton Width="400"
+							  Style="{StaticResource Btn}"
 							  Background="#1e9ad5"
 							  PreviewTouchDown="Button_PreviewEEEDown"
 							  PreviewMouseDown="Button_PreviewEEEDown">
-				<TextBlock TextAlignment="Center">
+				<Border BorderBrush="{x:Null}"
+						Height="100">
+					<TextBlock HorizontalAlignment="Center"
+							   TextAlignment="Center">
 					<Run Text="Electrical and Electronic" /><LineBreak />
 					<Run Text="Engineering" /><LineBreak />
-				</TextBlock>
+					</TextBlock>
+				</Border>
 			</my:SurfaceButton>
-			<my:SurfaceButton Style="{StaticResource Btn}"
+			<my:SurfaceButton Width="400"
+							  Style="{StaticResource Btn}"
 							  Background="#f6a220"
 							  PreviewTouchDown="Button_PreviewSEDown"
 							  PreviewMouseDown="Button_PreviewSEDown">
-				<TextBlock TextAlignment="Center">
+				<Border BorderBrush="{x:Null}"
+						Height="100">
+					<TextBlock HorizontalAlignment="Center"
+							   TextAlignment="Center">
 					<Run Text="Software" /><LineBreak />
 					<Run Text="Engineering" /><LineBreak />
-				</TextBlock>
+					</TextBlock>
+				</Border>
 			</my:SurfaceButton>
 		</StackPanel>
 

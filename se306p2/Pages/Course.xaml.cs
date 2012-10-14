@@ -205,6 +205,8 @@ namespace se306p2.Pages {
 
 			sb1.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
 			sb2.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
+			
+			MainScrollViewer.ScrollToTop();
 
 			sb1.Begin(fadeOut);
 			sb2.Begin(fadeIn);

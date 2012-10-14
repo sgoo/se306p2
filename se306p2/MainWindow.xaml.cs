@@ -207,9 +207,6 @@ namespace se306p2 {
 				return;
 			}
 
-			Storyboard sbrd = (Storyboard)Resources["MyRelease"];
-			sbrd.Begin(draggedElement);
-
 		}
 
 		private void OnDragSourcePreviewTouchDown(object sender, InputEventArgs e) {
@@ -258,7 +255,7 @@ namespace se306p2 {
 				SelectPage(leftItems[page], LeftScatterBar);
 			}
 		}
-
+		private DataItem selectedItem = null;
 		public void SelectPage(DataItem d, object sender) {
 
 			Storyboard sBrd;
@@ -266,6 +263,12 @@ namespace se306p2 {
 
 			if (d == null)
 				return;
+
+			if (selectedItem == d) {
+				return;
+			}
+
+			selectedItem = d;
 
 			if (sender == null) {
 				return;

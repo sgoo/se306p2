@@ -169,11 +169,72 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
-					<Border Background="{TemplateBinding Background}"
-							BorderThickness="5"
-							CornerRadius="15">
-						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,0,15,0" />
-					</Border>
+
+					<Grid HorizontalAlignment="Stretch"
+						  VerticalAlignment="Stretch">
+						<Border x:Name="ButtonBody"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								Margin="20,0,20,0"
+								CornerRadius="20" />
+						<Border x:Name="PressOverlay"
+								Background="{TemplateBinding Background}"
+								Opacity="1"
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								CornerRadius="20">
+							<Border.RenderTransform>
+								<TransformGroup>
+									<ScaleTransform />
+									<TranslateTransform />
+								</TransformGroup>
+							</Border.RenderTransform>
+						</Border>
+
+						<ContentPresenter HorizontalAlignment="Stretch"
+										  VerticalAlignment="Stretch"
+										  Margin="15,0,15,0" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Button.IsPressed"
+								 Value="True">
+							<!-- This setter hides the desired element when the ToggleButton's initial state is checked -->
+							<Trigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation Storyboard.TargetName="PressOverlay"
+														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
+														 To="0.9"
+														 Duration="0:0:0.1" />
+										<DoubleAnimation Storyboard.TargetName="PressOverlay"
+														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+														 From="0"
+														 To="15"
+														 Duration="0:0:0.1" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation BeginTime="0:0:0.0"
+														 Storyboard.TargetName="PressOverlay"
+														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
+														 To="1"
+														 Duration="0:0:0.1" />
+										<DoubleAnimation BeginTime="0:0:0.0"
+														 Storyboard.TargetName="PressOverlay"
+														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
+														 From="15"
+														 To="0"
+														 Duration="0:0:0.1" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.ExitActions>
+							<!-- ExitActions go here to make the Grid with the TextBlock visible again -->
+						</Trigger>
+					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>

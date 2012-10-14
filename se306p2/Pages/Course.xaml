@@ -17,17 +17,17 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="150" />
 			<RowDefinition Height="150" />
-            <RowDefinition Height="230"/>
+			<RowDefinition Height="230" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-        <!-- Title -->
+		<!-- Title -->
 		<TextBlock Grid.Row="0"
 				   Style="{StaticResource Title}">
 			<Run Text="{Binding ElementName=CourseControl, Path=ProgramTitle}" />
 		</TextBlock>
 
-        <!-- Swipe and "< >" buttons -->
+		<!-- Swipe and "< >" buttons -->
 		<Grid Grid.Row="1"
 			  MouseDown="Swipe_TouchDown"
 			  MouseUp="Swipe_TouchUp"
@@ -39,13 +39,13 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 
-            <!-- "<" -->
-            <TextBlock Grid.Column="0"
-                       x:Name="LeftArrow"
-                       Style="{StaticResource CourseLeftRightButtons}"
+			<!-- "<" -->
+			<TextBlock Grid.Column="0"
+					   x:Name="LeftArrow"
+					   Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
-                       Padding="15"
+					   Padding="15"
 					   PreviewTouchDown="LeftButtonClick"
 					   PreviewMouseDown="LeftButtonClick">
 				&lt;
@@ -65,7 +65,7 @@
 				</TextBlock.RenderTransform>
 				<Run Text="{Binding ElementName=CourseControl, Path=SlideOutTitle}" />
 				</TextBlock>
-                
+
 				<TextBlock Name="SlideInTextBlock"
 						   Style="{StaticResource SwipeText}"
 						   HorizontalAlignment="Center"
@@ -79,36 +79,36 @@
 				</TextBlock>
 			</Grid>
 
-            <!-- ">" -->
+			<!-- ">" -->
 			<TextBlock Grid.Column="2"
-                       x:Name="RightArrow"
+					   x:Name="RightArrow"
 					   Style="{StaticResource CourseLeftRightButtons}"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
-                       Padding="15"
+					   Padding="15"
 					   PreviewTouchDown="RightButtonClick"
 					   PreviewMouseDown="RightButtonClick">
 				&gt;
 			</TextBlock>
 		</Grid>
 
-        <!-- Course Description -->
-        <TextBlock Grid.Row="2"
+		<!-- Course Description -->
+		<TextBlock Grid.Row="2"
 				   Style="{StaticResource NormalText}">
-			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseTitle}" 
-                 FontWeight="Bold"/>
+			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseTitle}"
+				 FontWeight="Bold" />
 			<LineBreak />
             <LineBreak />
 			<Run Text="{Binding ElementName=CourseControl, Path=CurrentCourseDesc}" />
-            </TextBlock>
+		</TextBlock>
 
-        <!-- Courses Buttons -->
-        <!-- TODO:  Change scrollbar colour from white so it can be seen. -->
-        <s:SurfaceScrollViewer Grid.Row="3"
+		<!-- Courses Buttons -->
+		<!-- TODO:  Change scrollbar colour from white so it can be seen. -->
+		<s:SurfaceScrollViewer Name="MainScrollViewer"
+							   Grid.Row="3"
 							   VerticalScrollBarVisibility="Visible"
-							   HorizontalScrollBarVisibility="Disabled"
-                               >
-			
+							   HorizontalScrollBarVisibility="Disabled">
+
 			<Grid>
 				<Grid Name="FadePanel1">
 					<Grid.ColumnDefinitions>
@@ -140,7 +140,7 @@
 						<ColumnDefinition Width="1*" />
 					</Grid.ColumnDefinitions>
 
-                    <!-- Rows-->
+					<!-- Rows-->
 					<StackPanel Orientation="Vertical"
 								Grid.Column="1" />
 					<StackPanel Orientation="Vertical"
@@ -149,7 +149,7 @@
 								Grid.Column="3" />
 					<StackPanel Orientation="Vertical"
 								Grid.Column="4" />
-					
+
 				</Grid>
 			</Grid>
 		</s:SurfaceScrollViewer>

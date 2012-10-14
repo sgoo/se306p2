@@ -40,7 +40,7 @@
 				Grid.Row="1"
 				Grid.Column="0">
 			<Image Name="zoran" Style="{StaticResource Img}"
-				   Source="/Resources/Zoran/ZORAN2.JPG" Margin="50,70,52,110">
+				   Source="/Resources/Zoran/ZORAN0.JPG" Margin="50,70,52,110">
 			</Image>
 		</Border>
 
