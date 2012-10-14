@@ -251,7 +251,13 @@ namespace se306p2 {
 			e.Handled = true;
 		}
 
-
+		public void SelectPage(int page, Boolean right = false) {
+			if (right) {
+				SelectPage(rightItems[page], RightScatterBar);
+			} else {
+				SelectPage(leftItems[page], LeftScatterBar);
+			}
+		}
 
 		public void SelectPage(DataItem d, object sender) {
 

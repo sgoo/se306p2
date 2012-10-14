@@ -18,57 +18,53 @@ namespace se306p2.Pages {
 	/// Interaction logic for HomePage.xaml
 	/// </summary>
 	public partial class HomePage : UserControl {
-        
-        private DispatcherTimer timer;
-        private int imageIndex = 1;
+
+		private DispatcherTimer timer;
+		private int imageIndex = 1;
 
 		public HomePage() {
 			InitializeComponent();
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 4);
-            timer.IsEnabled = true;
-            timer.Tick += new EventHandler(TimerLoop);
+			timer = new DispatcherTimer();
+			timer.Interval = new TimeSpan(0, 0, 4);
+			timer.IsEnabled = true;
+			timer.Tick += new EventHandler(TimerLoop);
 		}
 
-        private void TimerLoop(object sender, EventArgs e){
-            imageIndex++;
-            if (imageIndex > 3){
-                imageIndex = 1;
-            }
-            SlideShow(imageIndex);
-        }
+		private void TimerLoop(object sender, EventArgs e) {
+			imageIndex++;
+			if (imageIndex > 3) {
+				imageIndex = 1;
+			}
+			SlideShow(imageIndex);
+		}
 
-        private void SlideShow(int imageIndex){
-        
-            BitmapImage image = new BitmapImage();
-            image.BeginInit();
-            string filename ="/Resources/HomePage/Slideshow/0" + imageIndex + ".jpg";
-            image.UriSource = new Uri(filename, UriKind.Relative);
-            slideImage.Source = image;
-            image.EndInit();
-        }
+		private void SlideShow(int imageIndex) {
 
-        private void LeftSlideClick(object sender, InputEventArgs e)
-        {
-            imageIndex--;
-            if (imageIndex < 1)
-            {
-                imageIndex = 8;
-            }
-            SlideShow(imageIndex);
-            timer.Interval = new TimeSpan(0, 0, 4);
-        }
+			BitmapImage image = new BitmapImage();
+			image.BeginInit();
+			string filename = "/Resources/HomePage/Slideshow/0" + imageIndex + ".jpg";
+			image.UriSource = new Uri(filename, UriKind.Relative);
+			slideImage.Source = image;
+			image.EndInit();
+		}
 
-        private void RightSlideClick(object sender, InputEventArgs e)
-        {
-            imageIndex++;
-            if (imageIndex > 8)
-            {
-                imageIndex = 1;
-            }
-            SlideShow(imageIndex);
-            timer.Interval = new TimeSpan(0, 0, 4);
-        }
+		private void LeftSlideClick(object sender, InputEventArgs e) {
+			imageIndex--;
+			if (imageIndex < 1) {
+				imageIndex = 8;
+			}
+			SlideShow(imageIndex);
+			timer.Interval = new TimeSpan(0, 0, 4);
+		}
+
+		private void RightSlideClick(object sender, InputEventArgs e) {
+			imageIndex++;
+			if (imageIndex > 8) {
+				imageIndex = 1;
+			}
+			SlideShow(imageIndex);
+			timer.Interval = new TimeSpan(0, 0, 4);
+		}
 
 		private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) {
 			if (IsVisible) {
@@ -77,7 +73,11 @@ namespace se306p2.Pages {
 		}
 
 		private void Image_PreviewMouseDown(object sender, InputEventArgs e) {
-			MainWindow.window.SelectPage(MainWindow.window.LeftItems[1],sender);
+			MainWindow.window.SelectPage(MainWindow.window.LeftItems[1], sender);
+		}
+
+		private void FindOutMore(object sender, InputEventArgs e) {
+			MainWindow.window.SelectPage(1);
 		}
 	}
 }
