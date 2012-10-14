@@ -4,96 +4,79 @@
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 			 mc:Ignorable="d"
-			 IsVisibleChanged="UserControl_IsVisibleChanged">
+			 IsVisibleChanged="UserControl_IsVisibleChanged"
+             d:DesignHeight="1080"
+			 d:DesignWidth="1320">
 
 	<UserControl.Resources>
 		<ResourceDictionary>
 			<ResourceDictionary.MergedDictionaries>
 				<ResourceDictionary>
-					<ImageBrush x:Key="welcomebg"
-								ImageSource="../Resources/welcomebg.jpg" />
-					<ImageBrush x:Key="largeimage"
-								ImageSource="../Resources/largeimage.jpg" />
-					<ImageBrush x:Key="messagebg"
-								ImageSource="../Resources/messagebg.jpg" />
-					<ImageBrush x:Key="sciencebuilding"
-								ImageSource="../Resources/building.jpg" />
-					<ImageBrush x:Key="purplebox"
-								ImageSource="../Resources/purplebox.png" />
-					<ImageBrush x:Key="findoutmore"
-								ImageSource="../Resources/findoutmore.jpg" />
-				</ResourceDictionary>
+					<ImageBrush x:Key="HomepageBG"
+								ImageSource="../Resources/HomePage/homepagebg.png" />
+                    <ImageBrush x:Key="LeftButton"
+								ImageSource="../Resources/HomePage/Slideshow/leftbutton.png" />
+                    <ImageBrush x:Key="RightButton"
+								ImageSource="../Resources/HomePage/Slideshow/rightbutton.png" />
+                </ResourceDictionary>
 				<ResourceDictionary Source="../Resources/Styles.xaml" />
 			</ResourceDictionary.MergedDictionaries>
 		</ResourceDictionary>
 	</UserControl.Resources>
 
-	<Grid Height="1050"
-		  Width="1920"
-		  Style="{StaticResource PageBackground}">
-		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="51px" />
-			<ColumnDefinition Width="812px" />
-			<ColumnDefinition Width="406px" />
-			<ColumnDefinition Width="51px" />
-		</Grid.ColumnDefinitions>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="69px" />
-			<RowDefinition Height="338px" />
-			<RowDefinition Height="563px" />
-			<RowDefinition Height="80px" />
-		</Grid.RowDefinitions>
+	<Grid 
+		  Style="{StaticResource PageBackground}"
+          Margin="40px,80px,40px,80px"
+          Background="{StaticResource HomepageBG}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="420px"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="350px"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Style="{StaticResource Title}" Margin="20px" FontWeight="Normal" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom">welcome</TextBlock>
+    
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="160px"/>
+                <RowDefinition />
+                <RowDefinition Height="100px"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="100px"/>
+                <ColumnDefinition Width="100px"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.RowSpan="3" Grid.ColumnSpan="3" x:Name="slideImage" Source="../Resources/HomePage/Slideshow/01.jpg" Width="820px" Height="570px" />
 
-		<Grid Grid.Row="1"
-			  Grid.Column="1">
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition />
-				<ColumnDefinition />
-			</Grid.ColumnDefinitions>
-			<Grid Grid.Column="0"
-				  Background="{StaticResource purplebox}"></Grid>
-			<Grid Grid.Column="1"
-				  Background="{StaticResource welcomebg}">
-				<Label Margin="10px"
-					   Foreground="White"
-					   FontSize="50"
-					   FontFamily="Segoe UI"
-					   HorizontalAlignment="Right"
-					   VerticalAlignment="Bottom">welcome</Label>
-			</Grid>
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="Black" Opacity="0.7"></Grid>
+            <TextBlock Grid.ColumnSpan="3" Style="{StaticResource Title}" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="#b900ff">ELECTRICAL AND</TextBlock>
+            <TextBlock Grid.ColumnSpan="3" Style="{StaticResource Title}" VerticalAlignment="Top" HorizontalAlignment="Right" Foreground="White"><LineBreak/>COMPUTER ENGINEERING</TextBlock>
+            <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource LeftButton}" MouseDown="LeftSlideClick" TouchDown="LeftSlideClick">
+                
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource RightButton}" MouseDown="RightSlideClick" TouchDown="RightSlideClick">
 
-		</Grid>
-		<Grid Grid.Row="1"
-			  Grid.Column="2"
-			  Background="{StaticResource sciencebuilding}"></Grid>
+            </Grid>
 
-		<Grid Grid.Row="2"
-			  Grid.Column="1"
-			  Background="{StaticResource largeimage}">
+        </Grid>
 
-		</Grid>
-
-		<Grid Grid.Row="2"
-			  Grid.Column="2">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="338px" />
-				<RowDefinition />
-			</Grid.RowDefinitions>
-			<Grid Grid.Row="0"
-				  Background="{StaticResource messagebg}"></Grid>
-			<Grid Grid.Row="1">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition />
-					<ColumnDefinition Width="133px" />
-				</Grid.ColumnDefinitions>
-				<Grid Grid.Column="1">
-					<Image VerticalAlignment="Top"
-						   Source="../Resources/findoutmore.jpg"
-						   PreviewMouseDown="Image_PreviewMouseDown"
-						   PreviewTouchDown="Image_PreviewMouseDown"></Image>
-				</Grid>
-			</Grid>
-		</Grid>
-
-	</Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="350px" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Style="{StaticResource NormalText}" FontSize="20px" Opacity="0.5" Margin="20px" VerticalAlignment="Center" Grid.Row="0">
+                The <Run Text="Department of Electrical and Computer Engineering" FontWeight="SemiBold"></Run> 
+                         is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this.
+            </TextBlock>
+            <Grid Grid.Row="1" Background="#280037" Width="160px" Height="40px" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Label Foreground="White" FontFamily="Segoe UI" FontWeight="Bold" Margin="5px">FIND OUT MORE</Label>
+            </Grid>
+        </Grid>
+        
+    </Grid>
 </UserControl>

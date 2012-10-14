@@ -145,7 +145,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SEInfo.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Colours.xaml">
@@ -289,11 +289,6 @@
       <All>True</All>
       <AutoFill>True</AutoFill>
     </BlendEmbeddedFont>
-    <Resource Include="Resources\largeimage.jpg" />
-    <Resource Include="Resources\messagebg.jpg" />
-    <Resource Include="Resources\building.jpg" />
-    <Resource Include="Resources\purplebox.png" />
-    <Resource Include="Resources\findoutmore.jpg" />
     <Resource Include="Resources\Advisors\card.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -348,6 +343,17 @@
     <Resource Include="Resources\Information\SE8.jpg" />
     <Resource Include="Resources\background_se.jpg" />
     <Resource Include="Resources\Information\CSE9.gif" />
+    <Resource Include="Resources\HomePage\homepagebg.png" />
+    <Resource Include="Resources\HomePage\Slideshow\01.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\02.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\03.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\leftbutton.png" />
+    <Resource Include="Resources\HomePage\Slideshow\rightbutton.png" />
+    <Resource Include="Resources\HomePage\Slideshow\04.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\05.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\06.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\07.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\08.jpg" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
