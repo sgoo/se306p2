@@ -38,8 +38,13 @@
 			Electrical and Computer Engineering Department
         </TextBlock>
 
-        
-        <s:SurfaceListBox Name="MainSurfaceListBox" Grid.Row="1" Margin="120,38,120,427" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.RowSpan="2" >
+		<s:SurfaceListBox Name="MainSurfaceListBox"
+						  Grid.Row="1"
+						  Margin="120,38,120,427"
+						  Grid.ColumnSpan="2"
+						  VerticalAlignment="Center"
+						  Grid.RowSpan="2"
+						  SelectionChanged="MainSurfaceListBox_SelectionChanged">
             <s:SurfaceListBox.ItemTemplate >
                 <DataTemplate>
                     <Image Source="{Binding Bitmap}" Width="270"/>
@@ -60,6 +65,7 @@
         </s:SurfaceListBox>
             
                 <TextBlock Grid.Row="2"
+				   Grid.Column="0"
 				   Style="{StaticResource NormalText}"
 				   Margin="93.5,-52.5,0,0"
 				   HorizontalAlignment="Left"
@@ -72,32 +78,20 @@
 				   Opacity="0.81"><Run Text="The " /><Run FontWeight="Bold"
 													   FontStyle="Italic"
 													   Text="Faculty of Engineering" /><Run Text=" is committed to creating an environment where people thrive and contribute to improving the quality of life in national and global communities,  as well as enhancing the wealth creation of the nation, through excellence in teaching, research and service." /><LineBreak /><Run /><LineBreak /><Run Text="If you are creative, curious, resourceful, enjoy working with people, designing solutions to problems, and want to use your skills to make a difference then engineering is right for you! " /></TextBlock>
-        <MediaElement Name="_mediaElement"
-					  Tag="pause"
-					  LoadedBehavior="Manual"
-					  Source="Resources\sampleVid.mp4"
-					  MediaEnded="_mediaElement_MediaEnded"
-					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
-					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
-					  Grid.Row="2"
-					  Grid.Column="1"
-					  Margin="0,-52.5,83.112,73.5" 
-                      Style ="{StaticResource Video}"/>
-        <Button Name="playButton"
-				Grid.Row="2"
-				Grid.Column="1"
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Margin="213,63,308,221"
-				Height="148"
-				Width="154"
-				PreviewTouchDown="_mediaElement_PreviewTouchDown"
-				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
-            <Image Source="/Resources/video_play.png"
-				   HorizontalAlignment="Stretch"
-				   VerticalAlignment="Stretch"
-                   Style ="{StaticResource Img}"/>
+		<Border Style="{StaticResource ImgBorder}"
+				Grid.ColumnSpan="2"
+				Grid.RowSpan="2"
+				Grid.Row="1">
+			
+		<Image Source="..\Resources\Information\ECE0.jpg"
+			   Name="EceImage"
+			   HorizontalAlignment="Stretch"
+			   VerticalAlignment="Stretch"
+               Style ="{StaticResource Img}"
+			   Margin="666,380,81,42"
+			   ImageFailed="Image_ImageFailed"
+			   />
+		</Border>
 
-        </Button>
-    </Grid>
+	</Grid>
 </UserControl>

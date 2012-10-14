@@ -25,6 +25,7 @@ namespace se306p2
 
     public partial class EEEInfo : UserControl
     {
+        ObservableCollection<DataThumbnail> items = new ObservableCollection<DataThumbnail>();
 
         public EEEInfo()
         {
@@ -38,12 +39,11 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
-            _mediaElement.Pause();
 
             // Create an ObservableCollection, and add the items.
             // LibraryBar.ItemsSource should implement INotifyCollectionChanged
             // in order for the built-in drag-and-drop capability to work properly.
-            ObservableCollection<DataThumbnail> items = new ObservableCollection<DataThumbnail>();
+          
 
             items.Add(new DataThumbnail(@"..\Resources\Information\EEE10.jpg"));
             items.Add(new DataThumbnail(@"..\Resources\Information\EEE11.jpg"));
@@ -63,32 +63,19 @@ namespace se306p2
         }
         #endregion
 
-        private void _mediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        private void MainSurfaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _mediaElement.Stop();
-        }
-        private void _mediaElement_PreviewTouchDown(object sender, InputEventArgs e)
-        {
-            if (_mediaElement.Tag.ToString().Equals("pause"))
+            if (MainSurfaceListBox.SelectedItem != null)
             {
-                _mediaElement.Tag = "play";
-                _mediaElement.Play();
-                playButton.Visibility = System.Windows.Visibility.Hidden;
-            }
-            else
-            {
-                _mediaElement.Pause();
-                _mediaElement.Tag = "pause";
-                playButton.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
+                string filepath = items.ElementAt(MainSurfaceListBox.SelectedIndex).fileName;
+                BitmapImage bmp = new BitmapImage(new Uri(filepath, UriKind.Relative));
+                EEEImage.Source = bmp;
 
 
-        private void MainLibraryBar_DragOver(object sender, Microsoft.Surface.Presentation.SurfaceDragDropEventArgs e)
-        {
-            e.Effects = DragDropEffects.None;
-            e.Handled = true;
+            }
+
         }
+       
     }
 }
 

@@ -42,7 +42,8 @@
 						  Margin="120,38,120,427"
 						  Grid.ColumnSpan="2"
 						  VerticalAlignment="Center"
-						  Grid.RowSpan="2">
+						  Grid.RowSpan="2"
+						  SelectionChanged="MainSurfaceListBox_SelectionChanged">
 			<s:SurfaceListBox.ItemTemplate>
 				<DataTemplate>
 					<Image Source="{Binding Bitmap}"
@@ -74,33 +75,19 @@
 				   VerticalAlignment="Top"
 				   Opacity="0.81"
 				   Grid.RowSpan="2"><Run Text="Our power, communications and banking systems, travel bookings, health and police records and security and defence networks depend on the expertise of software engineers. This degree encompasses the theory, technology, practice and application of software development." /><LineBreak /><Run /><LineBreak /><Run Text="The degree programme is oriented towards producing graduates with a whole system view of software engineering. Graduates gain not only sound knowledge of current techniques and technologies for developing software, but are also aware of the business contexts in which software is conceived and developed." /></TextBlock>
-		<MediaElement Name="_mediaElement"
-					  Tag="pause"
-					  LoadedBehavior="Manual"
-					  Source="Resources\sampleVid.mp4"
-					  MediaEnded="_mediaElement_MediaEnded"
-					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
-					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
-					  Grid.Row="2"
-					  Grid.Column="1"
-					  Margin="0,-52.5,83.112,73.5"
-					  Style="{StaticResource Video}" />
-		<Button Name="playButton"
-				Grid.Row="2"
-				Grid.Column="1"
-				HorizontalAlignment="Center"
-				VerticalAlignment="Center"
-				Margin="213,63,308,221"
-				Height="148"
-				Width="154"
-				PreviewTouchDown="_mediaElement_PreviewTouchDown"
-				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
-			<Image Source="/Resources/video_play.png"
+
+		<Border Style="{StaticResource ImgBorder}"
+				Grid.ColumnSpan="2"
+				Grid.RowSpan="2"
+				Grid.Row="1">
+			<Image Source="..\Resources\Information\SE10.jpg"
+				   Name="SEImage"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
-				   Style="{StaticResource Img}" />
-
-		</Button>
+				   Style="{StaticResource Img}"
+				   Margin="666,380,81,42"
+				   />
+		</Border>
 	</Grid>
 </UserControl>
 
