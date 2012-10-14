@@ -109,7 +109,8 @@
 						 FontWeight="SemiBold"></Run> 
                          is committed to research and dedicated to the pursuit of excellence in teaching, innovation and knowledge. We are proud to offer strong research and industry links to support this.
 			</TextBlock>
-			<Grid Grid.Row="1"
+			<!-- Hidden because it doesn't fit with the rest of the UI -->
+			<!--<Grid Grid.Row="1"
 				  Background="#280037"
 				  Width="160px"
 				  Height="40px"
@@ -121,7 +122,7 @@
 					   Margin="5px"
 					   PreviewMouseDown="FindOutMore"
 					   PreviewTouchDown="FindOutMore">FIND OUT MORE</Label>
-			</Grid>
+			</Grid>-->
 		</Grid>
 
 	</Grid>

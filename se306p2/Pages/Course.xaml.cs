@@ -214,11 +214,11 @@ namespace se306p2.Pages {
 
 		private void setButtonColour(CourseButton button) {
 			if (ProgramTitle.Equals((string)Application.Current.FindResource("CSE_Courses_Title")))
-				button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_CSE");
+				button.Button.Background = (SolidColorBrush)Application.Current.FindResource("Colour_CSE");
 			else if (ProgramTitle.Equals((string)Application.Current.FindResource("EEE_Courses_Title")))
-				button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_EEE");
+				button.Button.Background = (SolidColorBrush)Application.Current.FindResource("Colour_EEE");
 			else if (ProgramTitle.Equals((string)Application.Current.FindResource("SE_Courses_Title")))
-				button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_SE");
+				button.Button.Background = (SolidColorBrush)Application.Current.FindResource("Colour_SE");
 		}
 
 		void FadeOut_Completed(object sender, EventArgs e) {

@@ -149,7 +149,7 @@
 		<Setter Property="MinHeight"
 				Value="100" />
 		<Setter Property="MinWidth"
-				Value="300" />
+				Value="150" />
 		<!--Setter Property="Style"
                 Value="{StaticResource Title}"/-->
 		<Setter Property="FontFamily"

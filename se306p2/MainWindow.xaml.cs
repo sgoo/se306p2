@@ -88,7 +88,7 @@ namespace se306p2 {
 			LeftItems.Add(new DataItem("Intro to ECE", true, new BaseInfo()));
 			LeftItems.Add(new DataItem("HOD's Welcome", true, new HODpage()));
 			LeftItems.Add(new DataItem("Course Advisors", true, new ECE_Advisors()));
-			LeftItems.Add(new DataItem("Contact/Location", true, new ContactPage()));
+			LeftItems.Add(new DataItem("Contact Location", true, new ContactPage()));
 
 			// Felix:  I use these titles in Courses, so I put them in a common place.
 			Course EeeCourse = new Course() {
