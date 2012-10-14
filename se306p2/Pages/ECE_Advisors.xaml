@@ -1,97 +1,100 @@
 ﻿<UserControl x:Class="se306p2.ECE_Advisors"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             mc:Ignorable="d"
-             xmlns:my="http://schemas.microsoft.com/surface/2008">
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 mc:Ignorable="d"
+			 xmlns:my="http://schemas.microsoft.com/surface/2008">
 
-    <!-- Include styles dictionary-->
-    <UserControl.Resources>
-        <ResourceDictionary Source="../Resources/Styles.xaml" />
-    </UserControl.Resources>
+	<!-- Include styles dictionary-->
+	<UserControl.Resources>
+		<ResourceDictionary Source="../Resources/Styles.xaml" />
+	</UserControl.Resources>
 
-    <Grid Style="{StaticResource PageBackground}"
-          AllowDrop="False">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="120"></RowDefinition>
-            <RowDefinition Height="150"></RowDefinition>
-            <RowDefinition Height="550"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+	<Grid Style="{StaticResource PageBackground}"
+		  AllowDrop="False">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="150" />
+			<RowDefinition Height="120"></RowDefinition>
+			<RowDefinition Height="150"></RowDefinition>
+			<RowDefinition Height="550"></RowDefinition>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition></ColumnDefinition>
 
-        </Grid.ColumnDefinitions>
+		</Grid.ColumnDefinitions>
 
-        <!-- Title -->
-        <TextBlock Style="{StaticResource Title}"
-                   Grid.Row="0"
-                   Grid.ColumnSpan="2">
+		<!-- Title -->
+		<TextBlock Style="{StaticResource Title}"
+				   Grid.Row="0"
+				   Grid.ColumnSpan="2">
             Course Advisors
-        </TextBlock>
+		</TextBlock>
 
-        <TextBlock Style="{StaticResource NormalText}"
-                   Grid.Row="1"
-                   Width="1080"
-                   x:Name="tbMultiLine"
-                   Background="Transparent"
-                   Opacity="100">
+		<TextBlock Style="{StaticResource NormalText}"
+				   Grid.Row="1"
+				   Width="1080"
+				   x:Name="tbMultiLine"
+				   Background="Transparent"
+				   Opacity="100">
             <Run Text="The Electrical and Computer Engineering Department provides a course advisor for each of the disciplines that it covers. Browse though the course advisors below for their contact details." />
-        </TextBlock>
-        <!--
+		</TextBlock>
+		<!--
         <my:LibraryStack Grid.Row="2" Grid.RowSpan="2" Name="libStack" VerticalAlignment="Center" Width="400">
         </my:LibraryStack> -->
-        <StackPanel Grid.Row="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-            <my:SurfaceButton Style="{StaticResource Btn}"
-                              Background="#0b9246"
-                              PreviewTouchDown="Button_PreviewCSEDown"
-                              PreviewMouseDown="Button_PreviewCSEDown"
-                              Content="Computer Systems &#xd;&#xa;Engineering"
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
-                              HorizontalContentAlignment="Center" />
-            <my:SurfaceButton Style="{StaticResource Btn}"
-                              Background="#1e9ad5"
-                              PreviewTouchDown="Button_PreviewEEEDown"
-                              PreviewMouseDown="Button_PreviewEEEDown"
-                              Content="Electrical and Electronic &#xd;&#xa;Engineering"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center" />
-            <my:SurfaceButton Style="{StaticResource Btn}"
-                              Background="#f6a220"
-                              PreviewTouchDown="Button_PreviewSEDown"
-                              PreviewMouseDown="Button_PreviewSEDown"
-                              Content="Software &#xd;&#xa;Engineering"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center" />
-        </StackPanel>
+		<StackPanel Grid.Row="2"
+					Orientation="Horizontal"
+					HorizontalAlignment="Center">
 
+			<my:SurfaceButton Style="{StaticResource Btn}"
+							  Background="#0b9246"
+							  PreviewTouchDown="Button_PreviewCSEDown"
+							  PreviewMouseDown="Button_PreviewCSEDown">
+				<TextBlock TextAlignment="Center">
+					<Run Text="Computer Systems" /><LineBreak />
+					<Run Text="Engineering" /><LineBreak />
+				</TextBlock>
+			</my:SurfaceButton>
+			<my:SurfaceButton Style="{StaticResource Btn}"
+							  Background="#1e9ad5"
+							  PreviewTouchDown="Button_PreviewEEEDown"
+							  PreviewMouseDown="Button_PreviewEEEDown">
+				<TextBlock TextAlignment="Center">
+					<Run Text="Electrical and Electronic" /><LineBreak />
+					<Run Text="Engineering" /><LineBreak />
+				</TextBlock>
+			</my:SurfaceButton>
+			<my:SurfaceButton Style="{StaticResource Btn}"
+							  Background="#f6a220"
+							  PreviewTouchDown="Button_PreviewSEDown"
+							  PreviewMouseDown="Button_PreviewSEDown">
+				<TextBlock TextAlignment="Center">
+					<Run Text="Software" /><LineBreak />
+					<Run Text="Engineering" /><LineBreak />
+				</TextBlock>
+			</my:SurfaceButton>
+		</StackPanel>
 
-        <Grid Grid.Row="3"
-              VerticalAlignment="Stretch"
-              HorizontalAlignment="Stretch">
-            <my:LibraryStack Name="MainLibraryStack"
-                             VerticalAlignment="Stretch"
-                             HorizontalAlignment="Stretch"
-                             MaxHeight="490"
-                             MaxWidth="1920"
-                             my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver"
-                             my:SurfaceDragDrop.PreviewDragCompleted="MainLibraryStack_DragCompleted"
-                             DataContextChanged="MainLibraryStack_DataContextChanged"
-                             Background="Transparent">
-                <my:LibraryStack.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding}"
-                               VerticalAlignment="Stretch"
-                               HorizontalAlignment="Stretch" />
-                    </DataTemplate>
-                </my:LibraryStack.ItemTemplate>
-            </my:LibraryStack>
-        </Grid>
-    </Grid>
+		<Grid Grid.Row="3"
+			  VerticalAlignment="Stretch"
+			  HorizontalAlignment="Stretch">
+			<my:LibraryStack Name="MainLibraryStack"
+							 VerticalAlignment="Stretch"
+							 HorizontalAlignment="Stretch"
+							 MaxHeight="490"
+							 MaxWidth="1920"
+							 my:SurfaceDragDrop.DragOver="MainLibraryStack_DragOver"
+							 my:SurfaceDragDrop.PreviewDragCompleted="MainLibraryStack_DragCompleted"
+							 Background="Transparent">
+				<my:LibraryStack.ItemTemplate>
+					<DataTemplate>
+						<Image Source="{Binding}"
+							   VerticalAlignment="Stretch"
+							   HorizontalAlignment="Stretch" />
+					</DataTemplate>
+				</my:LibraryStack.ItemTemplate>
+			</my:LibraryStack>
+		</Grid>
+	</Grid>
 
 </UserControl>

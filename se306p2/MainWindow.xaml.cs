@@ -304,6 +304,10 @@ namespace se306p2 {
                 
                 newGrid.Children.Add(ctrl);
 
+				if (ctrl is ResettableControl) {
+					(ctrl as ResettableControl).reset();
+				}
+
                 
                 TranslateTransform tr = new TranslateTransform();             
 

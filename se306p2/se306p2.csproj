@@ -91,6 +91,7 @@
       <DependentUpon>homepage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\LoopingPanel.cs" />
+    <Compile Include="Pages\ResettableControl.cs" />
     <Compile Include="Pages\SEInfo.xaml.cs">
       <DependentUpon>SEInfo.xaml</DependentUpon>
     </Compile>
@@ -145,7 +146,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SEInfo.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Colours.xaml">
@@ -294,9 +295,6 @@
     <Resource Include="Resources\building.jpg" />
     <Resource Include="Resources\purplebox.png" />
     <Resource Include="Resources\findoutmore.jpg" />
-    <Resource Include="Resources\Advisors\card.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Background\flowers.jpg" />
     <Resource Include="Resources\Background\lightsky2.jpg" />
     <Resource Include="Resources\Information\CSE0.jpg" />
@@ -348,6 +346,22 @@
     <Resource Include="Resources\Information\SE8.jpg" />
     <Resource Include="Resources\background_se.jpg" />
     <Resource Include="Resources\Information\CSE9.gif" />
+    <Content Include="Resources\Advisors\berber2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Advisors\roop2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Advisors\watson2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Resources\refresh-icon.gif" />
+    <Resource Include="Resources\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\compass.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -356,9 +370,6 @@
     </Resource>
     <Resource Include="Resources\video_play.png" />
     <Resource Include="Resources\course_button.png" />
-    <Resource Include="Resources\Advisors\Berber.bmp" />
-    <Resource Include="Resources\Advisors\Roop.bmp" />
-    <Resource Include="Resources\Advisors\Watson.bmp" />
     <Resource Include="Resources\Advisors\TopCard.bmp" />
     <Resource Include="Resources\XML\courses_se.xml">
       <SubType>Designer</SubType>

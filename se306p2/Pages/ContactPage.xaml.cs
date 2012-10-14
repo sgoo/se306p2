@@ -17,7 +17,7 @@ namespace se306p2.Pages {
 	/// <summary>
 	/// Interaction logic for ContactPage.xaml
 	/// </summary>
-	public partial class ContactPage : UserControl {
+	public partial class ContactPage : UserControl, ResettableControl {
 		private Location previousFrameCenter;
 
 		public ContactPage() {
@@ -44,6 +44,21 @@ namespace se306p2.Pages {
 				this.UpdateModelViewPort();
 			}*/
 		}
+
+		public void reset() {
+			bingMap.Center = new Location(-36.8527, 174.7684);
+			bingMap.ZoomLevel = 17;
+			bingMap.Heading = 0;
+		}
+
+		public void recenterMap(object sender, InputEventArgs e) {
+			reset();
+		}
+
+		public void repointMap(object sender, InputEventArgs e) {
+			bingMap.Heading = 0;
+		}
+
 
 	}
 }

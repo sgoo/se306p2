@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
-    <!-- 
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- 
     Hold common styles for our application.
     Eg:  For buttons, text, headings etc
     
@@ -12,18 +12,27 @@
     You can override style properties by simply defining
     them after you've included the style.
     -->
-    
-    <!-- Titles-->
-    <Style TargetType="TextBlock" x:Key="Title">
-        <Setter Property="FontFamily" Value="Segoe UI" />
-        <Setter Property="FontSize" Value="48" />
-        <Setter Property="FontStyle" Value="Normal" />
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="TextAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Margin" Value="20px" />
-    </Style>
+
+	<!-- Titles-->
+	<Style TargetType="TextBlock"
+		   x:Key="Title">
+		<Setter Property="FontFamily"
+				Value="Segoe UI" />
+		<Setter Property="FontSize"
+				Value="48" />
+		<Setter Property="FontStyle"
+				Value="Normal" />
+		<Setter Property="FontWeight"
+				Value="Bold" />
+		<Setter Property="TextAlignment"
+				Value="Center" />
+		<Setter Property="VerticalAlignment"
+				Value="Center" />
+		<Setter Property="Foreground"
+				Value="Black" />
+		<Setter Property="Margin"
+				Value="20px" />
+	</Style>
 
 	<!-- Ordinary Text-->
 	<Style TargetType="TextBlock"
@@ -56,119 +65,162 @@
 	</Style>
 
 	<!-- Page Backgrounds-->
-    <Style TargetType="Grid" x:Key="PageBackground">
-        <Setter Property="Background"  Value="Transparent" />
-        <!-- <Setter Property="Opacity"  Value="0.5" /> -->
-    </Style>
+	<Style TargetType="Grid"
+		   x:Key="PageBackground">
+		<Setter Property="Background"
+				Value="Transparent" />
+		<!-- <Setter Property="Opacity"  Value="0.5" /> -->
+	</Style>
 
-    <!-- Images -->
-    <Style TargetType="Image" x:Key="Img">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="Margin" Value="20px" />
-    </Style>
+	<!-- Images -->
+	<Style TargetType="Image"
+		   x:Key="Img">
+		<Setter Property="HorizontalAlignment"
+				Value="Stretch" />
+		<Setter Property="VerticalAlignment"
+				Value="Stretch" />
+		<Setter Property="Margin"
+				Value="20px" />
+	</Style>
 
-    <DropShadowEffect x:Key="ImgDropShadow" BlurRadius="50" ShadowDepth="0" />
-    <Style TargetType="Border" x:Key="ImgBorder">
-        <Setter Property="Effect" Value="{StaticResource ImgDropShadow}" />
-    </Style>
+	<DropShadowEffect x:Key="ImgDropShadow"
+					  BlurRadius="50"
+					  ShadowDepth="0" />
+	<Style TargetType="Border"
+		   x:Key="ImgBorder">
+		<Setter Property="Effect"
+				Value="{StaticResource ImgDropShadow}" />
+	</Style>
 
-    <!-- Courses page-->
-    <!-- < & > buttons-->
-    <Style TargetType="TextBlock" BasedOn="{StaticResource NormalText}" x:Key="CourseLeftRightButtons">
-        <Setter Property="FontSize" Value="48" />
-        <Setter Property="FontWeight" Value="Bold" />
-    </Style>
-    
-    <!-- Middle text (eg:  Part II) -->
-    <Style TargetType="TextBlock" BasedOn="{StaticResource NormalText}" x:Key="SwipeText">
-        <Setter Property="FontSize" Value="48" />
-    </Style>
-    
-    <!-- Course buttons -->
-    <DropShadowEffect x:Key="CourseButtonDropShadow" BlurRadius="15" ShadowDepth="0" />
-    <Style TargetType="Border" x:Key="CourseButtonBorder">
-        <Setter Property="Effect" Value="{StaticResource CourseButtonDropShadow}" />
-    </Style>
+	<!-- Courses page-->
+	<!-- < & > buttons-->
+	<Style TargetType="TextBlock"
+		   BasedOn="{StaticResource NormalText}"
+		   x:Key="CourseLeftRightButtons">
+		<Setter Property="FontSize"
+				Value="48" />
+		<Setter Property="FontWeight"
+				Value="Bold" />
+	</Style>
 
-    <!-- Videos-->
-    <Style TargetType="MediaElement" x:Key="Video">
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="UnloadedBehavior" Value="Stop" />
-        <Setter Property="Margin" Value="20px" />
+	<!-- Middle text (eg:  Part II) -->
+	<Style TargetType="TextBlock"
+		   BasedOn="{StaticResource NormalText}"
+		   x:Key="SwipeText">
+		<Setter Property="FontSize"
+				Value="48" />
+	</Style>
 
-        <!-- TODO:  Other properties. -->
-    </Style>
+	<!-- Course buttons -->
+	<DropShadowEffect x:Key="CourseButtonDropShadow"
+					  BlurRadius="15"
+					  ShadowDepth="0" />
+	<Style TargetType="Border"
+		   x:Key="CourseButtonBorder">
+		<Setter Property="Effect"
+				Value="{StaticResource CourseButtonDropShadow}" />
+	</Style>
 
-    <!-- Videos-->
-    <Style TargetType="Button"
-           x:Key="Btn">
+	<!-- Videos-->
+	<Style TargetType="MediaElement"
+		   x:Key="Video">
+		<Setter Property="HorizontalAlignment"
+				Value="Center" />
+		<Setter Property="VerticalAlignment"
+				Value="Center" />
+		<Setter Property="UnloadedBehavior"
+				Value="Stop" />
+		<Setter Property="Margin"
+				Value="20px" />
 
-        <Setter Property="VerticalContentAlignment"
-                Value="Center" />
-        <Setter Property="HorizontalContentAlignment"
-                Value="Stretch" />
-        <Setter Property="Margin"
-                Value="20px" />
-        <Setter Property="MinHeight"
-                Value="100" />
-        <Setter Property="MinWidth"
-                Value="300" />
-        <!--Setter Property="Style"
+		<!-- TODO:  Other properties. -->
+	</Style>
+
+	<!-- Videos-->
+	<Style TargetType="Button"
+		   x:Key="Btn">
+
+		<Setter Property="VerticalContentAlignment"
+				Value="Center" />
+		<Setter Property="HorizontalContentAlignment"
+				Value="Stretch" />
+		<Setter Property="Margin"
+				Value="20px" />
+		<Setter Property="MinHeight"
+				Value="100" />
+		<Setter Property="MinWidth"
+				Value="300" />
+		<!--Setter Property="Style"
                 Value="{StaticResource Title}"/-->
-        <Setter Property="FontFamily"
-                Value="Segoe UI" />
-        <Setter Property="FontWeight"
-                Value="DemiBold" />
+		<Setter Property="FontFamily"
+				Value="Segoe UI" />
+		<Setter Property="FontWeight"
+				Value="DemiBold" />
 
-        <Setter Property="FontSize"
-                Value="32" />
-        <Setter Property="Foreground"
-                Value="White" />
-        <Setter Property="Margin"
-                Value="20px" />
-        <Setter Property="Background"
-                Value="Purple" />
+		<Setter Property="FontSize"
+				Value="32" />
+		<Setter Property="Foreground"
+				Value="White" />
+		<Setter Property="Margin"
+				Value="20px" />
+		<Setter Property="Background"
+				Value="Purple" />
 
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="Button">
+					<Border Background="{TemplateBinding Background}"
+							BorderThickness="5"
+							CornerRadius="15">
+						<ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15,0,15,0" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
 
+		<!-- TODO:  Other properties. -->
+	</Style>
 
-        <!-- TODO:  Other properties. -->
-    </Style>
-
-    <!-- COURSE PAGES SLIDING ANIMATIONS -->
-    <Storyboard x:Key="SlideOriginToLeft">
-        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="0.0" To="-1920" Duration="0:0:0.5"/>
-    </Storyboard>
-    <Storyboard x:Key="SlideOriginToRight">
-        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="0.0" To="1920" Duration="0:0:0.5"/>
-    </Storyboard>
-    <Storyboard x:Key="SlideRightToOrigin">
-        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="1920" To="0" Duration="0:0:0.5"/>
-    </Storyboard>
-    <Storyboard x:Key="SlideLeftToOrigin">
-        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" From="-1920" To="0" Duration="0:0:0.5"/>
-    </Storyboard>
-    <Storyboard x:Key="FadeIn">
-        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:0.8" />
-    </Storyboard>
-    <Storyboard x:Key="FadeOut">
-        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.8" />
-    </Storyboard>
-    <ImageBrush x:Key="BackgroundSE" ImageSource="../Resources/background_se.jpg"/>
-    <ImageBrush x:Key="CourseButton"
-                ImageSource="../Resources/course_button.png" />
-
-
-
-
-
-	
-	
-	
-
-
-
-
+	<!-- COURSE PAGES SLIDING ANIMATIONS -->
+	<Storyboard x:Key="SlideOriginToLeft">
+		<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+						 From="0.0"
+						 To="-1920"
+						 Duration="0:0:0.5" />
+	</Storyboard>
+	<Storyboard x:Key="SlideOriginToRight">
+		<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+						 From="0.0"
+						 To="1920"
+						 Duration="0:0:0.5" />
+	</Storyboard>
+	<Storyboard x:Key="SlideRightToOrigin">
+		<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+						 From="1920"
+						 To="0"
+						 Duration="0:0:0.5" />
+	</Storyboard>
+	<Storyboard x:Key="SlideLeftToOrigin">
+		<DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"
+						 From="-1920"
+						 To="0"
+						 Duration="0:0:0.5" />
+	</Storyboard>
+	<Storyboard x:Key="FadeIn">
+		<DoubleAnimation Storyboard.TargetProperty="Opacity"
+						 From="0.0"
+						 To="1.0"
+						 Duration="0:0:0.8" />
+	</Storyboard>
+	<Storyboard x:Key="FadeOut">
+		<DoubleAnimation Storyboard.TargetProperty="Opacity"
+						 From="1.0"
+						 To="0.0"
+						 Duration="0:0:0.8" />
+	</Storyboard>
+	<ImageBrush x:Key="BackgroundSE"
+				ImageSource="../Resources/background_se.jpg" />
+	<ImageBrush x:Key="CourseButton"
+				ImageSource="../Resources/course_button.png" />
 
 </ResourceDictionary>

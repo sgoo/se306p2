@@ -69,20 +69,36 @@
 		</StackPanel>
 
 		<!-- Map-->
-		<Border Style="{StaticResource ImgBorder}"
-				Grid.Row="2"
-				Grid.Column="0"
-				Grid.ColumnSpan="3"
-				Margin="20,20,20,20">
-			<m:Map x:Name="bingMap"
-				   CredentialsProvider="AvJZKpMa37kRriA1bqFEjJ9Rwnnl_rrivehFhtoiKrNDuufYgyL2nHXLlVdvg4Gn"
-				   Center="-36.8527,174.7684"
-				   ZoomLevel="17"
-				   Mode="Road">
-				<m:Pushpin Location="-36.8527,174.7684"
-						   Tag="Electrical and Computer Engineering Department" />
-			</m:Map>
-		</Border>
-
+		<Grid 		Grid.Row="2"
+					Grid.Column="0"
+					Grid.ColumnSpan="3">
+			<Border Style="{StaticResource ImgBorder}"
+					Margin="20,20,20,20">
+				<m:Map x:Name="bingMap"
+					   CredentialsProvider="AvJZKpMa37kRriA1bqFEjJ9Rwnnl_rrivehFhtoiKrNDuufYgyL2nHXLlVdvg4Gn"
+					   Center="-36.8527,174.7684"
+					   ZoomLevel="17"
+					   Mode="Road">
+					<m:Pushpin Location="-36.8527,174.7684"
+							   Tag="Electrical and Computer Engineering Department" />
+				</m:Map>
+			</Border>
+			<Image HorizontalAlignment="Right"
+				   VerticalAlignment="Top"
+				   PreviewMouseDown="recenterMap"
+				   PreviewTouchDown="recenterMap"
+				   Margin="40"
+				   Width="26"
+				   Height="26"
+				   Source="/Resources/home.png" />
+			<Image HorizontalAlignment="Right"
+				   VerticalAlignment="Top"
+				   PreviewMouseDown="repointMap"
+				   PreviewTouchDown="repointMap"
+				   Margin="40,40,80,40"
+				   Width="26"
+				   Height="26"
+				   Source="/Resources/compass.png" />
+		</Grid>
 	</Grid>
 </UserControl>
