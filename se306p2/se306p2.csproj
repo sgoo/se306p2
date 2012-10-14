@@ -74,6 +74,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Pages\BaseInfo.xaml.cs">
+      <DependentUpon>BaseInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Course.xaml.cs">
       <DependentUpon>Course.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
     <Compile Include="Pages\CourseSE.xaml.cs">
       <DependentUpon>CourseSE.xaml</DependentUpon>
     </Compile>
+    <Page Include="Pages\BaseInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\Copy of CourseCSE.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -145,7 +152,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SEInfo.xaml">
-	  <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Colours.xaml">
@@ -169,10 +176,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\BaseInfo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -186,9 +189,6 @@
     </Compile>
     <Compile Include="Pages\HODpage.xaml.cs">
       <DependentUpon>HODpage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\BaseInfo.xaml.cs">
-      <DependentUpon>BaseInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -348,6 +348,7 @@
     <Resource Include="Resources\Information\SE8.jpg" />
     <Resource Include="Resources\background_se.jpg" />
     <Resource Include="Resources\Information\CSE9.gif" />
+    <Resource Include="Resources\BaseInfoPage\bg.png" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

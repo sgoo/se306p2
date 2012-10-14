@@ -11,93 +11,96 @@
 			 d:DesignWidth="1350">
 
     <UserControl.Resources>
-        <ResourceDictionary Source="../Resources/Styles.xaml" />
+        <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary>
+                <ImageBrush x:Key="BaseInfoBG" ImageSource="../Resources/BaseInfoPage/bg.png" />
+            </ResourceDictionary>
+            <ResourceDictionary Source="../Resources/Styles.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
 
     <Grid Style="{StaticResource PageBackground}">
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.20*" />
-            <RowDefinition Height="0.40*" />
-            <RowDefinition Height="0.40*" />
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*" />
-            <ColumnDefinition Width="0.5*" />
+            <ColumnDefinition Width="70px"/>
+            <ColumnDefinition Width="1180px"/>
+            <ColumnDefinition Width="70px"/>
         </Grid.ColumnDefinitions>
-
-        <s:SurfaceScrollViewer Grid.ColumnSpan="2"
-							   Margin="8,0,-7.5,0"/>
-
-        <TextBlock Grid.Row="0"
-				   Grid.Column="0"
-				   Grid.ColumnSpan="2"
-				   Style="{StaticResource Title}">
-           				   
-			Electrical and Computer Engineering Department
-        </TextBlock>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20px"/>
+            <RowDefinition Height="1040px"/>
+            <RowDefinition Height="20px"/>     
+        </Grid.RowDefinitions>
         
-        <s:SurfaceListBox Name="MainSurfaceListBox" Grid.Row="1" Margin="120,38,120,427" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.RowSpan="2" >
-            <s:SurfaceListBox.ItemTemplate >
-                <DataTemplate>
-                    <Image Source="{Binding Bitmap}" Width="270"/>
-                </DataTemplate>
-            </s:SurfaceListBox.ItemTemplate>
-            <s:SurfaceListBox.Template>
-                <ControlTemplate>
-                    <Border BorderBrush="Black">
-                    <s:SurfaceScrollViewer
+        <Grid Grid.Row="1" Grid.Column="1"
+            Background="{StaticResource BaseInfoBG}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180px"/>
+                <RowDefinition Height="300px"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0"
+				   Style="{StaticResource Title}" Foreground="White" FontWeight="SemiBold" HorizontalAlignment="Right">
+                   <Run Text="electrical and computer engineering"></Run><LineBreak/><Run Text="                                        department"></Run>
+            </TextBlock>
+
+            <s:SurfaceListBox Name="MainSurfaceListBox" Grid.Row="1" Margin="0px,25px,0px,25px" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <s:SurfaceListBox.ItemTemplate >
+                    <DataTemplate>
+                        <Image Source="{Binding Bitmap}" Width="250"/>
+                    </DataTemplate>
+                </s:SurfaceListBox.ItemTemplate>
+                <s:SurfaceListBox.Template>
+                    <ControlTemplate>
+                        <Border>
+                            <s:SurfaceScrollViewer
                         VerticalScrollBarVisibility="Hidden"
                         HorizontalScrollBarVisibility="Disabled"
                         CanContentScroll="true">
-                        <l:LoopingPanel IsItemsHost="True"/>
-                    </s:SurfaceScrollViewer>
+                                <l:LoopingPanel IsItemsHost="True"/>
+                            </s:SurfaceScrollViewer>
                         </Border>
-                </ControlTemplate>
-            </s:SurfaceListBox.Template>
-        </s:SurfaceListBox>
-            
-                <TextBlock Grid.Row="2"
-				   Style="{StaticResource NormalText}"
-				   Margin="93.5,-52.5,0,0"
-				   HorizontalAlignment="Left"
-                   TextAlignment="Justify"
-				   TextWrapping="Wrap"
-				   Width="534"
-				   Height="443"
-				   LineHeight="16"
-				   VerticalAlignment="Top"
-				   Opacity="0.81"><Run Text="The " /><Run FontWeight="Bold"
-													   FontStyle="Italic"
-													   Text="Faculty of Engineering" /><Run Text=" is committed to creating an environment where people thrive and contribute to improving the quality of life in national and global communities,  as well as enhancing the wealth creation of the nation, through excellence in teaching, research and service." /><LineBreak /><Run /><LineBreak /><Run Text="If you are creative, curious, resourceful, enjoy working with people, designing solutions to problems, and want to use your skills to make a difference then engineering is right for you! " /></TextBlock>
-        <MediaElement Name="_mediaElement"
+                    </ControlTemplate>
+                </s:SurfaceListBox.Template>
+            </s:SurfaceListBox>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Style="{StaticResource NormalText}" Opacity="0.75">
+                <Run Text="The " /><Run FontWeight="Bold" FontStyle="Italic"
+													   Text="Faculty of Engineering" /><Run Text=" is committed to creating an environment where people thrive and contribute to improving the quality of life in national and global communities,  as well as enhancing the wealth creation of the nation, through excellence in teaching, research and service." /><LineBreak /><Run /><LineBreak /><Run Text="If you are creative, curious, resourceful, enjoy working with people, designing solutions to problems, and want to use your skills to make a difference then engineering is right for you! " />
+                </TextBlock>
+                <Grid Grid.Column="1" Margin="59,78,59,128">
+                    <MediaElement Name="_mediaElement"
 					  Tag="pause"
 					  LoadedBehavior="Manual"
 					  Source="Resources\sampleVid.mp4"
 					  MediaEnded="_mediaElement_MediaEnded"
 					  PreviewTouchDown="_mediaElement_PreviewTouchDown"
 					  PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown"
-					  Grid.Row="2"
-					  Grid.Column="1"
-					  Margin="0,-52.5,83.112,73.5" 
-                      Style ="{StaticResource Video}"/>
-        <Button Name="playButton"
-				Grid.Row="2"
-				Grid.Column="1"
+                      Style ="{StaticResource Video}"
+                      Margin="0"
+                      Stretch="Fill"/>
+                    <Button Name="playButton"
 				HorizontalAlignment="Center"
 				VerticalAlignment="Center"
-				Margin="213,63,308,221"
 				Height="148"
 				Width="154"
 				PreviewTouchDown="_mediaElement_PreviewTouchDown"
 				PreviewMouseLeftButtonDown="_mediaElement_PreviewTouchDown">
-            <Image Source="/Resources/video_play.png"
+                        <Image Source="/Resources/video_play.png"
 				   HorizontalAlignment="Stretch"
 				   VerticalAlignment="Stretch"
                    Style ="{StaticResource Img}"/>
-
-        </Button>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>       
     </Grid>
 </UserControl>

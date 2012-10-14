@@ -38,6 +38,7 @@ namespace se306p2
         {
             base.OnInitialized(e);
             DataContext = this;
+
             _mediaElement.Pause();
 
             // Create an ObservableCollection, and add the items.
@@ -80,12 +81,16 @@ namespace se306p2
                 playButton.Visibility = System.Windows.Visibility.Visible;
             }
         }
-
        
         private void MainLibraryBar_DragOver(object sender, Microsoft.Surface.Presentation.SurfaceDragDropEventArgs e)
         {
             e.Effects = DragDropEffects.None;
             e.Handled = true;
+        }
+
+        private void MainSurfaceListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
