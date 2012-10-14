@@ -10,7 +10,8 @@
 	<UserControl.Resources>
 		<ResourceDictionary Source="../Resources/Styles.xaml" />
 	</UserControl.Resources>
-	<Grid Style="{StaticResource PageBackground}">
+	<Grid Style="{StaticResource PageBackground}"
+		  Margin="100,0,100,0">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="150" />
 			<RowDefinition Height="170"/>
@@ -47,10 +48,10 @@
 				Grid.Column="0"
 				Grid.ColumnSpan="2"
 				Margin="20,20,20,20">
-			<m:Map x:Name="myMap"
+			<m:Map x:Name="bingMap"
 				   CredentialsProvider="AvJZKpMa37kRriA1bqFEjJ9Rwnnl_rrivehFhtoiKrNDuufYgyL2nHXLlVdvg4Gn"
 				   Center="-36.8527,174.7684"
-				   ZoomLevel="15"
+				   ZoomLevel="17"
 				   Mode="Road">
 				<m:Pushpin Location="-36.8527,174.7684"
 						   Tag="Electrical and Computer Engineering Department" />
