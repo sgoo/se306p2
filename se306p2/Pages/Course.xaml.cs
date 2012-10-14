@@ -190,8 +190,11 @@ namespace se306p2.Pages
 			StackPanel[] cols = { fadeIn.Children[0] as StackPanel, fadeIn.Children[1] as StackPanel, fadeIn.Children[2] as StackPanel, fadeIn.Children[3] as StackPanel };
 
             // Clear old courses.
-            foreach (StackPanel c in cols)
-                c.Children.Clear();
+			foreach (StackPanel c in cols) {
+				c.Children.Clear();
+			}
+
+			//cols = new StackPanel[]{ fadeIn.Children[0] as StackPanel, fadeIn.Children[1] as StackPanel, fadeIn.Children[2] as StackPanel, fadeIn.Children[3] as StackPanel };
 
             // Actually add courses.
             int currentCol = 0;
@@ -240,10 +243,11 @@ namespace se306p2.Pages
                 button.Border.Background = (SolidColorBrush)Application.Current.FindResource("Colour_SE");
         }
 
-        void FadeOut_Completed(object sender, EventArgs e)
-        {
-            (fadePanels[currrentPanel % 2].Children[0] as StackPanel).Children.Clear();
-            (fadePanels[currrentPanel % 2].Children[1] as StackPanel).Children.Clear();
+        void FadeOut_Completed(object sender, EventArgs e) {
+			(fadePanels[currrentPanel % 2].Children[0] as StackPanel).Children.Clear();
+			(fadePanels[currrentPanel % 2].Children[1] as StackPanel).Children.Clear();
+			(fadePanels[currrentPanel % 2].Children[2] as StackPanel).Children.Clear();
+			(fadePanels[currrentPanel % 2].Children[3] as StackPanel).Children.Clear();
         }
 
         public void ClickCourse(object sender, InputEventArgs e)
