@@ -7,14 +7,14 @@
 			 xmlns:my="http://schemas.microsoft.com/surface/2008"
 			 Name="UserControl"
 			 Height="170"
-			 Width="250"
-			 Margin="10">
+			 Width="270"
+			 Margin="0,0,0,0">
 
 	<Grid>
 		<Grid>
 			<!-- Border for rounded corneres and shadow -->
 			<my:SurfaceButton Name="Button"
-							  Width="200"
+							  Width="220"
 							  Style="{StaticResource Btn}">
 				<!--<Border BorderBrush="{x:Null}"
 						Height="130">-->

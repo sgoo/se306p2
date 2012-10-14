@@ -162,9 +162,11 @@
 		<Setter Property="Foreground"
 				Value="White" />
 		<Setter Property="Margin"
-				Value="20px" />
+				Value="5,20,5,20" />
 		<Setter Property="Background"
 				Value="Purple" />
+		<Setter Property="RenderTransformOrigin"
+				Value="0.5, 0.5" />
 
 		<Setter Property="Template">
 			<Setter.Value>
@@ -183,11 +185,11 @@
 								Background="{TemplateBinding Background}"
 								Opacity="1"
 								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+								RenderTransformOrigin="0.5,0.5"
 								CornerRadius="20">
 							<Border.RenderTransform>
-								<TransformGroup>
+								<TransformGroup >
 									<ScaleTransform />
-									<TranslateTransform />
 								</TransformGroup>
 							</Border.RenderTransform>
 						</Border>
@@ -207,11 +209,6 @@
 														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
 														 To="0.9"
 														 Duration="0:0:0.1" />
-										<DoubleAnimation Storyboard.TargetName="PressOverlay"
-														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
-														 From="0"
-														 To="15"
-														 Duration="0:0:0.1" />
 									</Storyboard>
 								</BeginStoryboard>
 							</Trigger.EnterActions>
@@ -222,12 +219,6 @@
 														 Storyboard.TargetName="PressOverlay"
 														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleX)"
 														 To="1"
-														 Duration="0:0:0.1" />
-										<DoubleAnimation BeginTime="0:0:0.0"
-														 Storyboard.TargetName="PressOverlay"
-														 Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(TranslateTransform.X)"
-														 From="15"
-														 To="0"
 														 Duration="0:0:0.1" />
 									</Storyboard>
 								</BeginStoryboard>
