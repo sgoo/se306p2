@@ -112,13 +112,13 @@
 	</Style>
 
 	<!-- Course buttons -->
-	<DropShadowEffect x:Key="CourseButtonDropShadow"
+	<!--<DropShadowEffect x:Key="CourseButtonDropShadow"
 					  BlurRadius="15"
-					  ShadowDepth="0" />
+					  ShadowDepth="0" />-->
 	<Style TargetType="Border"
 		   x:Key="CourseButtonBorder">
-		<Setter Property="Effect"
-				Value="{StaticResource CourseButtonDropShadow}" />
+		<!--<Setter Property="Effect"
+				Value="{StaticResource CourseButtonDropShadow}" />-->
 	</Style>
 
 	<!-- Videos-->
