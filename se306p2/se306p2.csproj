@@ -295,6 +295,9 @@
     <Resource Include="Resources\building.jpg" />
     <Resource Include="Resources\purplebox.png" />
     <Resource Include="Resources\findoutmore.jpg" />
+    <Resource Include="Resources\Advisors\card.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Background\flowers.jpg" />
     <Resource Include="Resources\Background\lightsky2.jpg" />
     <Resource Include="Resources\Information\CSE0.jpg" />
@@ -362,6 +365,17 @@
     <Resource Include="Resources\compass.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\HomePage\homepagebg.png" />
+    <Resource Include="Resources\HomePage\Slideshow\01.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\02.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\03.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\leftbutton.png" />
+    <Resource Include="Resources\HomePage\Slideshow\rightbutton.png" />
+    <Resource Include="Resources\HomePage\Slideshow\04.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\05.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\06.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\07.jpg" />
+    <Resource Include="Resources\HomePage\Slideshow\08.jpg" />
     <Content Include="Resources\sampleVid.mp4">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
