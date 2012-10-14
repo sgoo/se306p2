@@ -78,27 +78,32 @@
 					   CredentialsProvider="AvJZKpMa37kRriA1bqFEjJ9Rwnnl_rrivehFhtoiKrNDuufYgyL2nHXLlVdvg4Gn"
 					   Center="-36.8527,174.7684"
 					   ZoomLevel="17"
-					   Mode="Road">
+					   Mode="Road"
+					   AnimationLevel="Full">
 					<m:Pushpin Location="-36.8527,174.7684"
 							   Tag="Electrical and Computer Engineering Department" />
 				</m:Map>
 			</Border>
-			<Image HorizontalAlignment="Right"
-				   VerticalAlignment="Top"
-				   PreviewMouseDown="recenterMap"
-				   PreviewTouchDown="recenterMap"
-				   Margin="40"
-				   Width="78"
-				   Height="78"
-				   Source="/Resources/home.png" />
-			<Image HorizontalAlignment="Right"
-				   VerticalAlignment="Top"
-				   PreviewMouseDown="repointMap"
-				   PreviewTouchDown="repointMap"
-				   Margin="40,40,130,40"
-				   Width="78"
-				   Height="78"
-				   Source="/Resources/compass.png" />
+			<Grid PreviewMouseDown="recenterMap"
+				  PreviewTouchDown="recenterMap"
+				  HorizontalAlignment="Right"
+				  VerticalAlignment="Top"
+				  Margin="40"
+				  Background="Transparent">
+				<Image Width="78"
+					   Height="78"
+					   Source="/Resources/home.png" />
+			</Grid>
+			<Grid PreviewMouseDown="recenterMap"
+				  PreviewTouchDown="recenterMap"
+				  HorizontalAlignment="Right"
+				  VerticalAlignment="Top"
+				  Margin="40,40,130,40"
+				  Background="Transparent">
+				<Image Width="78"
+					   Height="78"
+					   Source="/Resources/compass.png" />
+			</Grid>
 		</Grid>
 	</Grid>
 </UserControl>
