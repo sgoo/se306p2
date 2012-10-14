@@ -39,10 +39,6 @@ namespace se306p2.Pages {
 				previousFrameCenter = bingMap.Center;
 			}
 
-			/*if (this.DoUpdate()) {
-				// Avoiding "jerking" effect and updating only for certain zoom/pan deltas
-				this.UpdateModelViewPort();
-			}*/
 		}
 
 		public void reset() {
