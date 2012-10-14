@@ -14,39 +14,65 @@
 		  Margin="100,0,100,0">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="150" />
-			<RowDefinition Height="170"/>
+			<RowDefinition Height="180" />
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.5*" />
 			<ColumnDefinition Width="0.5*" />
 			<ColumnDefinition Width="0.5*" />
 		</Grid.ColumnDefinitions>
 		<!-- Title -->
 		<TextBlock Style="{StaticResource Title}"
 				   Grid.Row="0"
-				   Grid.ColumnSpan="2">
+				   Grid.ColumnSpan="3">
             Location and Contact
 		</TextBlock>
 
-		
-		<TextBlock Grid.Row="1"
-				   Grid.Column="0"
-				   Style="{StaticResource NormalText}"
-				   TextAlignment="Left">
+		<StackPanel Grid.Row="1"
+					Grid.Column="0">
+			<TextBlock Style="{StaticResource NormalText}"
+					   Margin="20,20,20,0">
+				Street Address
+			</TextBlock>
+			<TextBlock Style="{StaticResource SmallText}"
+					   TextAlignment="Left">
 			<Run Text="Building 303, Room 240" /><LineBreak /><Run Text="Level 2, Science Centre" /><LineBreak /><Run Text="38 Princes Street" /><LineBreak /><Run Text="Auckland" />
-		</TextBlock>
-		<TextBlock Grid.Row="1"
-				   Grid.Column="1"
-				   Style="{StaticResource NormalText}"
-				   TextAlignment="Right">
+			</TextBlock>
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+					Grid.Column="1">
+			<TextBlock Style="{StaticResource NormalText}"
+					   Margin="20,20,20,0">
+				Postal Address
+			</TextBlock>
+			<TextBlock Style="{StaticResource SmallText}"
+					   TextAlignment="Left">
+			<Run Text="Department of Electrical and Computer Engineering" /><LineBreak />
+			<Run Text="The University of Auckland" /><LineBreak />
+			<Run Text="Private Bag 92019" /><LineBreak />
+			<Run Text="Auckland Mail Centre" /><LineBreak />
+			</TextBlock>
+		</StackPanel>
+		<StackPanel Grid.Row="1"
+					Grid.Column="2"
+					Margin="0">
+			<TextBlock Style="{StaticResource NormalText}"
+					   TextAlignment="Right"
+					   Margin="20,20,20,0">
+				Contact Information
+			</TextBlock>
+			<TextBlock Style="{StaticResource SmallText}"
+					   TextAlignment="Right">
 			<Run Text="Phone: +64 9 373 7599 ext 88158" /><LineBreak /><Run Text="Fax: +64 9 373 7461" /><LineBreak /><Run Text="Email: ece-info@auckland.ac.nz" />
-		</TextBlock>
+			</TextBlock>
+		</StackPanel>
 
 		<!-- Map-->
 		<Border Style="{StaticResource ImgBorder}"
 				Grid.Row="2"
 				Grid.Column="0"
-				Grid.ColumnSpan="2"
+				Grid.ColumnSpan="3"
 				Margin="20,20,20,20">
 			<m:Map x:Name="bingMap"
 				   CredentialsProvider="AvJZKpMa37kRriA1bqFEjJ9Rwnnl_rrivehFhtoiKrNDuufYgyL2nHXLlVdvg4Gn"
