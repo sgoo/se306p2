@@ -40,16 +40,26 @@
 			</Grid.ColumnDefinitions>
 
 			<!-- "<" -->
-			<TextBlock Grid.Column="0"
-					   x:Name="LeftArrow"
-					   Style="{StaticResource CourseLeftRightButtons}"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   Padding="15"
-					   PreviewTouchDown="LeftButtonClick"
-					   PreviewMouseDown="LeftButtonClick">
-				&lt;
-			</TextBlock>
+			<Grid PreviewTouchDown="LeftButtonClick"
+				  PreviewMouseDown="LeftButtonClick"
+				  Grid.Column="0"
+				  Background="Transparent">
+				<s:SurfaceButton x:Name="LeftArrow"
+								 Width="10"
+								 Background="LightGray"
+								 Foreground="Pink"
+								 Style="{StaticResource Btn}">
+					<Border BorderBrush="{x:Null}"
+							Height="100">
+						<TextBlock Padding="0,0,0,10"
+								   Style="{StaticResource CourseLeftRightButtons}"
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Center">
+							<Run Text="&lt;" />
+						</TextBlock>
+					</Border>
+				</s:SurfaceButton>
+			</Grid>
 
 			<!-- Swipe area-->
 			<Grid Grid.Column="1">
@@ -79,17 +89,26 @@
 				</TextBlock>
 			</Grid>
 
-			<!-- ">" -->
-			<TextBlock Grid.Column="2"
-					   x:Name="RightArrow"
-					   Style="{StaticResource CourseLeftRightButtons}"
-					   HorizontalAlignment="Center"
-					   VerticalAlignment="Center"
-					   Padding="15"
-					   PreviewTouchDown="RightButtonClick"
-					   PreviewMouseDown="RightButtonClick">
-				&gt;
-			</TextBlock>
+			<Grid PreviewTouchDown="RightButtonClick"
+				  PreviewMouseDown="RightButtonClick"
+				  Grid.Column="2"
+				  Background="Transparent">
+				<s:SurfaceButton x:Name="RightArrow"
+								 Width="10"
+								 Background="{Bing}"
+								 Foreground="Pink"
+								 Style="{StaticResource Btn}">
+					<Border BorderBrush="{x:Null}"
+							Height="100">
+						<TextBlock Padding="0,0,0,10"
+								   Style="{StaticResource CourseLeftRightButtons}"
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Center">
+							<Run Text="&gt;" />
+						</TextBlock>
+					</Border>
+				</s:SurfaceButton>
+			</Grid>
 		</Grid>
 
 		<!-- Course Description -->
@@ -123,7 +142,7 @@
 					<!-- Rows-->
 					<StackPanel Orientation="Vertical"
 								Grid.Column="1"
-								Margin="0,0,0,0"/>
+								Margin="0,0,0,0" />
 					<StackPanel Orientation="Vertical"
 								Grid.Column="2" />
 					<StackPanel Orientation="Vertical"
