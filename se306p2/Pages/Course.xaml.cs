@@ -74,7 +74,8 @@ namespace se306p2.Pages {
 		// Ie, if we are in Part II or Part IV and cannot go further left or right.
 		private void handleArrows(int currentPos) {
 			// 1) Make arrows disappear.
-			if (currentPos == 0)
+			// looked starnge with borders arround the buttons so i removed this? - scott
+			/*if (currentPos == 0)
 				// Make "<" disappear.
 				LeftArrow.Visibility = Visibility.Hidden;
 			else if (currentPos == 2)
@@ -87,7 +88,7 @@ namespace se306p2.Pages {
 				LeftArrow.Visibility = Visibility.Visible;
 			if (currentPos != 2)
 				// Make ">" appear.
-				RightArrow.Visibility = Visibility.Visible;
+				RightArrow.Visibility = Visibility.Visible;*/
 		}
 
 		private string title = "";

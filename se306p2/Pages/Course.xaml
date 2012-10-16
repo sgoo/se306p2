@@ -46,8 +46,8 @@
 				  Background="Transparent">
 				<s:SurfaceButton x:Name="LeftArrow"
 								 Width="10"
-								 Background="LightGray"
-								 Foreground="Pink"
+								 Background="#ACCDEC"
+								 Foreground="Black"
 								 Style="{StaticResource Btn}">
 					<Border BorderBrush="{x:Null}"
 							Height="100">
@@ -95,8 +95,8 @@
 				  Background="Transparent">
 				<s:SurfaceButton x:Name="RightArrow"
 								 Width="10"
-								 Background="{Bing}"
-								 Foreground="Pink"
+								 Background="#ACCDEC"
+								 Foreground="Black"
 								 Style="{StaticResource Btn}">
 					<Border BorderBrush="{x:Null}"
 							Height="100">
