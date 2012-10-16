@@ -31,6 +31,8 @@ namespace se306p2 {
 		private ObservableCollection<DataItem> leftItems;
 		private ObservableCollection<DataItem> rightItems;
 
+		System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
 		private String lastBackgroundImage = "";
 
 		public String BackgroundImage {
@@ -48,6 +50,19 @@ namespace se306p2 {
 
 				//ScrollView.Background = brush;
 			}
+		}
+
+		public void WindowActivated(object sender, InputEventArgs e) {
+			Console.WriteLine("ASDASDADADASDASD");
+			dispatcherTimer.Stop();
+			dispatcherTimer.Interval = new TimeSpan(0, 2, 0);
+			dispatcherTimer.Start();
+		}
+
+		private void WindowInactiveTimeout(object sender, EventArgs e) {
+			SelectPage(LeftItems[0], LeftScatterBar);
+			Console.WriteLine("lkfdjglkfjhjhlfkjh");
+			
 		}
 
 
@@ -125,7 +140,8 @@ namespace se306p2 {
 		public MainWindow() {
 			window = this;
 			InitializeComponent();
-
+			dispatcherTimer.Tick += WindowInactiveTimeout;
+			
 			// Add handlers for window availability events
 			AddWindowAvailabilityHandlers();
 		}
