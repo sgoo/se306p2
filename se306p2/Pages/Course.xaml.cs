@@ -75,20 +75,26 @@ namespace se306p2.Pages {
 		private void handleArrows(int currentPos) {
 			// 1) Make arrows disappear.
 			// looked starnge with borders arround the buttons so i removed this? - scott
-			/*if (currentPos == 0)
+			if (currentPos == 0) {
 				// Make "<" disappear.
-				LeftArrow.Visibility = Visibility.Hidden;
-			else if (currentPos == 2)
+				//LeftArrow.Visibility = Visibility.Hidden;
+				LeftArrowText.Foreground = new SolidColorBrush(Color.FromRgb(160, 160, 160));
+			} else if (currentPos == 2) {
 				// Make ">" disappear.
-				RightArrow.Visibility = Visibility.Hidden;
-
+				//RightArrow.Visibility = Visibility.Hidden;
+				RightArrowText.Foreground = new SolidColorBrush(Color.FromRgb(160, 160, 160));
+			}
 			// 2) Make arrows appear.
-			if (currentPos != 0)
+			if (currentPos != 0) {
 				// Make "<" appear.
-				LeftArrow.Visibility = Visibility.Visible;
-			if (currentPos != 2)
+				//LeftArrow.Visibility = Visibility.Visible;
+				LeftArrowText.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+			}
+			if (currentPos != 2) {
 				// Make ">" appear.
-				RightArrow.Visibility = Visibility.Visible;*/
+				//RightArrow.Visibility = Visibility.Visible;
+				RightArrowText.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+			}
 		}
 
 		private string title = "";
@@ -206,7 +212,7 @@ namespace se306p2.Pages {
 
 			sb1.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
 			sb2.SeekAlignedToLastTick(new TimeSpan(0, 0, 10));
-			
+
 			MainScrollViewer.ScrollToTop();
 
 			sb1.Begin(fadeOut);
@@ -233,7 +239,7 @@ namespace se306p2.Pages {
 			CourseButton cb = sender as CourseButton;
 			CurrentCourse = cb.CourseItem;
 		}
-		
+
 		private DateTime lastTimeRight = DateTime.Now;
 		public void RightButtonClick(object sender, InputEventArgs e) {
 			if ((DateTime.Now - lastTimeRight).TotalMilliseconds < 100) {
